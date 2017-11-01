@@ -11,3 +11,4 @@ assets/bundles
 media/
 static/*
 secret
+./frontend/node_modules
