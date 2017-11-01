@@ -52,6 +52,7 @@ class Course(models.Model):
     discount = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Discount'))
     teachers = models.ManyToManyField(Teacher, verbose_name=_('Teachers'))
     places = models.IntegerField(verbose_name=_('Places to course'))
+    free_places = models.IntegerField(blank=True, null=True, verbose_name=_('Free places'))
     description = models.TextField(verbose_name=_('About the course'))
     price = models.IntegerField(verbose_name=_('Price'))
     is_active = models.BooleanField(verbose_name=_('Is course active?'))
