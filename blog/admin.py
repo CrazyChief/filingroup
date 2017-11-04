@@ -36,7 +36,7 @@ class PostAdmin(admin.ModelAdmin):
         'date_added',
         'is_published',
     ]
-    filter_horizontal = ('tag',)
+    filter_horizontal = ('tags',)
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}, }
 
 
