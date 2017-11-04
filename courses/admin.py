@@ -30,6 +30,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = [
         'teachers', 'places', 'free_places', 'price', 'is_active', 'date_added',
     ]
+    filter_horizontal = ('teachers',)
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
 
@@ -50,6 +51,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = [
         'email', 'phone', 'date_added',
     ]
+    filter_horizontal = ('courses',)
 
 
 class CourseReviewAdmin(admin.ModelAdmin):
