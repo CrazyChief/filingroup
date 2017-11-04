@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
+from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
 
 
 class TeacherSerializer(serializers.ModelSerializer):
@@ -17,7 +17,14 @@ class DiscountSerializer(serializers.ModelSerializer):
         fields = ('title', 'slug', 'percents', 'from_date', 'till_date', 'author', 'created_at')
 
 
-class CourseSerializer(serializers.ModelSerializer):
+class CoursePreviewSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Course
+        fields = ('title', 'slug', 'discount', 'places', 'free_places', 'price')
+
+
+class CourseDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
