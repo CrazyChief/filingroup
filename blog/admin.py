@@ -6,7 +6,6 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    radio_fields = {'is_active': admin.HORIZONTAL}
     list_display = (
         'title', 'is_active', 'date_added',
     )
@@ -17,7 +16,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    radio_fields = {'is_active': admin.HORIZONTAL}
     list_display = (
         'title', 'is_active', 'date_added',
     )
