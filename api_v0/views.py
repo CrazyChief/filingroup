@@ -1,10 +1,14 @@
-from rest_framework import generics, viewsets
+from rest_framework import viewsets
 
 from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
-from .serializers import TeacherSerializer, DiscountSerializer, CoursePreviewSerializer, CourseDetailSerializer, CourseTypesSerializer, StudentSerializer, CourseReviewSerializer
+from blog.models import Category, Tag, Post, Comment
+from .serializers import TeacherSerializer, DiscountSerializer, CoursePreviewSerializer,\
+    CourseDetailSerializer, CourseTypesSerializer, StudentSerializer, CourseReviewSerializer,\
+    CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer
 
 
-class TeacherList(generics.ListAPIView):
+# Courses views/viewsets
+class TeacherViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint for listing Teacher objects
     """
@@ -13,6 +17,9 @@ class TeacherList(generics.ListAPIView):
 
 
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Courses objects
+    """
     queryset = Course.objects.all()
 
     def get_serializer_class(self):
@@ -21,7 +28,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
         return CourseDetailSerializer
 
 
-class CourseTypesList(generics.ListAPIView):
+class CourseTypesViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint for listing CourseTypes objects
     """
@@ -29,7 +36,7 @@ class CourseTypesList(generics.ListAPIView):
     serializer_class = CourseTypesSerializer
 
 
-class StudentList(generics.ListCreateAPIView):
+class StudentViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint for listing and creating Student objects
     """
@@ -37,9 +44,43 @@ class StudentList(generics.ListCreateAPIView):
     serializer_class = StudentSerializer
 
 
-class CourseReviewList(generics.ListCreateAPIView):
+class CourseReviewViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint for listing and creating CourseReview objects
     """
     queryset = CourseReview.objects.all()
     serializer_class = CourseReviewSerializer
+
+
+# Blog views/viewsets
+class CategoryBlogViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Category objects
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategoryBlogSerializer
+
+
+class TagViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Tag objects
+    """
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+
+class PostViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Post objects
+    """
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class CommentViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Comment objects
+    """
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
