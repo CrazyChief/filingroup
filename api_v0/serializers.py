@@ -1,7 +1,23 @@
 from rest_framework import serializers
 
+from about_us.models import AboutModel
 from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
+
+
+# About us serializers
+class AboutUsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = AboutModel
+        fields = (
+            'title',
+            'logo',
+            'is_active',
+            'text',
+            'date_added',
+            'date_updated',
+        )
 
 
 # Courses serializers
