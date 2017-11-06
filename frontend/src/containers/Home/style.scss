@@ -186,28 +186,53 @@
   }
 }
 
-#particle-canvas{
+.particle-canvas{
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   canvas{
     height: 100%;
   }
 }
+
 .home__fifth-section{
   position: relative;
-  margin-bottom: 50px;
+  margin: 70px 0 120px;
+  background-color: $bg;
   .home__fifth-container{
-    position: absolute;
-    width: 1140px;
-    top: 0;
+    display: flex;
     padding: 35px 0;
+    justify-content: space-between;
   }
 }
 
 .macbook__pic{
   position: relative;
-  margin-top: -40px;
+  width: 51%;
   z-index: 1000;
+  img{
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    transform: translateY(55%);
+  }
+  .banner__get-link{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.home__fifth-title{
+  position: relative;
+  color: $white;
+  font-size: rem(38px);
+  width: 47%;
+  line-height: 1.1;
+  z-index: 100;
+  img{
+    margin-bottom: -17px;
+    margin-left: 15px;
+  }
 }
