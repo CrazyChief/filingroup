@@ -4,6 +4,9 @@ from .views import *
 
 router = DefaultRouter()
 
+#   about_us routes
+router.register(r'aboutus', AboutUsViewSet)
+
 #   courses routes
 router.register(r'courses', CourseViewSet)  #   route for Courses(list/detail)
 router.register(r'reviews', CourseReviewViewSet)   #   route for reviews from students
