@@ -48,7 +48,6 @@ class Discount(models.Model):
 
 class CourseTypes(models.Model):
     title = models.CharField(max_length=60, verbose_name=_('Title'))
-    slug = models.SlugField()
     is_active = models.BooleanField(verbose_name=_('Is course type active?'))
 
     class Meta:

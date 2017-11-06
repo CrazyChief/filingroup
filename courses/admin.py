@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import TextField
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from .models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
+from .models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 
 
 class TeacherAdmin(admin.ModelAdmin):
@@ -22,6 +22,15 @@ class DiscountAdmin(admin.ModelAdmin):
     ]
 
 
+class CourseTypesAdmin(admin.ModelAdmin):
+    list_display = (
+        'title', 'is_active',
+    )
+    list_filter = [
+        'is_active',
+    ]
+
+
 class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = (
@@ -34,12 +43,12 @@ class CourseAdmin(admin.ModelAdmin):
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
 
-class CourseTypesAdmin(admin.ModelAdmin):
+class PrivilegeAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'course', 'is_active',
+        'type', 'price', 'date_added',
     )
     list_filter = [
-        'course', 'is_active',
+        'type', 'price', 'date_added',
     ]
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
@@ -66,7 +75,8 @@ class CourseReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Discount, DiscountAdmin)
-admin.site.register(Course, CourseAdmin)
 admin.site.register(CourseTypes, CourseTypesAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Privilege, PrivilegeAdmin)
 admin.site.register(Student, StudentAdmin)
 admin.site.register(CourseReview, CourseReviewAdmin)
