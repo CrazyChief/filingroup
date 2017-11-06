@@ -1,10 +1,20 @@
 from rest_framework import viewsets
 
+from about_us.models import AboutModel
 from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
-from .serializers import TeacherSerializer, DiscountSerializer, CoursePreviewSerializer,\
+from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CoursePreviewSerializer,\
     CourseDetailSerializer, CourseTypesSerializer, StudentSerializer, CourseReviewSerializer,\
     CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer
+
+
+# About us viewsets
+class AboutUsViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing About objects
+    """
+    queryset = AboutModel.objects.all()
+    serializer_class = AboutUsSerializer
 
 
 # Courses views/viewsets
