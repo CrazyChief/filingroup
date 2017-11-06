@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from about_us.models import AboutModel
-from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
+from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
 
 
@@ -50,6 +50,16 @@ class DiscountSerializer(serializers.ModelSerializer):
         )
 
 
+class CourseTypesSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CourseTypes
+        fields = (
+            'title',
+            'is_active',
+        )
+
+
 class CoursePreviewSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -57,6 +67,7 @@ class CoursePreviewSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'slug',
+            'course_type',
             'discount',
             'places',
             'free_places',
@@ -71,6 +82,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'slug',
+            'course_type',
             'discount',
             'teachers',
             'places',
@@ -82,16 +94,16 @@ class CourseDetailSerializer(serializers.ModelSerializer):
         )
 
 
-class CourseTypesSerializer(serializers.ModelSerializer):
+class PrivilegeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = CourseTypes
+        model = Privilege
         fields = (
-            'permission',
-            'title',
-            'course',
-            'is_active',
+            'type',
+            'courses',
+            'price',
             'description',
+            'date_added',
         )
 
 
