@@ -9,6 +9,7 @@ router.register(r'aboutus', AboutUsViewSet)
 
 #   courses routes
 router.register(r'courses', CourseViewSet)  #   route for Courses(list/detail)
+router.register(r'privileges', PrivilegeViewSet)
 router.register(r'reviews', CourseReviewViewSet)   #   route for reviews from students
 router.register(r'teachers', TeacherViewSet)   #   route for teachers of course
 router.register(r'ctypes', CourseTypesViewSet) #   route for course types (basic/all-inclusive/premium)
