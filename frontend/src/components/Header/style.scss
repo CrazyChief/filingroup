@@ -1,0 +1,84 @@
+@import '../../assets/styles/main.scss';
+
+.header {
+  padding: 20px 0;
+  background-color: $bg;
+}
+.header__container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mnu{
+  width: 30%;
+}
+.mnu__list{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.mnu__item{
+  a{
+    font-size: rem(14px);
+    &:hover{
+      color: $orange;
+    }
+  }
+}
+
+.social__list{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+.social__link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  color: $text;
+  background-color: $white;
+  border-radius: 5px;
+  .fa{
+    font-size: rem(20px);
+  }
+  &:hover{
+    color: $orange;
+    background-color: $bg;
+  }
+}
+
+.phone__list{
+  display: flex;
+  flex-direction: column;
+}
+.phone__item{
+  &:first-child{
+    margin-bottom: 10px;
+  }
+  .phone__link{
+    font-size: rem(14px);
+    .fa{
+      margin-right: 5px;
+      transition: .3s;
+    }
+    &:hover{
+      .fa{
+        color: $orange;
+      }
+    }
+  }
+}
+.mail__link{
+  font-size: rem(14px);
+  .fa{
+    margin-right: 5px;
+    transition: .3s;
+  }
+  &:hover{
+    .fa{
+      color: $orange;
+    }
+  }
+}

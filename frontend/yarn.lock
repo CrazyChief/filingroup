@@ -1215,6 +1215,10 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000756"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000756.tgz#e938a6b991630f30d2263dd3458beb65d362268b"
 
+canvas-particle-network@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/canvas-particle-network/-/canvas-particle-network-1.5.0.tgz#410e11af7b780b948cc75442a67ae6ff738d5f4a"
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -2344,6 +2348,10 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
 
 for-in@^1.0.1:
   version "1.0.2"

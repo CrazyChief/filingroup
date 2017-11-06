@@ -1,0 +1,21 @@
+@import '../../assets/styles/main.scss';
+
+.footer{
+  padding: 20px 0;
+  background-color: $bg;
+}
+
+.references__list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 53%;
+}
+.reference__item{
+  width: 50%;
+  padding-left: 25px;
+}
+.reference__link{
+  font-size: rem(14px);
+  text-decoration: underline;
+}

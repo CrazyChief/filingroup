@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import 'assets/styles/styles.scss'
+import 'assets/styles/normalize.css'
+import 'font-awesome/scss/font-awesome.scss';
 import App from 'containers/App'
 import { AppContainer } from 'react-hot-loader'
 
