@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const outputPath = path.resolve(__dirname, './dist')
 
 const webpackConfig = {
@@ -31,10 +32,22 @@ const webpackConfig = {
 				]
 			},
 			{
-				test: /\.(gif|png|jpg|jpeg|svg)$/,
+				test: /\.(gif|png|jpg|jpeg)$/,
 				exclude: /node_modules/,
 				include: path.resolve(__dirname, './src/assets/'),
-				use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]'
+				use: 'url-loader?limit=10000&name=assets/img/[name]-[hash].[ext]'
+			},
+			{
+				test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: "url-loader?limit=10000&name=assets/fonts/[name]-[hash].[ext]"
+      },
+      {
+				test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        use: 'file-loader?limit=10000&name=assets/fonts/[name]-[hash].[ext]'
+      },
+			{
+				test: /\.(webm|mp4)$/,
+				loader: 'file-loader?limit=10000&name=assets/video/[name]-[hash].[ext]'
 			}
 		]
 	},
@@ -52,6 +65,13 @@ const webpackConfig = {
 		}
 	},
 	plugins: [
+		new CopyWebpackPlugin([
+			{ 
+				context: './src/assets/images/',
+				from: '**/*', 
+				to: outputPath + '/assets/img/'
+			}
+		]),
 		new HtmlWebpackPlugin({
 			template: path.join(__dirname, './src/assets/index.html'),
 			filename: 'index.html',
