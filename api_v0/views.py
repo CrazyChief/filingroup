@@ -6,10 +6,11 @@ from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
+from denial.models import Denial
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
     CoursePreviewSerializer, CourseDetailSerializer, PrivilegeSerializer, StudentSerializer,\
     CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer,\
-    AgreementSerializer, PrivacyPolicySerializer, SiteRuleSerializer
+    AgreementSerializer, PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer
 
 
 # About us viewsets
@@ -132,3 +133,12 @@ class SiteRulesViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = SiteRule.objects.all()
     serializer_class = SiteRuleSerializer
+
+
+# Denial viewsets
+class DenialViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Denial objects
+    """
+    queryset = Denial.objects.all()
+    serializer_class = DenialSerializer

@@ -29,4 +29,7 @@ router.register(r'pps', PrivacyPolicyViewSet)
 #   site rules
 router.register(r'siterules', SiteRulesViewSet)
 
+#   denial
+router.register(r'denials', DenialViewSet)
+
 urlpatterns = router.urls
