@@ -5,6 +5,7 @@ from django.db import models
 class Agreement(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Version of agreement'))
     content = models.TextField(verbose_name=_('Content'))
+    is_active = models.BooleanField(default=False, verbose_name=_('Is agreement active?'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
     date_updated = models.DateTimeField(auto_now=True, verbose_name=_('Date updated'))
 
