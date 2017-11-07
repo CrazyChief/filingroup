@@ -3,6 +3,10 @@ from rest_framework import serializers
 from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
+from sending_agreement.models import Agreement
+from privacy_policy.models import PrivacyPolicy
+from site_rules.models import SiteRule
+from denial.models import Denial
 
 
 # About us serializers
@@ -197,3 +201,58 @@ class CommentSerializer(serializers.ModelSerializer):
             'date_added',
         )
 
+
+# sending_agreement serializers
+class AgreementSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Agreement
+        fields = (
+            'title',
+            'content',
+            'is_active',
+            'date_added',
+            'date_updated',
+        )
+
+
+# privacy_policy serializers
+class PrivacyPolicySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PrivacyPolicy
+        fields = (
+            'title',
+            'is_active',
+            'content',
+            'date_added',
+            'date_updated',
+        )
+
+
+# site_rules serializers
+class SiteRuleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SiteRule
+        fields = (
+            'title',
+            'is_active',
+            'content',
+            'date_added',
+            'date_updated',
+        )
+
+
+# denial serializers
+class DenialSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Denial
+        fields = (
+            'title',
+            'is_active',
+            'content',
+            'date_added',
+            'date_updated',
+        )

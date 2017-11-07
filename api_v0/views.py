@@ -3,9 +3,14 @@ from rest_framework import viewsets
 from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
+from sending_agreement.models import Agreement
+from privacy_policy.models import PrivacyPolicy
+from site_rules.models import SiteRule
+from denial.models import Denial
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
     CoursePreviewSerializer, CourseDetailSerializer, PrivilegeSerializer, StudentSerializer,\
-    CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer
+    CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer,\
+    AgreementSerializer, PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer
 
 
 # About us viewsets
@@ -102,3 +107,38 @@ class CommentViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
+
+# Sending agreement viewsets
+class AgreementViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Agreement objects
+    """
+    queryset = Agreement.objects.all()
+    serializer_class = AgreementSerializer
+
+
+# Privacy Policy viewsets
+class PrivacyPolicyViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing PrivacyPolicy objects
+    """
+    queryset = PrivacyPolicy.objects.all()
+    serializer_class = PrivacyPolicySerializer
+
+
+# Site Rules viewsets
+class SiteRulesViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing SiteRule objects
+    """
+    queryset = SiteRule.objects.all()
+    serializer_class = SiteRuleSerializer
+
+
+# Denial viewsets
+class DenialViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing Denial objects
+    """
+    queryset = Denial.objects.all()
+    serializer_class = DenialSerializer
