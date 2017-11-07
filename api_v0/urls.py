@@ -20,5 +20,8 @@ router.register(r'tags', TagViewSet)    #   route for blog tags
 router.register(r'posts', PostViewSet)  #   route for blog posts
 router.register(r'comments', CommentViewSet)    #   route for blog comments
 
+#   agreement
+router.register(r'agreements', AgreementViewSet)
+
 
 urlpatterns = router.urls
