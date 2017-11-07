@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'sending_agreement',
     'privacy_policy',
     'site_rules',
+    'denial',
 ]
 
 MIDDLEWARE = [
