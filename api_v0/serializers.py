@@ -3,6 +3,7 @@ from rest_framework import serializers
 from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
+from sending_agreement.models import Agreement
 
 
 # About us serializers
@@ -195,5 +196,19 @@ class CommentSerializer(serializers.ModelSerializer):
             'parent',
             'user',
             'date_added',
+        )
+
+
+# sending_agreement app
+class AgreementSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Agreement
+        fields = (
+            'title',
+            'content',
+            'is_active',
+            'date_added',
+            'date_updated',
         )
 
