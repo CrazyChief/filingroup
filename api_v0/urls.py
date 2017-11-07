@@ -26,4 +26,7 @@ router.register(r'agreements', AgreementViewSet)
 #   privacy policy
 router.register(r'pps', PrivacyPolicyViewSet)
 
+#   site rules
+router.register(r'siterules', SiteRulesViewSet)
+
 urlpatterns = router.urls

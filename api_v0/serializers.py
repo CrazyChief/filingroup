@@ -5,6 +5,7 @@ from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, St
 from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
+from site_rules.models import SiteRule
 
 
 # About us serializers
@@ -219,6 +220,20 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PrivacyPolicy
+        fields = (
+            'title',
+            'is_active',
+            'content',
+            'date_added',
+            'date_updated',
+        )
+
+
+# site_rules serializers
+class SiteRuleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SiteRule
         fields = (
             'title',
             'is_active',
