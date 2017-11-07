@@ -8,7 +8,7 @@ import './style.scss'
 export default function Footer() {
   return(
     <footer className="footer">
-      <div className="container header__container">
+      <div className="container header__container footer__container">
         <div className="logo">
           <NavLink exact activeClassName='active' to='/'>
             <img src="assets/img/logo.png" alt="logo"/>
@@ -32,19 +32,21 @@ export default function Footer() {
           <li className="phone__item">
             <a href="tel: +77073510406" className="phone__link">
               <FontAwesome name="phone" />
-              +7 (707) 351-04-06
+              <span className="tb__hide">+7 (707) 351-04-06</span>
+              <span className="phone__link-number">1</span>
             </a>
           </li>
           <li className="phone__item">
             <a href="tel: +380947122007" className="phone__link">
               <FontAwesome name="phone" />
-              +38(094)712-20-07
+              <span className="tb__hide">+38(094)712-20-07</span>
+              <span className="phone__link-number">2</span>
             </a>
           </li>
         </ul>
         <a href="to: mail@filingroup.com" className="mail__link">
           <FontAwesome name="envelope" />
-          mail@filingroup.com
+          <span className="tb__hide">mail@filingroup.com</span>
         </a>
       </div>
     </footer>
