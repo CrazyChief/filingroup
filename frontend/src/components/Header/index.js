@@ -8,31 +8,31 @@ import './style.scss'
 export default class Header extends Component {
   state = {
     mnuIsOpen: false,
-    socialIsOpen: false
-  }
-
-  componentDidMount = () => {
-    let that = this
-    document.addEventListener('click', function(e){
-      if(e.target.className !== "fa fa-bars" && e.target.className !== "hiden__mnu-btn"){
-        that.setState({
-          mnuIsOpen: false,
-        })
-      }
-      if(e.target.className !== "fa fa-share-alt" && e.target.className !== "hiden__social-btn"){
-        that.setState({
-          socialIsOpen: false,
-        })
-      }
-    })
+    socialIsOpen: false,
+    headerPadding: 20
   }
   
+  componentDidMount = () => {
+    document.addEventListener('click', this.handleDocumentClick.bind(this))
+
+    window.addEventListener('scroll', this.handleScroll.bind(this))
+  }
+
+  componentWillUnmount =() => {
+    document.removeEventListener('click', this.handleDocumentClick)
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 
   render(){
-    const {mnuIsOpen, socialIsOpen} = this.state
+    const {mnuIsOpen, socialIsOpen, headerPadding} = this.state
+    const style={
+      paddingTop: headerPadding,
+      paddingBottom: headerPadding
+    }
+    
     return(
       <header className="header">
-        <div className="container header__container">
+        <div className="container header__container" style={style}>
           <div className="logo">
             <NavLink exact activeClassName='active' to='/'>
               <img src="assets/img/logo.png" alt="logo"/>
@@ -106,6 +106,39 @@ export default class Header extends Component {
       </header>
     )
   }
+  
+  handleScroll = e => {
+    let pageYOffset = window.pageYOffset,
+        bigSize = 20,
+        smallSize = 5
+    
+    if(pageYOffset >= 222){
+      if(this.state.headerPadding !== smallSize){
+        this.setState({
+          headerPadding: smallSize
+        })
+      }
+    }else{
+      if(this.state.headerPadding !== bigSize){
+        this.setState({
+          headerPadding: bigSize
+        })
+      }
+    }
+  }
+
+  handleDocumentClick = e => {
+    if(e.target.className !== "fa fa-bars" && e.target.className !== "hiden__mnu-btn"){
+      this.setState({
+        mnuIsOpen: false,
+      })
+    }
+    if(e.target.className !== "fa fa-share-alt" && e.target.className !== "hiden__social-btn"){
+      this.setState({
+        socialIsOpen: false,
+      })
+    }
+  }
 
   handleMnuClick = e => {
     e.preventDefault();
@@ -114,6 +147,7 @@ export default class Header extends Component {
       mnuIsOpen: !this.state.mnuIsOpen
     })
   }
+
   handleSocialClick = e => {
     e.preventDefault();
 

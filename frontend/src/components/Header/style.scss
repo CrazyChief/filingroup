@@ -1,13 +1,18 @@
 @import '../../assets/styles/main.scss';
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: $bg;
+  z-index: 10000;
 }
 .header__container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  transition: .2s;
   @include desktops(){
     justify-content: space-around;
   }

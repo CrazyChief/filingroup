@@ -7,3 +7,25 @@
 @import "common/_mixins";
 @import "common/_media";
 @import "common/_greating";
+
+.scroll__toTop-link{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba($bg, .7);
+  z-index: 10000;
+  .fa{
+    font-size: rem(25px);
+    color: $orange;
+  }
+}
+.violet{
+  position: absolute;
+  top: 0;
+}
