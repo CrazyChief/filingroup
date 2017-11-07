@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'blog',
     'about_us',
     'sending_agreement',
+    'privacy_policy',
 ]
 
 MIDDLEWARE = [
