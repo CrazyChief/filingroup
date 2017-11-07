@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'about_us',
     'sending_agreement',
     'privacy_policy',
+    'site_rules',
 ]
 
 MIDDLEWARE = [
