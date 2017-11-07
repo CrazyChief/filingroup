@@ -170,6 +170,7 @@
   font-size: rem(14px);
   .fa{
     transition: .3s;
+    margin-right: 5px;
     @include tablets(){
       font-size: rem(25px);
     }

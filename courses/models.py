@@ -46,9 +46,22 @@ class Discount(models.Model):
         return str(self.title) + ": " + str(self.percents) + "%"
 
 
+class CourseTypes(models.Model):
+    title = models.CharField(max_length=60, verbose_name=_('Title'))
+    is_active = models.BooleanField(verbose_name=_('Is course type active?'))
+
+    class Meta:
+        verbose_name = _('Course type')
+        verbose_name_plural = _('Course types')
+
+    def __str__(self):
+        return str(self.title) + " course type"
+
+
 class Course(models.Model):
     title = models.CharField(max_length=300, verbose_name=_('Title'))
     slug = models.SlugField()
+    course_type = models.ForeignKey(CourseTypes, null=True, on_delete=models.SET_NULL, verbose_name=_('Course type'))
     discount = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Discount'))
     teachers = models.ManyToManyField(Teacher, verbose_name=_('Teachers'))
     places = models.IntegerField(verbose_name=_('Places to course'))
@@ -67,7 +80,7 @@ class Course(models.Model):
         return str(self.title)
 
 
-class CourseTypes(models.Model):
+class Privilege(models.Model):
     FAST_START = 'F_S'
     ALL_INCLUSIVE = 'A_I'
     PREMIUM = 'P'
@@ -77,18 +90,18 @@ class CourseTypes(models.Model):
         (ALL_INCLUSIVE, 'All-inclusive'),
         (PREMIUM, 'Premium')
     )
-    permission = models.CharField(max_length=50, choices=TYPES, default=FAST_START, verbose_name=_('Permission'))
-    title = models.CharField(max_length=60, verbose_name=_('Title'))
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name=_('Course'))
-    is_active = models.BooleanField(verbose_name=_('Is course type active?'))
+    type = models.CharField(max_length=50, choices=TYPES, default=FAST_START, verbose_name=_('Type'))
+    courses = models.ManyToManyField(Course, verbose_name=_('Courses'))
+    price = models.IntegerField(verbose_name=_('Price'))
     description = models.TextField(verbose_name=_('Description'))
+    date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
-        verbose_name = _('Course type')
-        verbose_name_plural = _('Course types')
+        verbose_name = _('Privilege')
+        verbose_name_plural = _('Privileges')
 
     def __str__(self):
-        return str(self.title) + " to " + str(self.course)
+        return str(self.type)
 
 
 class Student(models.Model):

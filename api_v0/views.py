@@ -1,10 +1,20 @@
 from rest_framework import viewsets
 
-from courses.models import Teacher, Discount, Course, CourseTypes, Student, CourseReview
+from about_us.models import AboutModel
+from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
-from .serializers import TeacherSerializer, DiscountSerializer, CoursePreviewSerializer,\
-    CourseDetailSerializer, CourseTypesSerializer, StudentSerializer, CourseReviewSerializer,\
-    CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer
+from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
+    CoursePreviewSerializer, CourseDetailSerializer, PrivilegeSerializer, StudentSerializer,\
+    CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer
+
+
+# About us viewsets
+class AboutUsViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing About objects
+    """
+    queryset = AboutModel.objects.all()
+    serializer_class = AboutUsSerializer
 
 
 # Courses views/viewsets
@@ -14,6 +24,14 @@ class TeacherViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
+
+
+class CourseTypesViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing CourseTypes objects
+    """
+    queryset = CourseTypes.objects.filter(is_active=True)
+    serializer_class = CourseTypesSerializer
 
 
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
@@ -28,12 +46,12 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
         return CourseDetailSerializer
 
 
-class CourseTypesViewSet(viewsets.ReadOnlyModelViewSet):
+class PrivilegeViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint for listing CourseTypes objects
+    API endpoint for listing Privilege objects
     """
-    queryset = CourseTypes.objects.filter(is_active=True)
-    serializer_class = CourseTypesSerializer
+    queryset = Privilege.objects.all()
+    serializer_class = PrivilegeSerializer
 
 
 class StudentViewSet(viewsets.ReadOnlyModelViewSet):
