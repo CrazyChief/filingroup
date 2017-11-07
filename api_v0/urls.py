@@ -23,5 +23,7 @@ router.register(r'comments', CommentViewSet)    #   route for blog comments
 #   agreement
 router.register(r'agreements', AgreementViewSet)
 
+#   privacy policy
+router.register(r'pps', PrivacyPolicyViewSet)
 
 urlpatterns = router.urls

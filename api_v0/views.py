@@ -4,10 +4,11 @@ from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
+from privacy_policy.models import PrivacyPolicy
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
     CoursePreviewSerializer, CourseDetailSerializer, PrivilegeSerializer, StudentSerializer,\
     CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer,\
-    AgreementSerializer
+    AgreementSerializer, PrivacyPolicySerializer
 
 
 # About us viewsets
@@ -112,3 +113,12 @@ class AgreementViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Agreement.objects.all()
     serializer_class = AgreementSerializer
+
+
+# Privacy Policy viewsets
+class PrivacyPolicyViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing PrivacyPolicy objects
+    """
+    queryset = PrivacyPolicy.objects.all()
+    serializer_class = PrivacyPolicySerializer

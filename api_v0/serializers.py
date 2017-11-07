@@ -4,6 +4,7 @@ from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
 from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
+from privacy_policy.models import PrivacyPolicy
 
 
 # About us serializers
@@ -199,7 +200,7 @@ class CommentSerializer(serializers.ModelSerializer):
         )
 
 
-# sending_agreement app
+# sending_agreement serializers
 class AgreementSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -212,3 +213,16 @@ class AgreementSerializer(serializers.ModelSerializer):
             'date_updated',
         )
 
+
+# privacy_policy serializers
+class PrivacyPolicySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PrivacyPolicy
+        fields = (
+            'title',
+            'is_active',
+            'content',
+            'date_added',
+            'date_updated',
+        )
