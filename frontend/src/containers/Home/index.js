@@ -9,12 +9,14 @@ import SecondSection from 'components/HomeSections/SecondSection'
 import ThirdSection from 'components/HomeSections/ThirdSection'
 import FourthSection from 'components/HomeSections/FourthSection'
 import FifthSection from 'components/HomeSections/FifthSection'
-import ScrollToTop from 'components/ScrollToTop'
+
 
 export default class Home extends Component{
   static propTypes = {
   }
+  
   render(){
+    
     return(
       <main className="main home" ref={(section) => { this.Violet = section; }}>
         <FirstSection />
@@ -22,7 +24,6 @@ export default class Home extends Component{
         <ThirdSection />
         <FourthSection />
         <FifthSection />
-        <ScrollToTop />
       </main>
     )
   }
