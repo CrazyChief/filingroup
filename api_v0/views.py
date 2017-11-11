@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 
 from about_us.models import AboutModel
 from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
@@ -98,6 +99,7 @@ class PostViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    pagination_class = PageNumberPagination
 
 
 class CommentViewSet(viewsets.ReadOnlyModelViewSet):
