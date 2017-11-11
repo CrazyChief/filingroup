@@ -12,3 +12,4 @@ media/
 static/*
 secret
 ./frontend/node_modules
+./frontend/package-lock.json
