@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {NavLink} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import './style.scss'
-import {ObjToImmArr} from '../../helpers'
 
-import ArticleItem from 'components/ArticleItem'
+import Articles from 'components/Articles'
 
 class Blog extends Component{
   static propTypes = {
@@ -23,29 +22,17 @@ class Blog extends Component{
                   <NavLink exact activeClassName='active' to='/'>Главная</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink activeClassName='active' to='/blog'>Блог</NavLink>
+                  <NavLink activeClassName='active' to='/blog/1'>Блог</NavLink>
                 </li>
               </ul>
               <h1 className="section__title">Блог</h1>
-              <ul className="articles__list">
-                {this.getBody()}
-              </ul>
+              <Route path='/blog/:page' render={({match}) => <Articles articles={articles} match={match}/>} />
             </div>
             <div className="blog__right"></div>
           </section>
         </div>
       </main>
     )
-  }
-
-  getBody = () => {
-    const {articles} = this.props
-
-    return ObjToImmArr(articles).map(item => {
-      return <li key={item.id} className="article__item">
-        <ArticleItem article={item} />
-      </li>
-    })
   }
 }
 

@@ -24,7 +24,8 @@
     content: ">";
     position: absolute;
     top: 50%;
-    right: 95%;
+    left: 0;
+    margin-left: -5px;
     transform: translateY(-50%);
     color: $orange;
   }
@@ -151,5 +152,12 @@
   margin-top: 25px;
   &:hover{
     background-color: $black;
+  }
+}
+
+.modal__article{
+  .article__title{
+    @include Font(bold);
+    font-size: rem(30px);
   }
 }

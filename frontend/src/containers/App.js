@@ -32,12 +32,12 @@ export default class App extends Component{
             <div>
               <Route exact path='/' component={Home}/>
               <Switch>
-                <Route exact path='/blog' component={Blog}/>
-                <Route exact path='/blog/:id' render={({match}) => <ArticleModal match={match}/>}/>
-                <Route path='/feedbacks' render={() => <h2>feedbacks</h2>}/>
-                <Route path='/about' render={() => <h2>About</h2>}/>
-                <Route path='/products' render={() => <h2>Products</h2>}/>
-                <Route path='/*' component={NotFound}/>
+                <Route path='/blog/' render={({match}) => <Blog match={match} />}/>
+                <Route exact path='/:id' render={({match}) => <ArticleModal match={match}/>}/>
+                <Route exact path='/feedbacks' render={() => <h2>feedbacks</h2>}/>
+                <Route exact path='/about' render={() => <h2>About</h2>}/>
+                <Route exact path='/products' render={() => <h2>Products</h2>}/>
+                <Route path='*' component={NotFound}/>
               </Switch>
             </div>
             <ScrollToTop hidenScroll={scrollIsHiden} />

@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
 
+import {getStarsFabric} from 'selectors'
+
 export default function ArticleItem({article}) {
   const {id, title, text, img, category, author, date, stars} = article
   return(
     <div>
       <h3 className="article__title">{title?title:text.slice(0, 128)}</h3>
-      <img className="article__img" src={img} />
+      <img className="article__img" src={`/../${img}`} />
       <ul className="article__info-list">
         <li className="article__info_item">
           Категория: <span>{category}</span>
@@ -23,7 +25,7 @@ export default function ArticleItem({article}) {
         </li>
       </ul>
       <p>{text.slice(0, 407)}</p>
-      <NavLink className="article__btn" to={`/blog/${id}`}>Читать далее</NavLink>
+      <NavLink className="article__btn" to={`/${id}`}>Читать далее</NavLink>
     </div>
   )
 }
