@@ -146,3 +146,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND = PIL
 CKEDITOR_UPLOAD_PATH = "ckeditor/uploads/"
+
+# REST Framework settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
