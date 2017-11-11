@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'privacy_policy',
     'site_rules',
     'denial',
+    'orders',
 ]
 
 MIDDLEWARE = [
