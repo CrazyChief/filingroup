@@ -26,5 +26,18 @@ class Order(models.Model):
     def billing_full_name(self):
         return "{} {}".format(self.billing_first_name, self.billing_last_name)
 
+    billing_full_name.short_description = "Billing full name"
+
+    def order(self):
+        return "Order {}".format(self.pk)
+
+    order.short_description = "Order"
+
+    def o_sum(self):
+        return self.order_sum
+
+    o_sum.admin_order_field = "order_sum"
+    o_sum.short_description = "Sum"
+
     def __str__(self):
         return "Order {} for: {}/{}".format(self.pk, self.student, self.course)
