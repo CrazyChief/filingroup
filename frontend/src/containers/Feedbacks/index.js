@@ -20,7 +20,7 @@ class Feedbacks extends Component{
 
   render(){
     const {feedbacks} = this.props
-    const masonryOptions = {};
+    const masonryOptions = {}
     return(
       <main className='main'>
         <section className="section feedback container">
@@ -32,7 +32,10 @@ class Feedbacks extends Component{
               <NavLink activeClassName='active' to='/feedbacks'>Отзывы</NavLink>
             </li>
           </ul>
-          <h1 className="section__title">Отзывы</h1>
+          <div className="feedback__header">
+            <h1 className="section__title">Отзывы</h1>
+            <a href="#" className="leave__feedback-btn">Оставить отзыв</a>
+          </div>
           <Masonry
             className={'feedback__list'}
             elementType={'ul'}

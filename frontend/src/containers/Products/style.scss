@@ -1,0 +1,125 @@
+@import '../../assets/styles/main.scss';
+
+.products__list{
+  margin-right: -3%;
+  @include laptops(){
+    margin-right: -2%;
+  }
+  @include tablets(){
+    margin-right: 0;
+  }
+}
+.product__item{
+  width: 31%;
+  margin-right: 2%;
+  @include box-shadow(0px 5px 20px -10px $black);
+  &:last-child{
+    margin-right: 0;
+  }
+  @include laptops(){
+    width: 48%;
+    margin-bottom: 25px;
+  }
+  @include tablets(){
+    width: 100%;
+  }
+}
+.product__top-wrap{
+  position: relative;
+  .product__discount{
+    @include Font(bold);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(16px);
+    width: 80px;
+    height: 30px;
+    right: -10px;
+    top: 20px;
+    border-radius: 5px 0 0 5px;
+    background-color: $orange;
+    color: $white;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 23px;
+      height: 18px;
+      background-color: #cc8b43;
+      right: -3px;
+      bottom: -5px;
+      transform: rotate(-45deg) skew(-45deg);
+      z-index: -1;
+    }
+  }
+  .product__places{
+    @include Font(bold);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(16px);
+    width: 80px;
+    height: 30px;
+    right: -10px;
+    top: 70px;
+    border-radius: 5px 0 0 5px;
+    background-color: #5DC350;
+    color: $white;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 23px;
+      height: 18px;
+      background-color: #699E63;
+      right: -3px;
+      bottom: -5px;
+      transform: rotate(-45deg) skew(-45deg);
+      z-index: -1;
+    }
+  }
+}
+.product__pic-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 230px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  .product__img{
+    width: 100%;
+  }
+}
+.product__main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.product__title{
+  @include Font(bold);
+  font-size: rem(18px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product__price{
+  font-size: rem(18px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product__more-link{
+  @include Font(bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: rem(16px);
+  width: 235px;
+  height: 55px;
+  background-color: $bg-orange;
+  border-radius: 5px;
+  &:hover{
+    background-color: $black;
+  }
+}

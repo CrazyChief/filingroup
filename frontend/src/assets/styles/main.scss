@@ -8,6 +8,9 @@
 @import "common/_media";
 @import "common/_greating";
 
+.centered{
+  margin: 0 auto;
+}
 .scroll__toTop-link{
   position: fixed;
   display: flex;

@@ -1,0 +1,34 @@
+@import '../../assets/styles/main.scss';
+
+.about{
+  p{
+    font-size: rem(16px);
+    color: $text;
+    margin: 30px 0;
+    strong, b{
+      @include Font(bold);
+      font-size: rem(18px);
+    }
+  }
+}
+.about__pic{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+  width: 100%;
+  overflow: hidden;
+  @include phones(){
+    height: 350px;
+  }
+  @include phones-s(){
+    height: 300px;
+  }
+}
+.about__img{
+  height: 100%;
+  @include phones(){
+    width: 100%;
+    height: auto;
+  }
+}

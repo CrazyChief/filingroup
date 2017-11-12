@@ -64,8 +64,8 @@
 
 .section{
   padding: 70px 0;
-  @include laptops(){
-    padding: 50px 0;
+  @include desktops(){
+    padding: 50px 25px;
   }
 }
 .home__second-list{
@@ -74,7 +74,7 @@
   flex-wrap: wrap;
   padding: 0 70px;
   @include laptops(){
-    padding: 0 25px;
+    padding: 0;
   }
 }
 .home__second-item{
@@ -207,7 +207,7 @@
 .home__fourth-container{
   padding: 0 70px;
   @include tablets(){
-    padding: 0 25px;
+    padding: 0;
   }
 }
 .home__fourth-pic{

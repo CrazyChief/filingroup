@@ -3,18 +3,27 @@
 .blog{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .blog__left{
   width: 65%;
+  @include tablets(){
+    width: 100%;
+  }
 }
 .blog__right{
   width: 29%;
+  @include tablets(){
+    width: 100%;
+  }
 }
 
 .breadcrumb__list{
   display: flex;
   align-content: center;
   margin-bottom: 15px;
+  width: 100%;
+  overflow: hidden;
 }
 .breadcrumb__item{
   position: relative;
@@ -51,7 +60,11 @@
     &.active{
       @include Font();
       color: $black;
+      width: 100px;
       text-decoration: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: clip;
     }
   }
 }
@@ -122,6 +135,12 @@
   }
   &:nth-child(2n +2){
     justify-content: flex-end;
+  }
+  @include phones(){
+    width: 100%;
+    &:nth-child(2n +2){
+      justify-content: flex-start;
+    }
   }
 }
 
