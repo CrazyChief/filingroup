@@ -8,6 +8,9 @@ import ScrollToTop from 'components/ScrollToTop'
 
 import Home from 'containers/Home'
 import Blog from 'containers/Blog'
+import Feedbacks from 'containers/Feedbacks'
+import About from 'containers/About'
+import Products from 'containers/Products'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import NotFound from 'components/NotFound'
@@ -30,13 +33,13 @@ export default class App extends Component{
           <div>
             <Header />
             <div>
-              <Route exact path='/' component={Home}/>
               <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route exact path='/feedbacks' component={Feedbacks}/>
+                <Route exact path='/about' component={About}/>
+                <Route exact path='/products' component={Products}/>
                 <Route path='/blog/' render={({match}) => <Blog match={match} />}/>
                 <Route exact path='/:id' render={({match}) => <ArticleModal match={match}/>}/>
-                <Route exact path='/feedbacks' render={() => <h2>feedbacks</h2>}/>
-                <Route exact path='/about' render={() => <h2>About</h2>}/>
-                <Route exact path='/products' render={() => <h2>Products</h2>}/>
                 <Route path='*' component={NotFound}/>
               </Switch>
             </div>

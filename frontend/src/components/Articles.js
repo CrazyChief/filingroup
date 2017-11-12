@@ -8,6 +8,8 @@ import Pagination from 'components/Pagination'
 
 export default class Articles extends Component{
   static propTypes = {
+    match: PropTypes.object.isRequired,
+    articles: PropTypes.object.isRequired
   }
 
   state = {

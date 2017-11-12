@@ -9,6 +9,7 @@ import Articles from 'components/Articles'
 
 class Blog extends Component{
   static propTypes = {
+    articles: PropTypes.object.isRequired
   }
   render(){
     const {articles} = this.props

@@ -7,6 +7,8 @@ import {getStars} from 'selectors'
 
 class ArticleModal extends Component{
   static propTypes = {
+    match: PropTypes.object.isRequired,
+    articles: PropTypes.object.isRequired
   }
   render(){
     const {match, articles} = this.props
