@@ -90,14 +90,26 @@ WSGI_APPLICATION = 'filingroup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'filingroup',
+#         'USER': 'postgres',
+#         'PASSWORD': 'NumberOne123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+#   mysql settings
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'filingroup',
-        'USER': 'postgres',
-        'PASSWORD': 'NumberOne123',
+        'USER': 'dmitry',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
