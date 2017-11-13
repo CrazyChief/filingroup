@@ -25,7 +25,7 @@ export default function ArticleItem({article}) {
         </li>
       </ul>
       <p>{text.slice(0, 407)}</p>
-      <NavLink className="article__btn" to={`/${id}`}>Читать далее</NavLink>
+      <NavLink className="article__btn" to={`/article/${id}#disqus_thread`}>Читать далее</NavLink>
     </div>
   )
 }

@@ -10,6 +10,25 @@ class ArticleModal extends Component{
     match: PropTypes.object.isRequired,
     articles: PropTypes.object.isRequired
   }
+
+  componentDidMount = () => {
+    const {match, articles} = this.props
+    const article = articles.get(match.params.id)
+
+    var disqus_config = function () {
+      this.page.url = article.id;
+      this.page.identifier = article.id; 
+      };
+
+      (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://filin-group.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+  
+
   render(){
     const {match, articles} = this.props
     const article = articles.get(match.params.id)
@@ -27,7 +46,7 @@ class ArticleModal extends Component{
                   <NavLink exact activeClassName='active' to='/'>Блог</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink exact activeClassName='active' to={`/${id}`}>{title?title:text.slice(0, 54)}</NavLink>
+                  <NavLink exact activeClassName='active' to={`/article/${id}`}>{title?title:text.slice(0, 54)}</NavLink>
                 </li>
               </ul>
               <h3 className="article__title">{title?title:text.slice(0, 84)}</h3>
@@ -47,6 +66,8 @@ class ArticleModal extends Component{
                 </li>
               </ul>
               <p>{text}</p>
+              <div id="disqus_thread"></div>
+              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
             <div className="blog__rigth"></div>
           </section>

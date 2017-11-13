@@ -39,7 +39,7 @@ export default class App extends Component{
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/products' component={Products}/>
                 <Route path='/blog/' render={({match}) => <Blog match={match} />}/>
-                <Route exact path='/:id' render={({match}) => <ArticleModal match={match}/>}/>
+                <Route exact path='/article/:id' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route path='*' component={NotFound}/>
               </Switch>
             </div>
@@ -50,6 +50,7 @@ export default class App extends Component{
       </Provider>
     )
   }
+
   handleScroll = e => {
     let pageYOffset = window.pageYOffset
     
