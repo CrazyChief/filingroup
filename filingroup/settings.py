@@ -71,6 +71,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'templates',
+            # '/home/danilovdmitry/filingroup/templates/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -90,28 +91,28 @@ WSGI_APPLICATION = 'filingroup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'filingroup',
-#         'USER': 'postgres',
-#         'PASSWORD': 'NumberOne123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-#   mysql settings
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'filingroup',
-        'USER': 'dmitry',
-        'PASSWORD': '',
+        'USER': 'postgres',
+        'PASSWORD': 'NumberOne123',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
+
+#   mysql settings
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'danilovdmitry$fg',
+#         'USER': 'danilovdmitry',
+#         'PASSWORD': 'NumberOne123',
+#         'HOST': 'danilovdmitry.mysql.pythonanywhere-services.com',
+#         # 'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
