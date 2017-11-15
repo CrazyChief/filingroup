@@ -37,6 +37,7 @@
   "dependencies": {
     "canvas-particle-network": "^1.5.0",
     "copy-webpack-plugin": "^4.2.0",
+    "fetch-polyfill": "^0.8.2",
     "font-awesome": "^4.7.0",
     "immutable": "^3.8.2",
     "key-mirror": "^1.0.1",
@@ -50,6 +51,7 @@
     "react-scroll-to-component": "^1.0.1",
     "react-transition-group": "^2.2.1",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-jquery-ui": "^1.0.0"
   }
 }

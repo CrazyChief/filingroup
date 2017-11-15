@@ -15,6 +15,7 @@ import Header from 'components/Header'
 import Footer from 'components/Footer'
 import NotFound from 'components/NotFound'
 import ArticleModal from 'components/ArticleModal'
+import ProductModal from 'components/ProductModal'
 
 export default class App extends Component{
   static propTypes = {
@@ -39,7 +40,8 @@ export default class App extends Component{
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/products' component={Products}/>
                 <Route path='/blog/' render={({match}) => <Blog match={match} />}/>
-                <Route exact path='/article/:id' render={({match}) => <ArticleModal match={match}/>}/>
+                <Route exact path='/article/:slug' render={({match}) => <ArticleModal match={match}/>}/>
+                <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>
               </Switch>
             </div>

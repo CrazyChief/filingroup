@@ -1,7 +1,13 @@
 import React from 'react'
 import {createSelector} from 'reselect'
+import {ObjToImmArr} from '../helpers'
 
 const starsGetter = article => article.stars
+const articlesGetter = state => state.articles.entities
+
+export const memoizedArticles = createSelector(articlesGetter, (entities) => {
+  return ObjToImmArr(entities)
+})
 
 export const getStars = createSelector(starsGetter, (stars) => {
   let i = 0,

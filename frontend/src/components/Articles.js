@@ -16,7 +16,7 @@ export default class Articles extends Component{
     beginPoint: 0,
     endPoint: 4
   }
-
+  
   render(){
     const {match} = this.props
     return(
@@ -35,8 +35,8 @@ export default class Articles extends Component{
     endPoint = endPoint * match.params.page
     beginPoint = endPoint - 4
 
-    return ObjToImmArr(articles).slice(beginPoint, endPoint).map(item => {
-      return <li key={item.id} className="article__item">
+    return ObjToImmArr(articles).map(item => {
+      return <li key={item.slug} className="article__item">
         <ArticleItem article={item} />
       </li>
     })

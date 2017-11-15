@@ -1,21 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Masonry from 'react-masonry-component'
 
 import './style.scss'
 import {ObjToImmArr} from '../../helpers'
+import {loadAllCourses, loadDiscounts} from 'actions'
 
 import ProductItem from 'components/ProductItem'
+import Loader from 'components/Loader'
 
 class Products extends Component{
   static propTypes = {
     products: PropTypes.array.isRequired
   }
+  
+  componentDidMount() {
+    const {loaded, loading, loadAllCourses} = this.props
+    if (!loaded && !loading) loadAllCourses()
+  }
 
   render(){
+    const {products, loading, loaded} = this.props
     const masonryOptions = {}
+    if(loading) return <Loader />
     return(
       <main className="main">
         <section className="section products container">
@@ -44,15 +53,19 @@ class Products extends Component{
 
   getBody = () => {
     const {products} = this.props
-
     return products.map(product => {
-      return <li key={product.id} className="product__item">
+      const {slug} = product
+      return <li key={slug} className="product__item">
         <ProductItem product={product}/>
       </li>
     })
   }
 }
 
-export default connect(state => ({
-  products: ObjToImmArr(state.products)
-}), null)(Products)
+export default connect(state => {
+  return{
+    products: ObjToImmArr(state.products.entities),
+    loading: state.products.loading,
+    loaded: state.products.loaded
+  }
+}, {loadAllCourses, loadDiscounts})(Products)

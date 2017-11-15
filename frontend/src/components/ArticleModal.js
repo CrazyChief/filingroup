@@ -4,6 +4,9 @@ import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import {getStars} from 'selectors'
+import {createMarkup} from '../helpers'
+
+import BlockSideBar from 'components/BlogSideBar'
 
 class ArticleModal extends Component{
   static propTypes = {
@@ -13,11 +16,11 @@ class ArticleModal extends Component{
 
   componentDidMount = () => {
     const {match, articles} = this.props
-    const article = articles.get(match.params.id)
+    const article = articles.get(match.params.slug)
 
     var disqus_config = function () {
-      this.page.url = article.id;
-      this.page.identifier = article.id; 
+      this.page.url = article.slug;
+      this.page.identifier = article.slug; 
       };
 
       (function() {
@@ -27,12 +30,10 @@ class ArticleModal extends Component{
       (d.head || d.body).appendChild(s);
     })();
   }
-  
-
   render(){
     const {match, articles} = this.props
-    const article = articles.get(match.params.id)
-    const {id, title, text, img, category, author, date, stars} = article
+    const article = articles.get(match.params.slug)
+    const {slug, title, announce, author, category, content, cover_picture, date_added} = article
     return(
       <main className="main">
         <section className="modal__article container">
@@ -46,30 +47,30 @@ class ArticleModal extends Component{
                   <NavLink exact activeClassName='active' to='/'>Блог</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink exact activeClassName='active' to={`/article/${id}`}>{title?title:text.slice(0, 54)}</NavLink>
+                  <NavLink exact activeClassName='active' to={`/article/${slug}`}>{title.slice(0, 54)}</NavLink>
                 </li>
               </ul>
-              <h3 className="article__title">{title?title:text.slice(0, 84)}</h3>
-              <img className="article__img" src={`/../${img}`} />
+              <h3 className="article__title">{title.slice(0, 84)}</h3>
+              <img className="article__img" src={`${cover_picture}`} />
               <ul className="article__info-list">
                 <li className="article__info_item">
                   Категория: <span>{category}</span>
                 </li>
                 <li className="article__info_item">
-                  Дата публикации: <span>{date}</span>
+                  Дата публикации: <span>{date_added.slice(0, date_added.indexOf('T'))}</span>
                 </li>
                 <li className="article__info_item">
                   Автор: <span>{author}</span>
                 </li>
                 <li className="article__info_item">
-                  Оценка: <ul className="stars__list">{getStars(article)}</ul>
+                  Оценка: <ul className="stars__list">{getStars(4)}</ul>
                 </li>
               </ul>
-              <p>{text}</p>
+              <div dangerouslySetInnerHTML={createMarkup(content)} />
               <div id="disqus_thread"></div>
               <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
-            <div className="blog__rigth"></div>
+            <div className="blog__right"><BlockSideBar articles={articles} /></div>
           </section>
         </section>
       </main>
@@ -77,4 +78,8 @@ class ArticleModal extends Component{
   }
 }
 
-export default connect(({articles}) => ({articles}), null)(ArticleModal)
+export default connect((state) => {
+  return {
+    articles: state.articles.entities
+  }
+}, null)(ArticleModal)

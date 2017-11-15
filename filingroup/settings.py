@@ -27,7 +27,7 @@ SECRET_KEY = 'f!h6r2m7*$-k$^=9k$h(nmq23#0ezjl_!!d)4@@q3ug&xw!=-_'
 DEBUG = True
 # DEBUG = False   # for production
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -92,8 +92,11 @@ WSGI_APPLICATION = 'filingroup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'filingroup',
+        'USER': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -152,5 +155,5 @@ CKEDITOR_UPLOAD_PATH = "ckeditor/uploads/"
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 2
 }

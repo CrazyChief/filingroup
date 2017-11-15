@@ -64,6 +64,12 @@ const webpackConfig = {
 		}
 	},
 	plugins: [
+		new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery'",
+      "window.$": "jquery"
+  	}),
 		new CopyWebpackPlugin([
 			{ 
 				context: './src/assets/images/',
@@ -82,10 +88,20 @@ const webpackConfig = {
 	devServer: {
 		contentBase: path.resolve(__dirname, './dist'),
 		port: 7777,
+		proxy: [
+			{
+				path: '/api/',
+				target: 'http://127.0.0.1:8000'
+			},
+			{
+				path: '/media/',
+				target: 'http://127.0.0.1:8000'
+			}
+		],
 		historyApiFallback: true,
 		inline: true,
 		hot: true,
-		host: 'localhost'
+		host: '127.0.0.1'
 	}
 }
 

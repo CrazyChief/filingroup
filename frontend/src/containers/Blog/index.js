@@ -4,15 +4,30 @@ import {Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import './style.scss'
+import {loadAllArticles} from 'actions'
 
 import Articles from 'components/Articles'
+import BlogSideBar from 'components/BlogSideBar'
+import Loader from 'components/Loader'
 
 class Blog extends Component{
   static propTypes = {
     articles: PropTypes.object.isRequired
   }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.props.loading !== nextProps.loading
+  }
+  
+
+  componentDidMount() {
+    const {loaded, loading, loadAllArticles} = this.props
+    if (!loaded && !loading) loadAllArticles()
+  }
+
   render(){
-    const {articles} = this.props
+    const {articles, loading, loaded} = this.props
+    if(loading) return <Loader />
     return(
       <main className="main">
         <div className="container">
@@ -29,7 +44,9 @@ class Blog extends Component{
               <h1 className="section__title">Блог</h1>
               <Route path='/blog/:page' render={({match}) => <Articles articles={articles} match={match}/>} />
             </div>
-            <div className="blog__right"></div>
+            <div className="blog__right">
+              <BlogSideBar articles={articles} />
+            </div>
           </section>
         </div>
       </main>
@@ -37,4 +54,10 @@ class Blog extends Component{
   }
 }
 
-export default connect(({articles}) => ({articles}), null)(Blog)
+export default connect((state) => {
+  return {
+    articles: state.articles.entities,
+    loading: state.articles.loading,
+    loaded: state.articles.loaded
+  }
+}, {loadAllArticles})(Blog)

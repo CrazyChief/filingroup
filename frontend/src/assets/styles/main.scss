@@ -8,6 +8,12 @@
 @import "common/_media";
 @import "common/_greating";
 
+
+.loader__wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .centered{
   margin: 0 auto;
 }

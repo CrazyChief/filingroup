@@ -1,8 +1,8 @@
 import {Map, Record, OrderedMap} from 'immutable'
 
-export function arrToImmObj(arr, DataRec = Map) {
+export function arrToImmObj(arr, DataRec = Map, id = 'slug') {
   return arr.reduce((acc, elem) => {
-    return acc.set(elem.id, new DataRec(elem))
+    return acc.set(elem[id], new DataRec(elem))
   }, new OrderedMap({}))
 }
 
@@ -23,4 +23,8 @@ export function ObjToArr(obj) {
   return Object
     .keys(obj)
     .map(id = obj[id])
+}
+
+export function createMarkup(content){
+  return {__html: content}
 }

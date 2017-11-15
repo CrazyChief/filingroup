@@ -6,8 +6,10 @@ import Masonry from 'react-masonry-component'
 
 import {ObjToImmArr} from '../../helpers'
 import './style.scss'
+import {loadAllFeedbacks} from 'actions'
 
 import FeedbackItem from 'components/FeedbackItem'
+import Loader from 'components/Loader'
 
 class Feedbacks extends Component{
   static propTypes = {
@@ -18,8 +20,13 @@ class Feedbacks extends Component{
     step: 4
   }
 
+  componentDidMount() {
+    const {loaded, loading, loadAllFeedbacks} = this.props
+    if (!loaded && !loading) loadAllFeedbacks()
+  }
+
   render(){
-    const {feedbacks} = this.props
+    const {feedbacks, loading, loaded} = this.props
     const masonryOptions = {}
     return(
       <main className='main'>
@@ -72,13 +79,18 @@ class Feedbacks extends Component{
     const {step} = this.state
 
     return feedbacks.slice(0, step).map(feedback => {
-      return <li key={feedback.id} className="feedback__item">
+      console.log(feedback.date_added)
+      return <li key={feedback.date_added} className="feedback__item">
         <FeedbackItem feedback={feedback} />
       </li>
     })
   }
 }
 
-export default connect((state) => ({
-  feedbacks: ObjToImmArr(state.feedbacks)
-}), null)(Feedbacks)
+export default connect((state) => {
+  return{
+    feedbacks: ObjToImmArr(state.feedbacks.entities),
+    loaded: state.feedbacks.loaded,
+    loading: state.feedbacks.loading
+  }
+}, {loadAllFeedbacks})(Feedbacks)

@@ -1,5 +1,10 @@
 import keyMirror from 'key-mirror'
 
 export default keyMirror({
-  CATEGORY_PICK: null
+  LOAD_ALL_COURSES: null,
+  LOAD_ALL_ARTICLES: null,
+  LOAD_ALL_FEEDBACKS: null,
+  START: null,
+  SUCCESS: null,
+  FAIL: null
 })

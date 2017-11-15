@@ -3,29 +3,30 @@ import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
 
 import {getStarsFabric} from 'selectors'
+import {createMarkup} from '../helpers'
 
 export default function ArticleItem({article}) {
-  const {id, title, text, img, category, author, date, stars} = article
+  const {slug, title, announce, author, category, content, cover_picture, date_added} = article
   return(
     <div>
-      <h3 className="article__title">{title?title:text.slice(0, 128)}</h3>
-      <img className="article__img" src={`/../${img}`} />
+      <h3 className="article__title">{title.slice(0, 128)}</h3>
+      <img className="article__img" src={`${cover_picture}`} />
       <ul className="article__info-list">
         <li className="article__info_item">
           Категория: <span>{category}</span>
         </li>
         <li className="article__info_item">
-          Дата публикации: <span>{date}</span>
+          Дата публикации: <span>{date_added.slice(0, date_added.indexOf('T'))}</span>
         </li>
         <li className="article__info_item">
           Автор: <span>{author}</span>
         </li>
         <li className="article__info_item">
-          Оценка: <ul className="stars__list">{getStars(stars)}</ul>
+          Оценка: <ul className="stars__list">{getStars(4)}</ul>
         </li>
       </ul>
-      <p>{text.slice(0, 407)}</p>
-      <NavLink className="article__btn" to={`/article/${id}#disqus_thread`}>Читать далее</NavLink>
+      <div dangerouslySetInnerHTML={createMarkup(announce)} />
+      <NavLink className="article__btn" to={`/article/${slug}#disqus_thread`}>Читать далее</NavLink>
     </div>
   )
 }
