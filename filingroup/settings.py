@@ -71,6 +71,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'templates',
+            # '/home/danilovdmitry/filingroup/templates/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -95,10 +96,26 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'filingroup',
         'USER': 'postgres',
+<<<<<<< HEAD
+=======
+        'PASSWORD': 'NumberOne123',
+>>>>>>> bcdeb10bebd36595df0ac00756bf3e379e5c01a1
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+#   mysql settings
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'danilovdmitry$fg',
+#         'USER': 'danilovdmitry',
+#         'PASSWORD': 'NumberOne123',
+#         'HOST': 'danilovdmitry.mysql.pythonanywhere-services.com',
+#         # 'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

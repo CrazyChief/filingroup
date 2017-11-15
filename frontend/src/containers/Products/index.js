@@ -6,7 +6,7 @@ import Masonry from 'react-masonry-component'
 
 import './style.scss'
 import {ObjToImmArr} from '../../helpers'
-import {loadAllCourses, loadDiscounts} from 'actions'
+import {loadAllCourses} from 'actions'
 
 import ProductItem from 'components/ProductItem'
 import Loader from 'components/Loader'
@@ -68,4 +68,4 @@ export default connect(state => {
     loading: state.products.loading,
     loaded: state.products.loaded
   }
-}, {loadAllCourses, loadDiscounts})(Products)
+}, {loadAllCourses})(Products)

@@ -61,14 +61,14 @@ export function loadAllFeedbacks() {
   }
 }
 
-export function loadAllArticles() {
+export function loadAllArticles(params) {
   return (dispatch) => {
     dispatch({
         type: LOAD_ALL_ARTICLES + START,
         payload: {}
     })
     
-    fetch(`/api/v0/posts/`)
+    fetch(`${params?params:'/api/v0/posts/'}`)
       .then(res => {
         if (res.status >= 400) {
           throw new Error(res.statusText)

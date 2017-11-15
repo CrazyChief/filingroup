@@ -4,18 +4,13 @@ import {NavLink} from 'react-router-dom'
 
 import './style.scss'
 
-export default function Pagination({page, amount}) {
-  let prev = page==1?page:+page - 1
-  let next = page==amount?page:+page + 1
+export default function Pagination() {
   return(
     <div className="pagination">
-      <NavLink to={`/blog/${prev}`} className="pagination__btn pagination__prev">
+      <NavLink to={`/blog/`} className="pagination__btn pagination__prev">
         <i className="fa fa-angle-left"></i>
       </NavLink>
-      <ul className="pagination__list">
-        {paginationGetter(amount, page)}
-      </ul>
-      <NavLink to={`/blog/${next}`} className="pagination__btn pagination__next">
+      <NavLink to={`/blog/`} className="pagination__btn pagination__next">
         <i className="fa fa-angle-right"></i>
       </NavLink>
     </div>

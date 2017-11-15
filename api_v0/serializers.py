@@ -15,6 +15,7 @@ class AboutUsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutModel
         fields = (
+            'id',
             'title',
             'logo',
             'is_active',
@@ -30,6 +31,7 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = (
+            'id',
             'first_name',
             'last_name',
             'email',
@@ -44,6 +46,7 @@ class DiscountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discount
         fields = (
+            'id',
             'title',
             'slug',
             'percents',
@@ -59,6 +62,7 @@ class CourseTypesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseTypes
         fields = (
+            'id',
             'title',
             'is_active',
         )
@@ -69,6 +73,7 @@ class CoursePreviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = (
+            'id',
             'title',
             'slug',
             'course_type',
@@ -84,6 +89,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = (
+            'id',
             'title',
             'slug',
             'course_type',
@@ -103,6 +109,7 @@ class PrivilegeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Privilege
         fields = (
+            'id',
             'type',
             'courses',
             'price',
@@ -116,6 +123,7 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
         fields = (
+            'id',
             'first_name',
             'last_name',
             'email',
@@ -131,6 +139,7 @@ class CourseReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseReview
         fields = (
+            'id',
             'course',
             'first_name',
             'last_name',
@@ -150,6 +159,7 @@ class CategoryBlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (
+            'id',
             'title',
             'slug',
             'is_active',
@@ -162,6 +172,7 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = (
+            'id',
             'title',
             'slug',
             'is_active',
@@ -174,6 +185,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = (
+            'id',
             'title',
             'slug',
             'cover_picture',
@@ -192,6 +204,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = (
+            'id',
             'post',
             'name',
             'email',
@@ -208,6 +221,7 @@ class AgreementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Agreement
         fields = (
+            'id',
             'title',
             'content',
             'is_active',
@@ -222,6 +236,7 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
     class Meta:
         model = PrivacyPolicy
         fields = (
+            'id',
             'title',
             'is_active',
             'content',
@@ -236,6 +251,7 @@ class SiteRuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = SiteRule
         fields = (
+            'id',
             'title',
             'is_active',
             'content',
@@ -250,6 +266,7 @@ class DenialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Denial
         fields = (
+            'id',
             'title',
             'is_active',
             'content',

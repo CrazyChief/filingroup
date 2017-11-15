@@ -19,7 +19,6 @@ class Blog extends Component{
     return this.props.loading !== nextProps.loading
   }
   
-
   componentDidMount() {
     const {loaded, loading, loadAllArticles} = this.props
     if (!loaded && !loading) loadAllArticles()
@@ -28,6 +27,7 @@ class Blog extends Component{
   render(){
     const {articles, loading, loaded} = this.props
     if(loading) return <Loader />
+  
     return(
       <main className="main">
         <div className="container">

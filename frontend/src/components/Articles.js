@@ -24,7 +24,7 @@ export default class Articles extends Component{
         <ul className="articles__list">
           {this.getBody()}
         </ul>
-        <Pagination page={match.params.page} amount={this.getPages()} />
+        <Pagination />
       </div>
     )
   }
@@ -40,10 +40,5 @@ export default class Articles extends Component{
         <ArticleItem article={item} />
       </li>
     })
-  }
-
-  getPages = () =>{
-     const {articles} = this.props
-     return Math.ceil(ObjToImmArr(articles).length / 4)
   }
 }
