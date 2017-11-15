@@ -68,23 +68,11 @@ class CourseTypesSerializer(serializers.ModelSerializer):
         )
 
 
-class CoursePreviewSerializer(serializers.ModelSerializer):
+class CourseSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Course
-        fields = (
-            'id',
-            'title',
-            'slug',
-            'course_type',
-            'discount',
-            'places',
-            'free_places',
-            'price',
-        )
-
-
-class CourseDetailSerializer(serializers.ModelSerializer):
+    teachers = TeacherSerializer(read_only=True)
+    course_type = CourseTypesSerializer(read_only=True)
+    discount = DiscountSerializer(read_only=True)
 
     class Meta:
         model = Course
@@ -106,6 +94,8 @@ class CourseDetailSerializer(serializers.ModelSerializer):
 
 class PrivilegeSerializer(serializers.ModelSerializer):
 
+    courses = CourseDetailSerializer(read_only=True)
+
     class Meta:
         model = Privilege
         fields = (
@@ -119,6 +109,8 @@ class PrivilegeSerializer(serializers.ModelSerializer):
 
 
 class StudentSerializer(serializers.ModelSerializer):
+
+    courses = CoursePreviewSerializer(read_only=True)
 
     class Meta:
         model = Student
@@ -135,6 +127,8 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 class CourseReviewSerializer(serializers.ModelSerializer):
+
+    course = CourseDetailSerializer(read_only=True)
 
     class Meta:
         model = CourseReview
@@ -182,6 +176,9 @@ class TagSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
+    category = CategoryBlogSerializer(read_only=True)
+    tags = TagSerializer(read_only=True)
+
     class Meta:
         model = Post
         fields = (
@@ -191,7 +188,8 @@ class PostSerializer(serializers.ModelSerializer):
             'cover_picture',
             'category',
             'is_published',
-            'announce', 'content',
+            'announce',
+            'content',
             'tags',
             'author',
             'date_added',
