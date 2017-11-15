@@ -70,7 +70,7 @@ class CourseTypesSerializer(serializers.ModelSerializer):
 
 class CourseSerializer(serializers.ModelSerializer):
 
-    teachers = TeacherSerializer(read_only=True)
+    teachers = TeacherSerializer(many=True, read_only=True)
     course_type = CourseTypesSerializer(read_only=True)
     discount = DiscountSerializer(read_only=True)
 
@@ -94,7 +94,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class PrivilegeSerializer(serializers.ModelSerializer):
 
-    courses = CourseSerializer(read_only=True)
+    courses = CourseSerializer(many=True, read_only=True)
 
     class Meta:
         model = Privilege
@@ -110,7 +110,7 @@ class PrivilegeSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
 
-    courses = CourseSerializer(read_only=True)
+    courses = CourseSerializer(many=True, read_only=True)
 
     class Meta:
         model = Student
@@ -177,7 +177,7 @@ class TagSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 
     category = CategoryBlogSerializer(read_only=True)
-    tags = TagSerializer(read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
 
     class Meta:
         model = Post
@@ -198,6 +198,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    post = PostSerializer(read_only=True)
 
     class Meta:
         model = Comment
