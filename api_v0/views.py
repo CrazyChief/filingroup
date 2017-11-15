@@ -9,9 +9,9 @@ from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
-    CoursePreviewSerializer, CourseDetailSerializer, PrivilegeSerializer, StudentSerializer,\
-    CourseReviewSerializer, CategoryBlogSerializer, TagSerializer, PostSerializer, CommentSerializer,\
-    AgreementSerializer, PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer
+    CourseSerializer, PrivilegeSerializer, StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,\
+    TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer, PrivacyPolicySerializer,\
+    SiteRuleSerializer, DenialSerializer
 
 
 # About us viewsets
@@ -45,11 +45,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     API endpoint for listing Courses objects
     """
     queryset = Course.objects.all()
-
-    def get_serializer_class(self):
-        if self.action == 'list':
-            return CoursePreviewSerializer
-        return CourseDetailSerializer
+    serializer_class = CourseSerializer
 
 
 class PrivilegeViewSet(viewsets.ReadOnlyModelViewSet):
