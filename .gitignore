@@ -12,3 +12,4 @@ media/
 static/*
 secret
 package-lock.json
+venv

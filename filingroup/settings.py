@@ -96,10 +96,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'filingroup',
         'USER': 'postgres',
-<<<<<<< HEAD
-=======
-        'PASSWORD': 'NumberOne123',
->>>>>>> bcdeb10bebd36595df0ac00756bf3e379e5c01a1
+        'PASSWORD': '',
+        # 'PASSWORD': 'NumberOne123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
