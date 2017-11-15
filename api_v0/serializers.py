@@ -94,7 +94,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class PrivilegeSerializer(serializers.ModelSerializer):
 
-    courses = CourseDetailSerializer(read_only=True)
+    courses = CourseSerializer(read_only=True)
 
     class Meta:
         model = Privilege
@@ -110,7 +110,7 @@ class PrivilegeSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
 
-    courses = CoursePreviewSerializer(read_only=True)
+    courses = CourseSerializer(read_only=True)
 
     class Meta:
         model = Student
@@ -128,7 +128,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
 class CourseReviewSerializer(serializers.ModelSerializer):
 
-    course = CourseDetailSerializer(read_only=True)
+    course = CourseSerializer(read_only=True)
 
     class Meta:
         model = CourseReview
