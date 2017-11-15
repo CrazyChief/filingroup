@@ -55,7 +55,7 @@ class PrivilegeAdmin(admin.ModelAdmin):
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = (
-        'first_name', 'last_name', 'email', 'phone', 'date_added',
+        'name', 'email', 'phone', 'date_added',
     )
     list_filter = [
         'email', 'phone', 'date_added',

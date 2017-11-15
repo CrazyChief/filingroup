@@ -105,8 +105,7 @@ class Privilege(models.Model):
 
 
 class Student(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name=_('First name'))
-    last_name = models.CharField(max_length=60, verbose_name=_('Last name'))
+    name = models.CharField(max_length=50, default='Name', verbose_name=_('Name'))
     email = models.EmailField(max_length=100, unique=True, verbose_name='Email')
     phone = models.CharField(max_length=20, unique=True, verbose_name=_('Phone'))
     skype = models.CharField(max_length=40, unique=True, blank=True, null=True, verbose_name=_('Skype'))
@@ -119,7 +118,7 @@ class Student(models.Model):
         verbose_name_plural = _('Students')
 
     def __str__(self):
-        return str(self.first_name) + " " + str(self.last_name)
+        return str(self.name) + " " + str(self.email)
 
 
 class CourseReview(models.Model):
