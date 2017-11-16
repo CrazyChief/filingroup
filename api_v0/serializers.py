@@ -110,7 +110,7 @@ class PrivilegeSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
 
-    courses = CourseSerializer(many=True, read_only=True)
+    courses = CourseSerializer(many=True, required=True)
 
     class Meta:
         model = Student

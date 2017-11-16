@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework import mixins
 from rest_framework.pagination import PageNumberPagination
 
 from about_us.models import AboutModel
@@ -44,7 +45,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint for listing Courses objects
     """
-    queryset = Course.objects.all()
+    queryset = Course.objects.filter(is_active=True)
     serializer_class = CourseSerializer
 
 
@@ -56,12 +57,54 @@ class PrivilegeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PrivilegeSerializer
 
 
-class StudentViewSet(viewsets.ReadOnlyModelViewSet):
+class StudentCreateListViewSet(mixins.CreateModelMixin,
+                               mixins.UpdateModelMixin,
+                               mixins.ListModelMixin,
+                               viewsets.GenericViewSet):
     """
     API endpoint for listing and creating Student objects
     """
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+
+    def perform_create(self, serializer):
+        student = serializer.save()
+
+        # setting course
+        try:
+            course = str(self.request.data['course'])
+        except:
+            course = ""
+        if course:
+            course = Course.objects.get(id=course)
+            student.courses.add(course)
+
+        email = str(self.request.data['email'])
+        phone = str(self.request.data['phone'])
+        skype = str(self.request.data['skype'])
+
+        # checking student
+        if Student.objects.get(email=email, phone=phone):
+            self.perform_update(student)
+        else:
+            if Student.objects.get(skype__exact=skype):
+                return "This skype already exists!"
+            else:
+                student.skype = skype
+
+            student.save()
+
+    def perform_update(self, serializer):
+        student = serializer.save()
+
+        try:
+            course = str(self.request.data['course'])
+        except:
+            course = ""
+        if course:
+            course = Course.objects.get(id=course)
+            student.courses.add(course)
+        student.save()
 
 
 class CourseReviewViewSet(viewsets.ReadOnlyModelViewSet):
