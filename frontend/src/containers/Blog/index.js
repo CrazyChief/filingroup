@@ -14,10 +14,6 @@ class Blog extends Component{
   static propTypes = {
     articles: PropTypes.object.isRequired
   }
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return this.props.loading !== nextProps.loading
-  }
   
   componentDidMount() {
     const {loaded, loading, loadAllArticles} = this.props
@@ -27,7 +23,6 @@ class Blog extends Component{
   render(){
     const {articles, loading, loaded} = this.props
     if(loading) return <Loader />
-  
     return(
       <main className="main">
         <div className="container">
@@ -38,11 +33,11 @@ class Blog extends Component{
                   <NavLink exact activeClassName='active' to='/'>Главная</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink activeClassName='active' to='/blog/1'>Блог</NavLink>
+                  <NavLink activeClassName='active' to='/bloga'>Блог</NavLink>
                 </li>
               </ul>
               <h1 className="section__title">Блог</h1>
-              <Route path='/blog/:page' render={({match}) => <Articles articles={articles} match={match}/>} />
+              <Articles articles={articles} />
             </div>
             <div className="blog__right">
               <BlogSideBar articles={articles} />

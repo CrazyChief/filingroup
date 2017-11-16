@@ -8,42 +8,41 @@ export default function ProductItem({product}) {
     <div>
       <div className="product__top-wrap">
         <div className="product__pic-wrap">
-          <img src={getPic(course_type)} alt="product" className="product__img"/>
+          <img src='../assets/img/products/pic-1.png' alt="product" className="product__img"/>
         </div>
-        <div className="product__discount">{discount}</div>
-        <div className="product__places">{free_places}</div>
+        <div className="product__discount">{`-${discount.percents}%`}</div>
+        <div className="product__places">{`${free_places} ${placeGetter(free_places)}`}</div>
       </div>
       <div className="product__main">
         <h4 className="product__title">{title}</h4>
-        <div className="product__price">Цена: {getPrice(price, course_type)}</div>
+        <div className="product__price">Цена: {getPrice(price, course_type, discount.percents)}</div>
         <NavLink to={`/products/${slug}`} className="product__more-link">Детальнее</NavLink>
       </div>
     </div>
   )
 }
 
-function getPrice(price, params) {
+function placeGetter(params) {
   switch (params) {
     case 1:
-      return `${price}$ / 1 курс`
-
-    case 2:
-      return `${price}$ / в месяц`
-
-    case 3:
-      return `${price}$ / в час`
+      return 'место'
+    case 2 || 3 || 4:
+      return 'места'
+    default:
+      return 'мест'
   }
 }
 
-function getPic(params) {
-  switch(params){
+function getPrice(price, params, discount) {
+  const newPrice = price - (price * +`.${discount}`)
+  switch (params.id) {
     case 1:
-      return '/assets/img/pic-1.png'
+      return `${newPrice}$ / 1 курс`
 
     case 2:
-      return '/assets/img/pic-2.png'
+      return `${newPrice}$ / в месяц`
 
     case 3:
-      return '/assets/img/pic-3.png'
+      return `${newPrice}$ / в час`
   }
 }

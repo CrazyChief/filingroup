@@ -44,7 +44,7 @@ export default class Header extends Component {
             </a>
             <ul className={`mnu__list ${mnuIsOpen?'active':''}`}>
               <li className="mnu__item">
-                <NavLink activeClassName='active' to='/blog/1'>Блог</NavLink>
+                <NavLink activeClassName='active' to='/blog'>Блог</NavLink>
               </li>
               <li className="mnu__item">
                 <NavLink activeClassName='active' to='/feedbacks'>Отзывы</NavLink>

@@ -26,8 +26,9 @@ class Feedbacks extends Component{
   }
 
   render(){
-    const {feedbacks, loading, loaded} = this.props
+    const {feedbacks, loading, loaded, next} = this.props
     const masonryOptions = {}
+    if(loading) return <Loader />
     return(
       <main className='main'>
         <section className="section feedback container">
@@ -52,34 +53,38 @@ class Feedbacks extends Component{
           >
             {this.getBody()}
           </Masonry>
-          <a 
-            href="" 
-            onClick={this.handleClick} 
-            className="feedback__next-link"
-          >
-            <i className="fa fa-caret-down"></i>
-            Больше отзывов
-            <i className="fa fa-caret-down"></i>
-          </a>
+          {this.getMoreFeedbacks()}
         </section>
       </main>
     )
   }
+  getMoreFeedbacks = () => {
+    const {next} = this.props
 
-  handleClick = e => {
+    if(next){
+      return <a 
+              href="" 
+              onClick={this.nextPage} 
+              className="feedback__next-link">
+                <i className="fa fa-caret-down"></i>
+                  Больше отзывов
+                <i className="fa fa-caret-down"></i>
+            </a>
+    }
+  }
+
+  nextPage = e => {
+    const {loadAllFeedbacks, next} = this.props
     e.preventDefault()
 
-    this.setState({
-      step: this.state.step + 4
-    })
+    loadAllFeedbacks(next)
   }
 
   getBody = () => {
     const {feedbacks} = this.props
     const {step} = this.state
 
-    return feedbacks.slice(0, step).map(feedback => {
-      console.log(feedback.date_added)
+    return feedbacks.map(feedback => {
       return <li key={feedback.date_added} className="feedback__item">
         <FeedbackItem feedback={feedback} />
       </li>
@@ -90,6 +95,7 @@ class Feedbacks extends Component{
 export default connect((state) => {
   return{
     feedbacks: ObjToImmArr(state.feedbacks.entities),
+    next: state.feedbacks.next,
     loaded: state.feedbacks.loaded,
     loading: state.feedbacks.loading
   }

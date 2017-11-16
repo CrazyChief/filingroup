@@ -123,3 +123,47 @@
     background-color: $black;
   }
 }
+
+.product__modal-main{
+  display: flex;
+  justify-content: space-between; 
+  img{
+    width: 100%;
+  }
+}
+.product__modal-left{
+  width: 48%;
+}
+.product__modal-right{
+  width: 48%;
+  h2{
+    @include Font(bold);
+    font-size: rem(24px);
+  }
+  p{
+    font-size: rem(16px);
+  }
+  ul{
+    padding: 15px 0 15px 30px;
+    li{
+      position: relative;
+      font-size: rem(16px);
+      margin-bottom: 25px;
+      &:before{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        left: -30px;
+        top: 50%;
+        background: url('../../assets/images/products/list-pic.png') center no-repeat;
+        background-size: cover;
+        transform: translateY(-50%);
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

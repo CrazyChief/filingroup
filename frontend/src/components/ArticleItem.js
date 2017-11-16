@@ -13,7 +13,7 @@ export default function ArticleItem({article}) {
       <img className="article__img" src={`${cover_picture}`} />
       <ul className="article__info-list">
         <li className="article__info_item">
-          Категория: <span>{category}</span>
+          Категория: <span>{category.title}</span>
         </li>
         <li className="article__info_item">
           Дата публикации: <span>{date_added.slice(0, date_added.indexOf('T'))}</span>

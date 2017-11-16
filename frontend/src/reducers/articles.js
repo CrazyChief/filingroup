@@ -17,7 +17,7 @@ const ArticleRecord = Record({
   title: null,
 })
 
-const ReducerState = Record({loading: false, loaded: false, entities: new OrderedMap({})})
+const ReducerState = Record({loading: false, loaded: false, next: null, previous: null, entities: new OrderedMap({})})
 
 const defaultState = new ReducerState()
 
@@ -29,7 +29,9 @@ export default (articleState = defaultState, action) => {
   
     case LOAD_ALL_ARTICLES + SUCCESS:
       return articleState
-        .update('entities', entities => arrToImmObj(payload.response.results, ArticleRecord).merge(entities))
+        .set('entities', arrToImmObj(payload.response.results, ArticleRecord))
+        .set('next', payload.response.next)
+        .set('previous', payload.response.previous)
         .set('loading', false)
         .set('loaded', true)
   }
