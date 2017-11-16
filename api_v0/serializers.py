@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from about_us.models import AboutModel
@@ -7,6 +8,19 @@ from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
+
+
+# Additional serializers
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+        )
 
 
 # About us serializers
@@ -177,6 +191,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     category = CategoryBlogSerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
+    author = UserSerializer(read_only=True)
 
     class Meta:
         model = Post
