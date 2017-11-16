@@ -108,7 +108,7 @@ class Student(models.Model):
     name = models.CharField(max_length=50, default='Name', verbose_name=_('Name'))
     email = models.EmailField(max_length=100, unique=True, verbose_name='Email')
     phone = models.CharField(max_length=20, unique=True, verbose_name=_('Phone'))
-    skype = models.CharField(max_length=40, unique=True, blank=True, null=True, verbose_name=_('Skype'))
+    skype = models.CharField(max_length=40, blank=True, null=True, verbose_name=_('Skype'))
     courses = models.ManyToManyField(Course, verbose_name=_('Courses'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
