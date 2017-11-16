@@ -31,14 +31,14 @@ export function loadAllCourses() {
   }
 }
 
-export function loadAllFeedbacks() {
+export function loadAllFeedbacks(params) {
   return (dispatch) => {
     dispatch({
       type: LOAD_ALL_FEEDBACKS + START,
       payload: {}
     })
 
-    fetch(`/api/v0/reviews/`).then(res => {
+    fetch(`${params?params:'/api/v0/reviews/'}`).then(res => {
       if (res.status >= 400) {
         throw new Error(res.statusText)
       }

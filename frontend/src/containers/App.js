@@ -39,7 +39,7 @@ export default class App extends Component{
                 <Route exact path='/feedbacks' component={Feedbacks}/>
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/products' component={Products}/>
-                <Route path='/blog/' render={({match}) => <Blog match={match} />}/>
+                <Route path='/blog/' component={Blog}/>
                 <Route exact path='/article/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>

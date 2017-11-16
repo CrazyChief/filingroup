@@ -11,7 +11,10 @@ const CoursesRecord = Record({
   discount: undefined,
   places: undefined,
   free_places: undefined,
-  price: undefined
+  price: undefined,
+  teachers: [],
+  description: undefined,
+  date_added: undefined
 })
 
 const ReducerState = Record({loading: false, loaded: false, entities: new OrderedMap({})})

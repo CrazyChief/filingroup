@@ -16,7 +16,7 @@ const FeedbackRecord = Record({
   date_added: undefined
 })
 
-const ReducerState = Record({loading: false, loaded: false, entities: new OrderedMap({})})
+const ReducerState = Record({loading: false, loaded: false, next: null, entities: new OrderedMap({})})
 
 const defaultState = new ReducerState()
 
@@ -29,6 +29,7 @@ export default (feedbackState = defaultState, action) => {
     case LOAD_ALL_FEEDBACKS + SUCCESS:
       return feedbackState
         .update('entities', entities => arrToImmObj(payload.response.results, FeedbackRecord, 'date_added').merge(entities))
+        .set('next', payload.response.next)
         .set('loading', false)
         .set('loaded', true)
   }
