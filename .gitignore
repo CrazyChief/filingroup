@@ -13,3 +13,4 @@ static/*
 secret
 package-lock.json
 venv/
+frontend/dist/
