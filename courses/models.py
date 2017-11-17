@@ -92,6 +92,7 @@ class Privilege(models.Model):
         (PREMIUM, 'Premium')
     )
     type = models.CharField(max_length=50, choices=TYPES, default=FAST_START, verbose_name=_('Type'))
+    title = models.CharField(max_length=50, default=_('Fast start'), verbose_name=_('Title'))
     courses = models.ManyToManyField(Course, verbose_name=_('Courses'))
     price = models.IntegerField(verbose_name=_('Price'))
     description = models.TextField(verbose_name=_('Description'))
