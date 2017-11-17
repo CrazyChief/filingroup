@@ -1,13 +1,27 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import './style.scss'
+import {loadAbout} from 'actions'
+import {ObjToImmArr, createMarkup} from '../../helpers'
 
-export default class About extends Component{
+import Loader from 'components/Loader'
+import AboutMain from 'components/AboutMain'
+
+class About extends Component{
   static propTypes = {
   }
+
+  componentDidMount = () => {
+    const {loaded, loading, loadAbout} = this.props
+    if(!loaded && !loading) loadAbout()
+  }
+
   render(){
+    const {loading, about} = this.props
+    if(loading) return <Loader />
     return(
       <main className="main">
         <section className="section about container">
@@ -19,29 +33,17 @@ export default class About extends Component{
               <NavLink activeClassName='active' to='/about'>О нас</NavLink>
             </li>
           </ul>
-          <h1 className="section__title">О нас</h1>
-          <div className="about__pic">
-            <img src="assets/img/about.png" alt="logo" className="about__img"/>
-          </div>
-          <p>Привет!</p>
-          <p>Меня зовут Алексей Игнатович и я один из основателей компании Filin Group.</p>
-          <p>Мы с коллегами открыли Filin Group в первую очередь для того, чтобы создать сообщество свободных предпринимателей, в котором каждый может добиться успеха и жить достойной жизнью, быть уверенным в завтрашнем дне и заниматься любимым делом!</p>
-          <p>На нашем сайте вы найдете всю необходимую информацию, необходимую для запуска бизнеса на Амазон.</p>
-          <p>Почему я решил продавать на Амазон?</p>
-          <p>Два года назад для меня наступил период, когда я осознал, что меня совсем не устраивает моя жизнь. Я студент, который не имеет ничего за плечами, нет четких целей на будущее, а финансовое положение позволяет лишь кушать сухари с чаем на ужин. Вопрос стал ребром: надо срочно что-то менять. Чего я только не пробовал, рекламные агентства, ночные клубы (барменом), промышленная вентиляция… Но в один день мне попалась информация про Amazon.com. В тот момент я не верил в успех, и все что я знал про Амазоне — казалось выдумкой, но все же решил разобраться во всем и попробовать.</p>
-          <p>Мой первый опыт торговли на Amazon.com сейчас мне кажется смешным и рисковым. Себестоимость товара составляла 0.64 доллара + 1$ к каждой единице за доставку. Вся партия обошлась мне в 700$. Этого оказалось достаточно, чтобы понять, как работает система и разобраться со всеми деталями. Товар назывался Car mount — я пошел против всей системы и завез товар аля — old school. Ниша, которую я выбрал была полностью заполнена, но я рискнул, и в течение недели мой продукт попал на вторую страницу.</p>
-          <p>Если говорить о моем первом опыте, я считаю свой случай уникальным, поскольку чистая маржа на одну единицу товара составила 5,68 долларов. Я заказал вторую партию, не вливая дополнительных средств. Мои расходы окупились за 1.5 месяца, что очень хорошо для старта.</p>
-          <p>Сейчас вместе с партнерами я запускаю 5 новых продуктов. В процессе запуска оборот их партий составляет 120 тыс. долл. Я обучил 130 человек в трех различных направлениях бизнеса, развиваю свое дело и хочу продолжать наращивать обороты.</p>
-          <p>Хочу обратиться к каждому, кто только собирается запускать свой бизнес на Амазон:</p>
-          <p>Верьте в свои силы и не бойтесь неудач, благодаря им мы становимся сильнее.</p>
-          <p>Мы с Filin Group прошли длинный путь и теперь с радостью делиться нашим опытом и наработками.</p>
-          <p><strong>Посмотрите запись тренинга “Как найти товар для успешного старта на Амазон”, и начните свой бизнес уже сейчас.</strong></p>
-          <a href="#" className="get__link centered">
-            <i className="fa fa-play-circle-o"></i>
-            Получить доступ к видео
-          </a>
+          <AboutMain about={about} />
         </section>
       </main>
     )
   }
 }
+
+export default connect(state => {
+  return {
+    about: ObjToImmArr(state.about.entities),
+    loading: state.about.loading,
+    loaded: state.about.loaded
+  }
+}, {loadAbout})(About)

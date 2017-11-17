@@ -1,5 +1,43 @@
 import constants from 'constants'
-const {LOAD_PRIVELEGES, LOAD_ALL_COURSES, LOAD_ALL_FEEDBACKS, LOAD_ALL_ARTICLES, START, SUCCESS, FAIL} = constants
+const {
+  LOAD_ABOUT, 
+  LOAD_PRIVELEGES, 
+  LOAD_ALL_COURSES, 
+  LOAD_ALL_FEEDBACKS, 
+  LOAD_ALL_ARTICLES, 
+  START, 
+  SUCCESS, 
+  FAIL} = constants
+
+export function loadAbout() {
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_ABOUT + START,
+      payload: {}
+    })
+
+    fetch(`/api/v0/aboutus/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_ABOUT + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_ABOUT + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
 
 export function loadPriveleges() {
   return (dispatch) => {
