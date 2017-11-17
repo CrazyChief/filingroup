@@ -94,6 +94,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'slug',
+            'course_picture',
             'course_type',
             'discount',
             'teachers',
