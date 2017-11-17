@@ -116,6 +116,7 @@ class PrivilegeSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'type',
+            'title',
             'courses',
             'price',
             'description',
