@@ -39,6 +39,20 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = [
         'teachers', 'places', 'free_places', 'price', 'is_active', 'date_added',
     ]
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'course_picture', 'course_type', 'discount', 'teachers', 'places', 'free_places', 'price', 'is_active')
+        }),
+        ('Description', {
+            'fields': ('description',)
+        }),
+        ("Advanced settings for consults. (Don't fill this fields, if your course aren't Consult type)", {
+            'fields': ('consulting_time', 'consulting_time_availability_on_this_week')
+        }),
+        ("Advanced settings for couchings. (Don't fill this fields, if your course aren't Couching type)", {
+            'fields': ('couching_timing', 'couching_consult_time', 'couching_time_availability_on_this_month')
+        })
+    )
     filter_horizontal = ('teachers',)
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
