@@ -61,6 +61,7 @@ class CourseTypes(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=300, verbose_name=_('Title'))
     slug = models.SlugField()
+    course_picture = models.FileField(upload_to=upload_path, blank=True, verbose_name=_('Course picture'))
     course_type = models.ForeignKey(CourseTypes, null=True, on_delete=models.SET_NULL, verbose_name=_('Course type'))
     discount = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Discount'))
     teachers = models.ManyToManyField(Teacher, verbose_name=_('Teachers'))
