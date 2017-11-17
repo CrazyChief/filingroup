@@ -64,6 +64,7 @@ class PrivilegeAdmin(admin.ModelAdmin):
     list_filter = [
         'type', 'price', 'date_added',
     ]
+    filter_horizontal = ('courses',)
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
 
