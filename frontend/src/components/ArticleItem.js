@@ -19,7 +19,7 @@ export default function ArticleItem({article}) {
           Дата публикации: <span>{date_added.slice(0, date_added.indexOf('T'))}</span>
         </li>
         <li className="article__info_item">
-          Автор: <span>{author}</span>
+          Автор: <span>{getName(author)}</span>
         </li>
         <li className="article__info_item">
           Оценка: <ul className="stars__list">{getStars(4)}</ul>
@@ -29,6 +29,14 @@ export default function ArticleItem({article}) {
       <NavLink className="article__btn" to={`/article/${slug}#disqus_thread`}>Читать далее</NavLink>
     </div>
   )
+}
+
+function getName(author) {
+  const {username, first_name, last_name} = author
+  if (first_name && last_name) {
+    return `${first_name} ${last_name}`
+  }
+  return username
 }
 
 function getStars(stars) {

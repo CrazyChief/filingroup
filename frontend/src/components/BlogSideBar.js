@@ -25,6 +25,7 @@ export default function BlogSideBar({articles}) {
           </li>
         })}
       </ul>
+      <h3 className="sidebar__titile">Категории</h3>
     </div>
   )
 }
