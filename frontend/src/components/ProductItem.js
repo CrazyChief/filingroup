@@ -3,12 +3,21 @@ import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
 
 export default function ProductItem({product}) {
-  const {title, slug, course_type, discount, places, free_places, price} = product
+const {
+  title,
+  slug,
+  course_type,
+  course_picture,
+  discount,
+  places,
+  free_places,
+  price
+} = product
   return(
     <div>
       <div className="product__top-wrap">
         <div className="product__pic-wrap">
-          <img src='../assets/img/products/pic-1.png' alt="product" className="product__img"/>
+          <img src={course_picture?course_picture:'../assets/img/products/pic-1.png'} alt="product" className="product__img"/>
         </div>
         <div className="product__discount">{`-${discount.percents}%`}</div>
         <div className="product__places">{`${free_places} ${placeGetter(free_places)}`}</div>

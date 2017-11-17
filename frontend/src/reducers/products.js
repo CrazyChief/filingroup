@@ -5,6 +5,7 @@ import {arrToImmObj} from '../helpers'
 const {LOAD_ALL_COURSES, START, SUCCESS, FAIL} = constants
 
 const CoursesRecord = Record({
+  id: undefined,
   title: undefined,
   slug: undefined,
   course_type: null,
@@ -12,7 +13,9 @@ const CoursesRecord = Record({
   places: undefined,
   free_places: undefined,
   price: undefined,
+  course_picture: undefined,
   teachers: [],
+  is_active: undefined,
   description: undefined,
   date_added: undefined
 })

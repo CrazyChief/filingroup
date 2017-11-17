@@ -64,3 +64,18 @@
   font-size: rem(18px);
   margin-top: 30px;
 }
+
+.orange__btn{
+  display: flex;
+  align-items: center;
+  height: 55px;
+  padding: 0 55px;
+  background-color: $bg-orange;
+  border-radius: 3px;
+  color: $white;
+  font-size: rem(16px);
+  cursor: pointer;
+  &:hover{
+    background-color: $bg;
+  }
+}

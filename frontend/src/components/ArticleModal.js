@@ -33,7 +33,15 @@ class ArticleModal extends Component{
   render(){
     const {match, articles} = this.props
     const article = articles.get(match.params.slug)
-    const {slug, title, announce, author, category, content, cover_picture, date_added} = article
+    const {
+      slug, 
+      title, 
+      announce, 
+      author, 
+      category, 
+      content, 
+      cover_picture, 
+      date_added} = article
     return(
       <main className="main">
         <section className="modal__article container">
@@ -60,7 +68,7 @@ class ArticleModal extends Component{
                   Дата публикации: <span>{date_added.slice(0, date_added.indexOf('T'))}</span>
                 </li>
                 <li className="article__info_item">
-                  Автор: <span>{author}</span>
+                  Автор: <span>{this.getName(author)}</span>
                 </li>
                 <li className="article__info_item">
                   Оценка: <ul className="stars__list">{getStars(4)}</ul>
@@ -75,6 +83,13 @@ class ArticleModal extends Component{
         </section>
       </main>
     )
+  }
+  getName = (author) => {
+    const {username, first_name, last_name} = author
+    if(first_name && last_name){
+      return `${first_name} ${last_name}`
+    }
+    return username
   }
 }
 

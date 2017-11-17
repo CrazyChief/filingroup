@@ -134,6 +134,49 @@
 .product__modal-left{
   width: 48%;
 }
+.product__modal-pic{
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+.product__modal-info{
+  display: flex;
+  flex-direction: column;
+}
+.product__info-item{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: rem(24px);
+  margin-bottom: 35px;
+  .green{
+    color: #65ae48;
+  }
+  .red{
+    color: #d15454;
+  }
+  span{
+    position: relative;
+    background-color: $white;
+    padding-left: 15px;
+    z-index: 100;
+  }
+  .bold{
+    @include Font(bold);
+    padding-right: 5px;
+    padding-left: 0;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 10px;
+    background: url('../../assets/images/products/figure.png') repeat-x;
+  }
+}
 .product__modal-right{
   width: 48%;
   h2{
@@ -165,5 +208,61 @@
         margin-bottom: 0;
       }
     }
+  }
+}
+
+.product__privileges-list{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.product__privileges-item{
+  @include box-shadow(0px 5px 20px -10px $black);
+  width: 32%;
+}
+.privilege__title{
+  @include Font(bold);
+  font-size: rem(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 100%;
+  color: $white;
+  background-color: $bg-orange;
+  border-radius: 5px 5px 0 0;
+}
+.privilege__content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  font-size: rem(16px);
+  color: $text;
+}
+.privilege__price{
+  @include Font(black);
+  font-size: rem(36px);
+  color: $orange;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.privilege__register-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 255px;
+  height: 55px;
+  background-color: $bg-orange;
+  border: none;
+  color: $white;
+  border-radius: 3px;
+  margin-top: 25px;
+  i{
+    margin-right: 15px;
+  }
+  &:hover{
+    background-color: $bg;
   }
 }
