@@ -103,6 +103,11 @@ class CourseSerializer(serializers.ModelSerializer):
             'description',
             'price',
             'is_active',
+            'consulting_time',
+            'consulting_time_availability_on_this_week',
+            'couching_timing',
+            'couching_consult_time',
+            'couching_time_availability_on_this_month',
             'date_added',
         )
 
