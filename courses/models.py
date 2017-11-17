@@ -59,6 +59,12 @@ class CourseTypes(models.Model):
 
 
 class Course(models.Model):
+    AVAILABLE = True
+    BUSY = False
+    CONSULT_TIME = (
+        (AVAILABLE, _("AVAILABLE")),
+        (BUSY, _("BUSY")),
+    )
     title = models.CharField(max_length=300, verbose_name=_('Title'))
     slug = models.SlugField()
     course_picture = models.FileField(upload_to=upload_path, blank=True, verbose_name=_('Course picture'))
@@ -70,6 +76,11 @@ class Course(models.Model):
     description = models.TextField(verbose_name=_('About the course'))
     price = models.IntegerField(verbose_name=_('Price'))
     is_active = models.BooleanField(verbose_name=_('Is course active?'))
+    consulting_time = models.CharField(max_length=254, verbose_name=_('Consulting time'), null=True, blank=True)
+    consulting_time_availability_on_this_week = models.BooleanField(choices=CONSULT_TIME, default=BUSY, verbose_name=_('Consulting time availability on this week'))
+    couching_timing = models.CharField(max_length=254, verbose_name=_('Couching timing'), null=True, blank=True)
+    couching_consult_time = models.CharField(max_length=254, verbose_name=_('Couching consult time'), null=True, blank=True)
+    couching_time_availability_on_this_month = models.BooleanField(choices=CONSULT_TIME, default=BUSY, verbose_name=_('Couching time availability on this month'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
