@@ -114,6 +114,7 @@
 .article__img{
   width: 100%;
   margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .article__info-list{
@@ -256,7 +257,8 @@
   img{
     display: block;
     width: 100%;
-    max-height: 50px;
+    border-radius: 5px;
+    margin: 10px 0;
   }
   a{
     font-size: rem(14px);

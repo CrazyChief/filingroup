@@ -11,6 +11,7 @@ const FeedbackRecord = Record({
   link_to_fb: undefined,
   link_to_inst: undefined,
   link_to_linkedin: undefined,
+  link_to_vk: undefined,
   review: '',
   video: null,
   date_added: undefined

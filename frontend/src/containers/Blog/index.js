@@ -33,7 +33,7 @@ class Blog extends Component{
                   <NavLink exact activeClassName='active' to='/'>Главная</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink activeClassName='active' to='/bloga'>Блог</NavLink>
+                  <NavLink activeClassName='active' to='/blog'>Блог</NavLink>
                 </li>
               </ul>
               <h1 className="section__title">Блог</h1>

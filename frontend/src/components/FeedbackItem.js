@@ -3,10 +3,18 @@ import PropTypes from 'prop-types'
 
 import {createMarkup} from '../helpers'
 
-import FeedbackSocial from 'components/FeedbackSocial'
-
 export default function FeedbackItem({feedback}) {
-  const {first_name, last_name, avatar, link_to_fb, link_to_inst, link_to_linkedin, review, video, date_added} = feedback
+  const {
+    first_name, 
+    last_name, 
+    avatar, 
+    link_to_fb, 
+    link_to_vk, 
+    link_to_inst, 
+    link_to_linkedin, 
+    review, 
+    video, 
+    date_added} = feedback
   return(
     <div>
       <div className="feedback__top">
@@ -32,6 +40,11 @@ export default function FeedbackItem({feedback}) {
               <i className="fa fa-linkedin"/>
             </a>
           </li>
+          <li className="feedback__social-item">
+            <a href={link_to_vk} className="feedback__social-link">
+              <i className="fa fa-vk"/>
+            </a>
+          </li>
         </ul>
       </div>
       {getVideo(video)}
@@ -45,7 +58,7 @@ export default function FeedbackItem({feedback}) {
 
 function getVideo(video) {
   if(video){
-    return <a href={video} className="video__feedback-link">
+    return <a href={video} target="_blank" className="video__feedback-link">
         <i className="fa fa-video-camera"/>
         Видео-отзыв
       </a>
