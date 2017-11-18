@@ -62,7 +62,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
                                mixins.ListModelMixin,
                                viewsets.GenericViewSet):
     """
-    API endpoint for listing and creating Student objects
+    API endpoint for listing, creating and updating Student objects
     """
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
@@ -85,6 +85,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
 
         # checking student
         if Student.objects.get(email=email, phone=phone):
+            # if not Student.objects.get(email=email, phone=phone, courses)
             self.perform_update(student)
         else:
             if Student.objects.get(skype__exact=skype):
@@ -107,12 +108,26 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         student.save()
 
 
-class CourseReviewViewSet(viewsets.ReadOnlyModelViewSet):
+class CourseReviewViewSet(mixins.CreateModelMixin,
+                          mixins.ListModelMixin,
+                          viewsets.GenericViewSet):
     """
     API endpoint for listing and creating CourseReview objects
     """
     queryset = CourseReview.objects.all()
     serializer_class = CourseReviewSerializer
+
+    def perform_create(self, serializer):
+        review = serializer.save()
+
+        try:
+            course = str(self.request.data['course'])
+        except:
+            course = ""
+        if course:
+            course = Course.objects.get(id=course)
+            review.course.add(course)
+        review.save()
 
 
 # Blog views/viewsets
