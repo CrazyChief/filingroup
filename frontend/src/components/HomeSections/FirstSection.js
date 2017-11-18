@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
 
+import VideoBtn from 'components/VideoBtn'
+
 const style = {backgroundImage: `url('assets/img/main/main.png')`}
 
 export default function FirstSection() {
@@ -14,10 +16,7 @@ export default function FirstSection() {
             <img src="assets/img/main/amazon-black.png" alt="amazon"/>
           </a>
         </h1>
-        <a href="#" className="get__link">
-          <FontAwesome name="play-circle-o" />
-          Получить доступ к видео
-        </a>
+        <VideoBtn />
       </div>
     </section>
   )

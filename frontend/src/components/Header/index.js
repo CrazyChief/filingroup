@@ -62,22 +62,22 @@ export default class Header extends Component {
           </a>
           <ul className={`social__list ${socialIsOpen?'active':''}`}>
             <li className="social__item">
-              <a href="#" className="social__link">
+              <a href="https://www.facebook.com/infilingroup/" className="social__link">
                 <FontAwesome name="facebook" />
               </a>
             </li>
             <li className="social__item">
-              <a href="#" className="social__link">
+              <a href="https://www.instagram.com/filingroup/" className="social__link">
                 <FontAwesome name="instagram" />
               </a>
             </li>
             <li className="social__item">
-              <a href="#" className="social__link">
+              <a href="https://www.youtube.com/channel/UCFNgNMVEw1Hivfb_u-dp8Zw" className="social__link">
                 <FontAwesome name="youtube" />
               </a>
             </li>
             <li className="social__item">
-              <a href="#" className="social__link">
+              <a href="https://vk.com/infilingroup" className="social__link">
                 <FontAwesome name="vk" />
               </a>
             </li>

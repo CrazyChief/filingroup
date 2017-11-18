@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {NavLink} from 'react-router-dom'
 
 const style = {
   backgroundImage: `url('assets/img/main/man.png')`
@@ -14,9 +15,9 @@ export default function ThirdSection() {
           помогают предпринимателям со всего мира наладить поставки и продажи товаров на 
           <img src="assets/img/main/arrow.png" alt="amazon"/>
         </h2>
-        <a href="#" className="get__link">
+        <NavLink to='/feedbacks' className="get__link">
           Читать отзывы
-        </a>
+        </NavLink>
       </div>
     </section>
   )

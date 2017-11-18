@@ -8,6 +8,7 @@ import {loadAbout} from 'actions'
 import {createMarkup} from '../../helpers'
 
 import Loader from 'components/Loader'
+import VideoBtn from 'components/VideoBtn'
 
 class About extends Component{
   static propTypes = {
@@ -43,10 +44,7 @@ class About extends Component{
             <img src={logo} alt="logo" className="about__img"/>
           </div>
           <div dangerouslySetInnerHTML={createMarkup(text)} />
-          <a href="#" className="get__link centered">
-            <i className="fa fa-play-circle-o"></i>
-            Получить доступ к видео
-          </a>
+          <VideoBtn classToAdd="centered"/>
         </section>
       </main>
     )
