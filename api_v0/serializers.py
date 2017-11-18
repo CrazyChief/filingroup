@@ -161,6 +161,7 @@ class CourseReviewSerializer(serializers.ModelSerializer):
             'link_to_fb',
             'link_to_inst',
             'link_to_linkedin',
+            'link_to_vk',
             'review',
             'video',
             'date_added',
