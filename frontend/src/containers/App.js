@@ -10,6 +10,7 @@ import Home from 'containers/Home'
 import Blog from 'containers/Blog'
 import Feedbacks from 'containers/Feedbacks'
 import About from 'containers/About'
+import PPS from 'containers/PPS'
 import Products from 'containers/Products'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -40,6 +41,7 @@ export default class App extends Component{
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/products' component={Products}/>
                 <Route path='/blog/' component={Blog}/>
+                <Route exact path='/pps' component={PPS}/>
                 <Route exact path='/article/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>

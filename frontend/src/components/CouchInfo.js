@@ -13,7 +13,10 @@ export default function CouchInfo({currentProduct}) {
     price,
     teachers,
     description,
-    is_active
+    couching_timing,
+    couching_consult_time,
+    couching_time_availability_on_this_month
+
   } = currentProduct
   const newPrice = price - (price * + `.${discount.percents}`)
   return (
@@ -31,19 +34,19 @@ export default function CouchInfo({currentProduct}) {
       <li className="product__info-item">
         <span className="bold">Время:
         </span>
-        <span>Нужно добавить время</span>
+        <span>{couching_timing}</span>
       </li>
       <li className="product__info-item">
         <span className="bold">Время консультации:
         </span>
-        <span>Нужно добавить время</span>
+        <span className="green">{couching_consult_time}</span>
       </li>
       <li className="product__info-item">
         <span className="bold">Время в этом месяце:
         </span>
         <span 
-          className={`${is_active?'green':'red'}`}>
-            {is_active?"Свободно":"Занято"}
+          className={`${couching_time_availability_on_this_month?'green':'red'}`}>
+            {couching_time_availability_on_this_month?"Доступно":"Занято"}
         </span>
       </li>
     </div>

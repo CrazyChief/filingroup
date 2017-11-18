@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
         <ul className="references__list">
           <li className="reference__item">
-            <a href="#" className="reference__link">Политика конфиденциальности</a>
+            <NavLink to='/pps' className="reference__link">Политика конфиденциальности</NavLink>
           </li>
           <li className="reference__item">
             <a href="#" className="reference__link">Отказ от ответственности</a>

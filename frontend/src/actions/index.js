@@ -1,5 +1,6 @@
 import constants from 'constants'
 const {
+  LOAD_PPS,
   LOAD_ABOUT, 
   LOAD_PRIVELEGES, 
   LOAD_ALL_COURSES, 
@@ -8,6 +9,36 @@ const {
   START, 
   SUCCESS, 
   FAIL} = constants
+
+export function loadPPS() {
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_PPS + START,
+      payload: {}
+    })
+
+    fetch(`/api/v0/pps/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_PPS + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_PPS + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
 
 export function loadAbout() {
   return (dispatch) => {

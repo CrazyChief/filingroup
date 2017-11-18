@@ -1,6 +1,7 @@
 import keyMirror from 'key-mirror'
 
 export default keyMirror({
+  LOAD_PPS: null,
   LOAD_ABOUT: null,
   LOAD_ALL_COURSES: null,
   LOAD_ALL_ARTICLES: null,

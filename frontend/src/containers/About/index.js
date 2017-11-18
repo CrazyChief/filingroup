@@ -5,10 +5,9 @@ import {connect} from 'react-redux'
 
 import './style.scss'
 import {loadAbout} from 'actions'
-import {ObjToImmArr, createMarkup} from '../../helpers'
+import {createMarkup} from '../../helpers'
 
 import Loader from 'components/Loader'
-import AboutMain from 'components/AboutMain'
 
 class About extends Component{
   static propTypes = {
@@ -20,8 +19,14 @@ class About extends Component{
   }
 
   render(){
-    const {loading, about} = this.props
-    if(loading) return <Loader />
+    const {loaded, loading, about} = this.props
+    if(!loaded) return <Loader />
+    const {
+      id,
+      title,
+      logo,
+      text
+    } = about[0]
     return(
       <main className="main">
         <section className="section about container">
@@ -33,7 +38,15 @@ class About extends Component{
               <NavLink activeClassName='active' to='/about'>О нас</NavLink>
             </li>
           </ul>
-          <AboutMain about={about} />
+          <h1 className="section__title">О нас</h1>
+          <div className="about__pic">
+            <img src={logo} alt="logo" className="about__img"/>
+          </div>
+          <div dangerouslySetInnerHTML={createMarkup(text)} />
+          <a href="#" className="get__link centered">
+            <i className="fa fa-play-circle-o"></i>
+            Получить доступ к видео
+          </a>
         </section>
       </main>
     )
@@ -42,7 +55,7 @@ class About extends Component{
 
 export default connect(state => {
   return {
-    about: ObjToImmArr(state.about.entities),
+    about: state.about.entities,
     loading: state.about.loading,
     loaded: state.about.loaded
   }

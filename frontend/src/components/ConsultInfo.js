@@ -13,7 +13,8 @@ export default function CourseInfo({currentProduct}) {
     price,
     teachers,
     description,
-    is_active
+    consulting_time,
+    consulting_time_availability_on_this_week
   } = currentProduct
   const newPrice = price - (price * + `.${discount.percents}`)
   return (
@@ -31,12 +32,15 @@ export default function CourseInfo({currentProduct}) {
       <li className="product__info-item">
         <span className="bold">Время консультации:
         </span>
-        <span>Нужно добавить время</span>
+        <span>{consulting_time}</span>
       </li>
       <li className="product__info-item">
         <span className="bold">Время на этой неделе:
         </span>
-        <span>Нужно добавить время</span>
+        <span 
+          className={`${consulting_time_availability_on_this_week?'green':'red'}`}>
+          {consulting_time_availability_on_this_week?"Доступно":"Занято"}
+        </span>
       </li>
     </div>
   )

@@ -17,7 +17,12 @@ const CoursesRecord = Record({
   teachers: [],
   is_active: undefined,
   description: undefined,
-  date_added: undefined
+  date_added: undefined,
+  consulting_time: undefined,
+  consulting_time_availability_on_this_week: false,
+  couching_timing: undefined,
+  couching_consult_time: undefined,
+  couching_time_availability_on_this_month: false
 })
 
 const ReducerState = Record({loading: false, loaded: false, entities: new OrderedMap({})})
