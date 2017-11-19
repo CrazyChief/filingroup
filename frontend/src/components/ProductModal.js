@@ -27,6 +27,7 @@ class ProductModal extends Component {
       title,
       slug,
       course_type,
+      course_picture,
       discount,
       places,
       free_places,
@@ -55,7 +56,7 @@ class ProductModal extends Component {
             <div className="product__modal-left">
               <img
                 className="product__modal-pic"
-                src='../assets/img/products/pic-1.png'
+                src={course_picture}
                 alt="product"/>
               <ul className="product__modal-info">
                 {this.getProductInfo(currentProduct)}

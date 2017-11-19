@@ -19,13 +19,13 @@ export default function Footer() {
             <NavLink to='/pps' className="reference__link">Политика конфиденциальности</NavLink>
           </li>
           <li className="reference__item">
-            <a href="#" className="reference__link">Отказ от ответственности</a>
+            <NavLink to='/denials' className="reference__link">Отказ от ответственности</NavLink>
           </li>
           <li className="reference__item">
-            <a href="#" className="reference__link">Согласие на рассылку</a>
+            <NavLink to='/agreements' className="reference__link">Согласие на рассылку</NavLink>
           </li>
           <li className="reference__item">
-            <a href="#" className="reference__link">Правила пользования сайтом</a>
+            <NavLink to='/siterules' className="reference__link">Правила пользования сайтом</NavLink>
           </li>
         </ul>
         <ul className="phone__list">

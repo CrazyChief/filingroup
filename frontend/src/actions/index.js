@@ -1,5 +1,8 @@
 import constants from 'constants'
 const {
+  LOAD_AGREEMENTS,
+  LOAD_SITERULES,
+  LOAD_DENIALS,
   LOAD_PPS,
   LOAD_ABOUT, 
   LOAD_PRIVELEGES, 
@@ -9,6 +12,96 @@ const {
   START, 
   SUCCESS, 
   FAIL} = constants
+
+export function loadAgreements() {
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_AGREEMENTS + START,
+      payload: {}
+    })
+
+    fetch(`/api/v0/agreements/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_AGREEMENTS + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_AGREEMENTS + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
+
+export function loadSiterules() {
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_SITERULES + START,
+      payload: {}
+    })
+
+    fetch(`/api/v0/siterules/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_SITERULES + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_SITERULES + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
+
+export function loadDenials() {
+  return (dispatch) => {
+    dispatch({
+      type: LOAD_DENIALS + START,
+      payload: {}
+    })
+
+    fetch(`/api/v0/denials/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_DENIALS + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_DENIALS + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
 
 export function loadPPS() {
   return (dispatch) => {

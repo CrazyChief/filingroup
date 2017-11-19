@@ -5,6 +5,9 @@ import products from './products'
 import priveleges from './priveleges'
 import about from './about'
 import pps from './pps'
+import agreements from './agreements'
+import denials from './denials'
+import siterules from './siterules'
 
 export default combineReducers({
   articles,
@@ -12,5 +15,8 @@ export default combineReducers({
   products,
   priveleges,
   about,
-  pps
+  pps,
+  agreements,
+  denials,
+  siterules
 });

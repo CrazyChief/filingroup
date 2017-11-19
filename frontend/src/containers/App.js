@@ -11,6 +11,9 @@ import Blog from 'containers/Blog'
 import Feedbacks from 'containers/Feedbacks'
 import About from 'containers/About'
 import PPS from 'containers/PPS'
+import Agreements from 'containers/Agreements'
+import Denials from 'containers/Denials'
+import Siterules from 'containers/Siterules'
 import Products from 'containers/Products'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -42,6 +45,9 @@ export default class App extends Component{
                 <Route exact path='/products' component={Products}/>
                 <Route path='/blog/' component={Blog}/>
                 <Route exact path='/pps' component={PPS}/>
+                <Route exact path='/agreements' component={Agreements}/>
+                <Route exact path='/denials' component={Denials}/>
+                <Route exact path='/siterules' component={Siterules}/>
                 <Route exact path='/article/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>
