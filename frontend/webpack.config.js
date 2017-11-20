@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const outputPath = path.resolve(__dirname, './dist')
+const outputPath = path.resolve(__dirname, '../static/dist/')
 
 const webpackConfig = {
 	entry: {
@@ -12,7 +12,7 @@ const webpackConfig = {
 		]
 	},
 	output: {
-		path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, '../static/dist/'),
 		filename: '[name].js'
 	},
 	module: {
@@ -74,7 +74,7 @@ const webpackConfig = {
 			{ 
 				context: './src/assets/images/',
 				from: '**/*', 
-				to: outputPath + '/assets/img/'
+				to: '../../assets/img/'
 			}
 		]),
 		new HtmlWebpackPlugin({
