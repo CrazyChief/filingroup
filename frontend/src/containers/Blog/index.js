@@ -4,7 +4,7 @@ import {Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import './style.scss'
-import {loadAllArticles} from 'actions'
+import {loadAllArticles, loadCategories} from 'actions'
 
 import Articles from 'components/Articles'
 import BlogSideBar from 'components/BlogSideBar'
@@ -17,7 +17,10 @@ class Blog extends Component{
   
   componentDidMount() {
     const {loaded, loading, loadAllArticles} = this.props
-    if (!loaded && !loading) loadAllArticles()
+    if (!loaded && !loading) {
+      loadAllArticles()
+      loadCategories()
+    }
   }
 
   render(){
@@ -55,4 +58,4 @@ export default connect((state) => {
     loading: state.articles.loading,
     loaded: state.articles.loaded
   }
-}, {loadAllArticles})(Blog)
+}, {loadAllArticles, loadCategories})(Blog)

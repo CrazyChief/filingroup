@@ -20,6 +20,7 @@ import Footer from 'components/Footer'
 import NotFound from 'components/NotFound'
 import ArticleModal from 'components/ArticleModal'
 import ProductModal from 'components/ProductModal'
+import LeaveFeedback from 'components/LeaveFeedback'
 
 export default class App extends Component{
   static propTypes = {
@@ -41,14 +42,15 @@ export default class App extends Component{
               <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/feedbacks' component={Feedbacks}/>
+                <Route exact path='/feedbacks/leave-feedback' component={LeaveFeedback}/>
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/products' component={Products}/>
-                <Route path='/blog/' component={Blog}/>
+                <Route exact path='/blog/' component={Blog}/>
                 <Route exact path='/pps' component={PPS}/>
                 <Route exact path='/agreements' component={Agreements}/>
                 <Route exact path='/denials' component={Denials}/>
                 <Route exact path='/siterules' component={Siterules}/>
-                <Route exact path='/article/:slug' render={({match}) => <ArticleModal match={match}/>}/>
+                <Route exact path='/blog/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>
               </Switch>

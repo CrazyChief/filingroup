@@ -26,22 +26,22 @@ export default function FeedbackItem({feedback}) {
         <div className="feedback__date">{date_added.slice(0, date_added.indexOf('T'))}</div>
         <ul className="feedback__socials">
           <li className="feedback__social-item">
-            <a href={link_to_fb} className="feedback__social-link">
+            <a href={link_to_fb} target="_blank" className="feedback__social-link">
               <i className="fa fa-facebook"/>
             </a>
           </li>
           <li className="feedback__social-item">
-            <a href={link_to_inst} className="feedback__social-link">
+            <a href={link_to_inst} target="_blank" className="feedback__social-link">
               <i className="fa fa-instagram"/>
             </a>
           </li>
           <li className="feedback__social-item">
-            <a href={link_to_linkedin} className="feedback__social-link">
+            <a href={link_to_linkedin} target="_blank" className="feedback__social-link">
               <i className="fa fa-linkedin"/>
             </a>
           </li>
           <li className="feedback__social-item">
-            <a href={link_to_vk} className="feedback__social-link">
+            <a href={link_to_vk} target="_blank" className="feedback__social-link">
               <i className="fa fa-vk"/>
             </a>
           </li>
