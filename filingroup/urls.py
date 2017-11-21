@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^api/v0/', include('api_v0.urls')),
-    url(r'^', TemplateView.as_view(template_name='index.html')),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
