@@ -42,7 +42,7 @@ class Feedbacks extends Component{
           </ul>
           <div className="feedback__header">
             <h1 className="section__title">Отзывы</h1>
-            <a href="#" className="leave__feedback-btn">Оставить отзыв</a>
+            <NavLink to="/feedbacks/leave-feedback" className="leave__feedback-btn">Оставить отзыв</NavLink>
           </div>
           <Masonry
             className={'feedback__list'}

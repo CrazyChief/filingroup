@@ -1,5 +1,7 @@
 import constants from 'constants'
 const {
+  POST_FEEDBACK,
+  LOAD_CATEGORIES,
   LOAD_AGREEMENTS,
   LOAD_SITERULES,
   LOAD_DENIALS,
@@ -12,6 +14,61 @@ const {
   START, 
   SUCCESS, 
   FAIL} = constants
+
+export function postFeedback(data) {
+  return (dispatch) => {
+    fetch('/api/v0/reviews/', {
+      method: 'post',
+      headers: {
+        'Access-Control-Allow-Origin':'*',
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors',
+      body: JSON.stringify(data)
+    })
+      .then(res=>res.json())
+      .then(response => dispatch({
+        type: POST_FEEDBACK + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: POST_FEEDBACK + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
+
+export function loadCategories() {
+  return (dispatch) => {
+    fetch(`/api/v0/categories/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      return res.json()
+    })
+      .then(response => dispatch({
+        type: LOAD_CATEGORIES + SUCCESS,
+        payload: {
+          response
+        }
+      }))
+      .catch(error => {
+        dispatch({
+          type: LOAD_CATEGORIES + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
 
 export function loadAgreements() {
   return (dispatch) => {

@@ -55,7 +55,7 @@ class ArticleModal extends Component{
                   <NavLink exact activeClassName='active' to='/blog'>Блог</NavLink>
                 </li>
                 <li className="breadcrumb__item">
-                  <NavLink exact activeClassName='active' to={`/article/${slug}`}>{title.slice(0, 54)}</NavLink>
+                  <NavLink exact activeClassName='active' to={`/blog/${slug}`}>{title.slice(0, 54)}</NavLink>
                 </li>
               </ul>
               <h3 className="article__title">{title.slice(0, 84)}</h3>
