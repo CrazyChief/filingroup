@@ -74,7 +74,7 @@ const webpackConfig = {
 			{ 
 				context: './src/assets/images/',
 				from: '**/*', 
-				to: '../../assets/img/'
+				to: outputPath + '/assets/img/'
 			}
 		]),
 		new HtmlWebpackPlugin({
