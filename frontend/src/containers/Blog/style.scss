@@ -14,7 +14,7 @@
 .blog__right{
   width: 29%;
   @include tablets(){
-    width: 100%;
+    display: none;
   }
 }
 
