@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import Masonry from 'react-masonry-component'
 
 import {ObjToImmArr, createMarkup} from '../helpers'
 import {loadPriveleges} from 'actions'
@@ -22,6 +23,7 @@ class ProductModal extends Component {
   render(){
     const {priveleges, products, match, loading} = this.props
     const currentProduct = products.get(match.params.slug)
+    const masonryOptions = {}
     const {
       id,
       title,
@@ -66,13 +68,19 @@ class ProductModal extends Component {
               <div dangerouslySetInnerHTML={createMarkup(description)}/>
             </div>
           </div>
-          <ul className="product__privileges-list">
+          <Masonry
+            className={'product__privileges-list'}
+            elementType={'ul'}
+            options={masonryOptions}
+            disableImagesLoaded={false}
+            updateOnEachImageLoad={false}
+          >
             {priveleges.map(privelege => {
               return privelege.courses.map(course => {
                 if(course.id === id) return <ProductPrivileges key={privelege.id} privelege = {privelege} />
               })
             })}
-          </ul>
+          </Masonry>
         </section>
         <RegisterForm />
       </main>

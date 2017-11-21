@@ -42,6 +42,10 @@ export default function CourseInfo({currentProduct}) {
           {consulting_time_availability_on_this_week?"Доступно":"Занято"}
         </span>
       </li>
+      <a href="#" className="privilege__register-btn">
+        <i className="fa fa-check-circle-o"/>
+        Записаться
+      </a>
     </div>
   )
 }

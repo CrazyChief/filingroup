@@ -6,11 +6,24 @@
   align-items: center;
   padding-top: 40px;
   padding-bottom: 35px;
+  .orange__btn{
+    @include phones(){
+      height: auto;
+      padding: 15px;
+      text-align: center;
+    }
+  }
 }
 .black__whole{
   width: 100%;
   padding: 20px 0;
   background-color: $bg;
+  @include laptops(){
+    padding-right: 25px;
+  }
+  @include tablets(){
+    padding: 20px 25px;
+  }
 }
 .black__whole-title{
   @include Font(bold);
@@ -20,6 +33,10 @@
   text-align: center;
   line-height: 1.1;
   color: $white;
+  @include tablets(){
+    width: 100%;
+    margin-left: 0;
+  }
 }
 .form__content{
   display: flex;
@@ -42,6 +59,14 @@
       border-radius: 3px;
     }
   }
+  @include laptops(){
+    padding-right: 25px;
+  }
+  @include tablets(){
+    width: 100%;
+    margin-left: 0;
+    padding: 25px 25px 50px;
+  }
 }
 .register__form-list{
   display: flex;
@@ -61,6 +86,9 @@
     text-align: center;
     margin-bottom: 10px;
   }
+  @include phones(){
+    width: 100%;
+  }
 }
 
 .phone__contaier{
@@ -71,6 +99,9 @@
   transform: translateX(-50%);
   @include desktops(){
     width: 100%;
+  }
+  @include tablets(){
+    display: none;
   }
 }
 .phone__wrap{

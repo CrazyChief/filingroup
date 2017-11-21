@@ -37,6 +37,10 @@ export default function CourseInfo({currentProduct}) {
         </span>
         <span>{free_places}</span>
       </li>
+      <a href="#" className="privilege__register-btn">
+        <i className="fa fa-check-circle-o"/>
+        Записаться
+      </a>
     </div>
   )
 }

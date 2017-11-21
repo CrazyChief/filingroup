@@ -52,7 +52,7 @@ export default class RegisterForm extends Component{
         <NavLink className="orange__btn" to='/feedbacks'>
           Читать отзывы предыдущих учасников
         </NavLink>
-        <div className="container phone__contaier">
+        <div className="phone__contaier">
           <div className="phone__wrap">
             <img src="/assets/img/products/phone.png" alt="phone"/>
           </div>
