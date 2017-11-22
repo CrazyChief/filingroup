@@ -7,7 +7,7 @@ export default function SecondSection() {
       <div className="container">
         <ul className="home__second-list">
           <li className="home__second-item">
-            <img src="assets/img/main/pic-1.png" alt=""/>
+            <img src="/static/dist/assets/img/main/pic-1.png" alt=""/>
           </li>
           <li className="home__second-item">
             <div className="bubble bubble-right"></div>
@@ -18,10 +18,10 @@ export default function SecondSection() {
             <p>Более <span className="orange bold">250 миллионов</span> Американцев покупают на Амазон каждый год.</p>
           </li>
           <li className="home__second-item">
-            <img src="assets/img/main/pic-2.png" alt=""/>
+            <img src="/static/dist/assets/img/main/pic-2.png" alt=""/>
           </li>
           <li className="home__second-item">
-            <img src="assets/img/main/pic-3.png" alt=""/>
+            <img src="/static/dist/assets/img/main/pic-3.png" alt=""/>
           </li>
           <li className="home__second-item">
             <div className="bubble bubble-right"></div>

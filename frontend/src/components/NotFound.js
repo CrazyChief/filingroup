@@ -10,7 +10,7 @@ export default function NotFound() {
     <main className="main">
       <div className="notfound__wrap">
         <h3 className="notfound__title">Страница не найдена</h3>
-        <img className="notfound__img" src="assets/img/404.png" alt=""/>
+        <img className="notfound__img" src="/static/dist/assets/img/404.png" alt=""/>
         <div className="notfound__info">Упс..похоже страница потерялась во время доставки</div>
       </div>
     </main>

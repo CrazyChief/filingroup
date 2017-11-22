@@ -11,13 +11,13 @@ export default function FifthSection() {
       <ParticledElement height="100%" />
       <div className="container home__fifth-container">
         <div className="macbook__pic">
-          <img src="assets/img/main/macbook.png" alt="macbook"/>
+          <img src="/static/dist/assets/img/main/macbook.png" alt="macbook"/>
           <VideoBtn classToAdd="banner__get-link" />
         </div>
         <h2 className="home__fifth-title bold">
           Посмотрите видео о том, как найти 
           <span className="orange"> товар для успешного </span>
-           старта на <img src="assets/img/main/arrow.png" alt="amazon"/>
+           старта на <img src="/static/dist/assets/img/main/arrow.png" alt="amazon"/>
         </h2>
       </div>
     </section>

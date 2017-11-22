@@ -35,7 +35,7 @@ export default class Header extends Component {
         <div className="container header__container" style={style}>
           <div className="logo">
             <NavLink exact activeClassName='active' to='/'>
-              <img src="assets/img/logo.png" alt="logo"/>
+              <img src="/static/dist/assets/img/logo.png" alt="logo"/>
             </NavLink>
           </div>
           <nav className="mnu">

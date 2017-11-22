@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container header__container footer__container">
         <div className="logo">
           <NavLink exact activeClassName='active' to='/'>
-            <img src="assets/img/logo.png" alt="logo"/>
+            <img src="/static/dist/assets/img/logo.png" alt="logo"/>
           </NavLink>
         </div>
         <ul className="references__list">
