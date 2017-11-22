@@ -38,11 +38,11 @@ const webpackConfig = {
 			},
 			{
 				test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: "url-loader?limit=10000&name=assets/fonts/[name]-[hash].[ext]"
+        use: "url-loader?limit=10000&name=assets/fonts/[name].[ext]"
       },
       {
 				test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        use: 'file-loader?limit=10000&name=assets/fonts/[name]-[hash].[ext]'
+        use: 'file-loader?limit=10000&name=assets/fonts/[name].[ext]'
       },
 			{
 				test: /\.(webm|mp4)$/,
