@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import Access
 
-# Register your models here.
+
+@admin.register(Access)
+class AccessAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 'phone', 'email', 'date_added'
+    )
+    list_filter = [
+        'date_added'
+    ]
