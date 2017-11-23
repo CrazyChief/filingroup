@@ -41,4 +41,6 @@ urlpatterns += [
     url(r'^posts/$', PostListView.as_view(), name='post_list'),
     # List posts filtered by tag
     url(r'^category/(?P<category>[^\.]+)/$', PostListView.as_view()),
+    # Adding an user access
+    url(r'^accesses/new/$', AccessViewSet.as_view(), name='add_access'),
 ]
