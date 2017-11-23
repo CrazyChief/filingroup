@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'site_rules',
     'denial',
     'orders',
+    'take_access',
 ]
 
 MIDDLEWARE = [
