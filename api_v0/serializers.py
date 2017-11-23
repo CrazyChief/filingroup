@@ -8,6 +8,19 @@ from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
+from take_access.models import Access
+
+
+# Take access serializer
+class AccessSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Access
+        fields = (
+            'name',
+            'phone',
+            'email',
+        )
 
 
 # Additional serializers
