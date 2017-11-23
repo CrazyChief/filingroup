@@ -1,3 +1,5 @@
+from django.conf.urls import url
+
 from rest_framework.routers import DefaultRouter
 from .views import *
 
@@ -18,7 +20,7 @@ router.register(r'students', StudentCreateListViewSet)
 #   blog routes
 router.register(r'categories', CategoryBlogViewSet) #   route for blog categories
 router.register(r'tags', TagViewSet)    #   route for blog tags
-router.register(r'posts', PostViewSet)  #   route for blog posts
+# router.register(r'posts', PostViewSet)  #   route for blog posts
 router.register(r'comments', CommentViewSet)    #   route for blog comments
 
 #   agreement
@@ -34,3 +36,9 @@ router.register(r'siterules', SiteRulesViewSet)
 router.register(r'denials', DenialViewSet)
 
 urlpatterns = router.urls
+
+urlpatterns += [
+    url(r'^posts/$', PostListView.as_view(), name='post_list'),
+    # List posts filtered by tag
+    url(r'^category/(?P<category>[^\.]+)/$', PostListView.as_view()),
+]

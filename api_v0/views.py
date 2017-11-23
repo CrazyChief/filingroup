@@ -1,3 +1,4 @@
+from rest_framework.generics import ListAPIView
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.pagination import PageNumberPagination
@@ -147,13 +148,23 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TagSerializer
 
 
-class PostViewSet(viewsets.ReadOnlyModelViewSet):
+class PostListView(ListAPIView):
     """
     API endpoint for listing Post objects
     """
-    queryset = Post.objects.all()
+    queryset = Post.objects.filter(is_published=True)
     serializer_class = PostSerializer
     pagination_class = PageNumberPagination
+
+    def get_queryset(self):
+        query = super(PostListView, self).get_queryset()
+
+        category = self.kwargs.get('category')
+        if category:
+            category = Category.objects.get(slug=category)
+            return query.filter(category=category)
+
+        return query
 
 
 class CommentViewSet(viewsets.ReadOnlyModelViewSet):
