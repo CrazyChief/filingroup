@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.pagination import PageNumberPagination
@@ -10,10 +10,17 @@ from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
+from take_access.models import Access
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
     CourseSerializer, PrivilegeSerializer, StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,\
     TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer, PrivacyPolicySerializer,\
-    SiteRuleSerializer, DenialSerializer
+    SiteRuleSerializer, DenialSerializer, AccessSerializer
+
+
+# Take access viewset
+class AccessViewSet(CreateAPIView):
+    queryset = Access.objects.all()
+    serializer_class = AccessSerializer
 
 
 # About us viewsets
