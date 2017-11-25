@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'denial',
     'orders',
     'take_access',
+    'landing',
 ]
 
 MIDDLEWARE = [
