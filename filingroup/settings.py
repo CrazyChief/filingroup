@@ -168,6 +168,8 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LANDING_UPLOAD_ROOT = os.path.join(BASE_DIR, 'landing/templates/landing')
+
 # CKEDITOR SETTINGS
 
 CKEDITOR_CONFIGS = {

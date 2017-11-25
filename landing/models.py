@@ -1,22 +1,17 @@
 from django.utils.translation import ugettext_lazy as _
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 from django.db import models
 
 from courses.models import Course
 
 
-def upload_path(instance, filename):
-    """
-    Path to uploaded templates
-    :param instance:
-    :param filename:
-    :return:
-    """
-    return "../landing/templates/landing/{0}".format(filename)
+upload_storage = FileSystemStorage(location=settings.LANDING_UPLOAD_ROOT, base_url='/landing')
 
 
 class Landing(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Title'))
-    template_file = models.FileField(upload_to=upload_path, verbose_name=_('Template file (HTML file)'))
+    template_file = models.FileField(upload_to='', storage=upload_storage, verbose_name=_('Template file (HTML file)'))
     course = models.ForeignKey(Course, to_field='slug', null=True, on_delete=models.SET_NULL, verbose_name=_('Course'))
     slug = models.SlugField(null=True, blank=True)
     meta_description = models.TextField(null=True, blank=True, verbose_name=_('Meta description'))
@@ -41,5 +36,16 @@ class Landing(models.Model):
     is_landing_active.admin_order_field = "is_active"
     is_landing_active.boolean = True
     is_landing_active.short_description = _("Is landing active?")
+
+
+#   deleting uploaded file from file storage,
+#   when model object had deleted from db.
+#   Template(.html) file in our case.
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
+
+@receiver(pre_delete, sender=Landing)
+def template_delete(sender, instance, **kwargs):
+    instance.template_file.delete(False)
 
 
