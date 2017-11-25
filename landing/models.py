@@ -4,10 +4,20 @@ from django.db import models
 from courses.models import Course
 
 
+def upload_path(instance, filename):
+    """
+    Path to uploaded templates
+    :param instance:
+    :param filename:
+    :return:
+    """
+    return "../landing/templates/landing/{0}".format(filename)
+
+
 class Landing(models.Model):
-    url = models.URLField(verbose_name=_('URL/Link'))
     title = models.CharField(max_length=200, verbose_name=_('Title'))
-    course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL, verbose_name=_('Course'))
+    template_file = models.FileField(upload_to=upload_path, verbose_name=_('Template file (HTML file)'))
+    course = models.ForeignKey(Course, to_field='slug', null=True, on_delete=models.SET_NULL, verbose_name=_('Course'))
     slug = models.SlugField(null=True, blank=True)
     meta_description = models.TextField(null=True, blank=True, verbose_name=_('Meta description'))
     is_active = models.BooleanField(default=False, verbose_name=_('Is landing active?'))

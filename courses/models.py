@@ -65,8 +65,8 @@ class Course(models.Model):
         (AVAILABLE, _("AVAILABLE")),
         (BUSY, _("BUSY")),
     )
-    title = models.CharField(max_length=300, verbose_name=_('Title'))
-    slug = models.SlugField()
+    title = models.CharField(max_length=300, unique=True, verbose_name=_('Title'))
+    slug = models.SlugField(unique=True)
     course_picture = models.FileField(upload_to=upload_path, blank=True, verbose_name=_('Course picture'))
     course_type = models.ForeignKey(CourseTypes, null=True, on_delete=models.SET_NULL, verbose_name=_('Course type'))
     discount = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Discount'))
