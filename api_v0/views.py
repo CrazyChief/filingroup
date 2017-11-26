@@ -1,4 +1,4 @@
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.pagination import PageNumberPagination
@@ -49,12 +49,29 @@ class CourseTypesViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CourseTypesSerializer
 
 
-class CourseViewSet(viewsets.ReadOnlyModelViewSet):
+# class CourseViewSet(viewsets.ReadOnlyModelViewSet):
+#     """
+#     API endpoint for listing Courses objects
+#     """
+#     queryset = Course.objects.filter(is_active=True)
+#     serializer_class = CourseSerializer
+
+
+class CourseListView(ListAPIView):
     """
     API endpoint for listing Courses objects
     """
     queryset = Course.objects.filter(is_active=True)
     serializer_class = CourseSerializer
+
+
+class CourseDetailView(RetrieveUpdateDestroyAPIView):
+    """
+    API endpoint for displaying single Course objects
+    """
+    queryset = Course.objects.filter(is_active=True)
+    serializer_class = CourseSerializer
+    lookup_field = 'slug'
 
 
 class PrivilegeViewSet(viewsets.ReadOnlyModelViewSet):
@@ -134,7 +151,7 @@ class CourseReviewViewSet(mixins.CreateModelMixin,
             course = ""
         if course:
             course = Course.objects.get(id=course)
-            review.course.add(course)
+            review.course = course
         review.save()
 
 
@@ -172,6 +189,12 @@ class PostListView(ListAPIView):
             return query.filter(category=category)
 
         return query
+
+
+class PostDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.filter(is_published=True)
+    serializer_class = PostSerializer
+    lookup_field = 'slug'
 
 
 class CommentViewSet(viewsets.ReadOnlyModelViewSet):
