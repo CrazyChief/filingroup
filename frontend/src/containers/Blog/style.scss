@@ -267,3 +267,17 @@
     color: $orange;
   }
 }
+.categories__list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.category__item{
+  margin-right: 15px;
+}
+.category__link{
+  color: $orange;
+  &:hover{
+    color: $black;
+  }
+}

@@ -17,17 +17,18 @@ const FeedbackRecord = Record({
   date_added: undefined
 })
 
-const ReducerState = Record({response: null, loading: false, loaded: false, next: null, entities: new OrderedMap({})})
+const ReducerState = Record({loading: false, loaded: false, next: null, entities: new OrderedMap({})})
 
 const defaultState = new ReducerState()
 
 export default (feedbackState = defaultState, action) => {
   const {type, payload} = action
   switch (type) {
-    case POST_FEEDBACK + SUCCESS:
+    case POST_FEEDBACK + START:
       return feedbackState
-        .set('response', payload.response)
-        
+        .set('loaded', false)
+        .set('loading', false)
+
     case LOAD_ALL_FEEDBACKS + START:
       return feedbackState.set('loading', true)
   

@@ -3,6 +3,7 @@ import history from '../history'
 const {
   POST_USER,
   POST_FEEDBACK,
+  LOAD_CATEGORIED_ARTICLE,
   LOAD_CATEGORIES,
   LOAD_AGREEMENTS,
   LOAD_SITERULES,
@@ -56,6 +57,10 @@ export function postUser(data) {
 
 export function postFeedback(data) {
   return (dispatch) => {
+    dispatch({
+        type: POST_FEEDBACK + START,
+        payload: {}
+    })
     fetch('/api/v0/reviews/', {
       method: 'post',
       headers: {
@@ -72,15 +77,48 @@ export function postFeedback(data) {
         }
         return res.json()
       })
+      .then(response => {
+        history.push('/feedbacks')
+        dispatch({
+          type: POST_FEEDBACK + SUCCESS,
+          payload: {
+            response
+          }
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: POST_FEEDBACK + FAIL,
+          payload: {
+            error
+          }
+        })
+      })
+  }
+}
+
+export function loadCategoryArticles(slug){
+  return (dispatch) => {
+    dispatch({
+        type: LOAD_CATEGORIED_ARTICLE + START,
+        payload: {}
+    })
+    fetch(`/api/v0/category/${slug}/`).then(res => {
+      if (res.status >= 400) {
+        throw new Error(res.statusText)
+      }
+      console.log(res)
+      return res.json()
+    })
       .then(response => dispatch({
-        type: POST_FEEDBACK + SUCCESS,
+        type: LOAD_CATEGORIED_ARTICLE + SUCCESS,
         payload: {
           response
         }
       }))
       .catch(error => {
         dispatch({
-          type: POST_FEEDBACK + FAIL,
+          type: LOAD_CATEGORIED_ARTICLE + FAIL,
           payload: {
             error
           }

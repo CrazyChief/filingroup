@@ -37,7 +37,6 @@ class LeaveFeedback extends Component{
     const validateStyle={
       border: correctForm?'':'1px solid red'
     }
-    console.log(response)
     return(
       <main className="main">
         <section className="section container">
@@ -74,14 +73,19 @@ class LeaveFeedback extends Component{
               type="text" 
               name="lastName" 
               placeholder="Фамилия"/>
-            <label style={{color: correctForm?'#fff': 'red'}}>
-              Аватар: {correctForm?'':'Добавьте фото'}
-              <input 
-                className="file input" 
-                ref={pic => {this.photo = pic}} 
-                type="file" 
-                name="avatar"/>
-            </label>
+            <input 
+              className="input" 
+              style={validateStyle}
+              ref={pic => {this.photo = pic}} 
+              type="text" 
+              name="avatar" 
+              placeholder="Ссылка на аватар"/>
+            <input 
+              className="input" 
+              ref={video => {this.video = video}} 
+              type="text" 
+              name="video" 
+              placeholder="Ссылка на видео-отзыв"/>
             <label style={{color: correctForm?'#fff': 'red'}} className="column">
               Выберите курс: 
               <Select
@@ -119,14 +123,6 @@ class LeaveFeedback extends Component{
               ref={text => {this.text = text}}
               name="feedbackText" 
               placeholder="Отзыв"></textarea>
-            <label>
-              Видео-отзыв: 
-              <input 
-                className="file input" 
-                ref={video => {this.video = video}}
-                type="file" 
-                name="video"/>
-            </label>
             <button 
               className="orange__btn">Отправить</button>
           </form>
@@ -151,20 +147,20 @@ class LeaveFeedback extends Component{
       video} = this
     const {value} = this.state
     
-    if(name.value.length && lastName.value.length && text.value.length && photo.files.length && value !== ''){
+    if(name.value.length && lastName.value.length && text.value.length && photo.value.length && value !== ''){
       this.setState({
         correctForm: true
       })
       data['first_name'] = name.value
       data['last_name'] = lastName.value
-      data['avatar'] = photo.files[0]
+      data['avatar'] = photo.value
       data['review'] = text.value
       data['course'] = value.value
       if(facebook.value.length) data['link_to_fb'] = facebook.value
       if(instagram.value.length) data['link_to_inst'] = instagram.value
       if(linkedin.value.length) data['link_to_linkedin'] = linkedin.value
       if(vk.value.length) data['link_to_vk'] = vk.value
-      if(video.files.length) data['video'] = video.files[0]
+      if(video.value.length) data['video'] = video.value
 
       postFeedback(data)
     }else{

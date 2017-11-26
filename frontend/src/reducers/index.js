@@ -9,9 +9,11 @@ import agreements from './agreements'
 import denials from './denials'
 import siterules from './siterules'
 import thanks from './thanks'
+import categories from './categories'
 
 export default combineReducers({
   articles,
+  categories,
   feedbacks,
   products,
   priveleges,

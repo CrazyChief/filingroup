@@ -28,6 +28,7 @@ class Feedbacks extends Component{
   render(){
     const {feedbacks, loading, loaded, next} = this.props
     const masonryOptions = {}
+    console.log(feedbacks)
     if(loading) return <Loader />
     return(
       <main className='main'>
