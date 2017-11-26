@@ -2,6 +2,7 @@ import keyMirror from 'key-mirror'
 
 export default keyMirror({
   LOAD_CATEGORIED_ARTICLE: null,
+  POST_STUDENT: null,
   POST_USER: null,
   POST_FEEDBACK: null,
   LOAD_CATEGORIES: null,

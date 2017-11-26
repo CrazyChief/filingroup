@@ -1,6 +1,7 @@
 import constants from 'constants'
 import history from '../history'
 const {
+  POST_STUDENT,
   POST_USER,
   POST_FEEDBACK,
   LOAD_CATEGORIED_ARTICLE,
@@ -17,6 +18,43 @@ const {
   START, 
   SUCCESS, 
   FAIL} = constants
+
+export function postStudent(data) {
+  return (dispatch) => {
+    fetch('/api/v0/students/', {
+      method: 'post',
+      headers: {
+        'Access-Control-Allow-Origin':'*',
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors',
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if (res.status >= 400) {
+          throw new Error(res.statusText)
+        }
+        return res.json()
+      })
+      .then(response => {
+        history.push('/thanks')
+        return dispatch({
+          type: POST_STUDENT + SUCCESS,
+          payload: {
+            response
+          }
+        })
+      })
+      .catch(error => {
+        history.push('/thanks')
+        dispatch({
+          type: POST_STUDENT + FAIL,
+          payload: {}
+        })
+      })
+  }
+}
 
 export function postUser(data) {
   return (dispatch) => {

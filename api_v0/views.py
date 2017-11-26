@@ -89,12 +89,12 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
 
         # setting course
         try:
-            course = str(self.request.data['course'])
+            courses = str(self.request.data['courses'])
         except:
-            course = ""
-        if course:
-            course = Course.objects.get(id=course)
-            student.courses = course
+            courses = ""
+        if courses:
+            courses = Course.objects.get(id=courses)
+            student.courses = courses
         student.save()
 
 

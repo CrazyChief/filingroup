@@ -18,7 +18,11 @@ class LeaveFeedback extends Component{
 
   state = {
     value: '',
-    correctForm: true
+    correctForm: true,
+    showFB: false,
+    showInst: false,
+    showLinked: false,
+    showVK: false
   }
 
   componentDidMount() {
@@ -28,7 +32,7 @@ class LeaveFeedback extends Component{
 
   render(){
     const {products, loading, loaded, response} = this.props
-    const { value, correctForm } = this.state
+    const { value, correctForm, showFB, showInst, showLinked, showVK } = this.state
     if(!loaded) return <Loader />
     const options = products.map(product => ({
       label: product.title,
@@ -94,30 +98,46 @@ class LeaveFeedback extends Component{
                 onChange={this.valueChange}
               />
             </label>
-            <input 
-              className="input" 
-              ref={facebook => {this.facebook = facebook}}
-              type="text" 
-              name="facebook" 
-              placeholder="Facebook"/>
-            <input 
-              className="input" 
-              ref={instagram => {this.instagram = instagram}}
-              type="text" 
-              name="instagram" 
-              placeholder="Instagram"/>
-            <input 
-              className="input" 
-              ref={linkedin => {this.linkedin = linkedin}}
-              type="text" 
-              name="linkedin" 
-              placeholder="Linkedin"/>
-            <input 
-              className="input" 
-              ref={vk => {this.vk = vk}}
-              type="text" 
-              name="vk" 
-              placeholder="ВКонтакте"/>
+            <label className={`social__label ${showFB?'active':''}`}>
+              <input 
+                className="input" 
+                ref={facebook => {this.facebook = facebook}}
+                onChange={this.handleSocials('fb')}
+                type="text" 
+                name="facebook" 
+                placeholder="Facebook"/>
+                <i className="fa fa-facebook"></i>
+            </label>
+            <label className={`social__label ${showInst?'active':''}`}>
+              <input 
+                className="input" 
+                ref={instagram => {this.instagram = instagram}}
+                onChange={this.handleSocials('inst')}
+                type="text" 
+                name="instagram" 
+                placeholder="Instagram"/>
+                <i className="fa fa-instagram"></i>
+            </label>
+            <label className={`social__label ${showLinked?'active':''}`}>
+              <input 
+                className="input" 
+                ref={linkedin => {this.linkedin = linkedin}}
+                onChange={this.handleSocials('link')}
+                type="text" 
+                name="linkedin" 
+                placeholder="Linkedin"/>
+                <i className="fa fa-linkedin"></i>
+            </label>
+            <label className={`social__label ${showVK?'active':''}`}>
+              <input 
+                className="input" 
+                ref={vk => {this.vk = vk}}
+                onChange={this.handleSocials('vk')}
+                type="text" 
+                name="vk" 
+                placeholder="ВКонтакте"/>
+                <i className="fa fa-vk"></i>
+            </label>
             <textarea 
               style={validateStyle}
               ref={text => {this.text = text}}
@@ -167,6 +187,54 @@ class LeaveFeedback extends Component{
       this.setState({
         correctForm: false
       })
+    }
+  }
+
+  handleSocials = (icon) => e => {
+    if(e.target.value.length != 0){
+      switch (icon) {
+        case 'fb':
+          return this.setState({
+              showFB: true
+            })
+        
+        case 'inst':
+          return this.setState({
+              showInst: true
+            })
+        
+        case 'link':
+          return this.setState({
+              showLinked: true
+            })
+
+        case 'vk':
+          return this.setState({
+              showVK: true
+            })
+      }
+    }else{
+      switch (icon) {
+        case 'fb':
+          return this.setState({
+              showFB: false
+            })
+        
+        case 'inst':
+          return this.setState({
+              showInst: false
+            })
+        
+        case 'link':
+          return this.setState({
+              showLinked: false
+            })
+
+        case 'vk':
+          return this.setState({
+              showVK: false
+            })
+      }
     }
   }
 

@@ -24,15 +24,26 @@
       align-items: flex-start;
       flex-direction: column;
     }
+    &.social__label{
+      width: 48%;
+      input{
+        width: 100%;
+        margin-bottom: 0;
+      }
+      @include phones(){
+        width: 100%;
+      }
+      
+    }
   }
   .input{
     font-size: rem(14px);
     width: 48%;
     height: 45px;
+    margin-bottom: 25px;
     border: 1px solid #ddd;
     border-radius: 3px;
     padding-left: 15px;
-    margin-bottom: 25px;
     &.file{
       border: none;
       width: auto;
@@ -66,6 +77,24 @@
     &:hover{
       color: $text;
       background-color: $white;
+    }
+  }
+}
+
+.social__label{
+  position: relative;
+  .fa{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    color: $text;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: .3s;
+  }
+  &.active{
+    .fa{
+      opacity: 1;
     }
   }
 }

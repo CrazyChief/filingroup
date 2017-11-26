@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {NavLink} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import './style.scss'
+import {postStudent} from 'actions'
 
-export default class RegisterForm extends Component{
+class RegisterForm extends Component{
   static propTypes = {
   }
+
+  state = {
+    correctForm: true
+  }
+
   render(){
+    const {correctForm} = this.state
     return(
       <section className="register">
         <div className="black__whole">
@@ -19,21 +27,36 @@ export default class RegisterForm extends Component{
             </h3>
           </div>
         </div>
-        <form className="register__form">
+        <form onSubmit={this.handleSubmit} className="register__form">
           <div className="container">
             <div className="form__content">
+              <p style={{color: correctForm?'black':'red'}}>
+                {correctForm?'':'Пожалуйста убедитесь что все заполнено корректно!'}
+              </p>
               <ul className="register__form-list">
                 <li className="register__form-item">
-                  <input type="text" placeholder="Имя*"/>
+                  <input 
+                    type="text" 
+                    ref={name => {this.name = name}}
+                    placeholder="Имя*"/>
                 </li>
                 <li className="register__form-item">
-                  <input type="email" placeholder="E-Mail*"/>
+                  <input 
+                    type="email" 
+                    ref={email => {this.email = email}}
+                    placeholder="E-Mail*"/>
                 </li>
                 <li className="register__form-item">
-                  <input type="text" placeholder="Номер телефона*"/>
+                  <input 
+                    type="text" 
+                    ref={phone => {this.phone = phone}}
+                    placeholder="Номер телефона*"/>
                 </li>
                 <li className="register__form-item">
-                  <input type="text" placeholder="Скайп*"/>
+                  <input 
+                    type="text" 
+                    ref={skype => {this.skype = skype}}
+                    placeholder="Скайп*"/>
                 </li>
               </ul>
               <button className="centered privilege__register-btn">
@@ -41,7 +64,10 @@ export default class RegisterForm extends Component{
                 Отправить
               </button>
               <label>
-                <input type="checkbox" name="agreement"/>
+                <input 
+                  type="checkbox" 
+                  ref={checker => {this.checker = checker}} 
+                  name="agreement"/>
                 Я согласен(на) на обработку персональных данных
                 <br/>
                 * поля обязательны к заполнению
@@ -60,4 +86,37 @@ export default class RegisterForm extends Component{
       </section>
     )
   }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const {postStudent} = this.props
+    const data = {}
+    const {courseId} = this.props
+    const {
+      name,
+      email,
+      phone,
+      skype,
+      checker} = this
+
+if (name.value.length && email.value.length && phone.value.length && skype.value.length && isNaN(phone.value) == false && checker.checked) {
+      this.setState({
+        correctForm: true
+      })
+      
+      data.name = name.value
+      data.email = email.value
+      data.phone = phone.value
+      data.skype = skype.value
+      data.courses = courseId
+
+      postStudent(data)
+    }else{
+      this.setState({
+        correctForm: false
+      })
+    }
+  }
 }
+
+export default connect(null, {postStudent})(RegisterForm)
