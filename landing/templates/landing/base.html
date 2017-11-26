@@ -15,14 +15,17 @@
     <link rel="mask-icon" href="{% static "landing/img/logo/safari-pinned-tab.svg" %}" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{% static "landing/css/foundation.css" %}">
-    <link rel="stylesheet" href="{% static "/css/app.css" %}">
+    <link rel="stylesheet" href="{% static "landing/css/app.css" %}">
     <link rel="stylesheet" href="{% static "landing/img/sprite.css" %}">
     <link rel="stylesheet" href="{% static "landing/img/main/sprite.css" %}">
   </head>
   <body>
     <div class="wrapper" id="home">
       <header class="header">
-        <div class="header__container"><a class="icon-logo header__logo" href=""></a>
+        <div class="header__container">
+            <a class="icon-logo header__logo" href="">
+                <img src="{% static "landing/img/logo.png" %}" alt="logo">
+            </a>
           <ul class="header__list">
             <li class="header__item"><a class="header__link" href="tel: +77073510406"><i class="fa fa-phone"></i><span>+7 (707) 351-04-06</span></a></li>
             <li class="header__item"><a class="header__link" href="tel: +380947122007"><i class="fa fa-phone"></i><span>+38 (094) 712-20-07</span></a></li>
@@ -37,7 +40,7 @@
 
       <footer class="footer">
         <section class="footer__topside">
-          <div class="footer__topside-container"><a class="header__logo" href=""><img class="logo__img" src="assets/img/logo-white.png"></a>
+          <div class="footer__topside-container"><a class="header__logo" href=""><img class="logo__img" src="{% static "landing/img/logo-white.png" %}"></a>
             <ul class="footer__social-list">
               <li class="footer__social-item"><a class="footer__scoial-link" href="https://www.facebook.com/infilingroup/" target="_blank"><i class="fa fa-facebook"></i></a></li>
               <li class="footer__social-item"><a class="footer__scoial-link" href="https://www.instagram.com/filingroup/" target="_blank"><i class="fa fa-instagram"></i></a></li>
@@ -69,16 +72,16 @@
         <section class="footer__bottomside">
           <ul class="footer__ref-list">
             <li class="footer__ref-item">
-              <a class="footer__ref-link" href="{% url "pps" %}">Политика конфиденциальности</a>
+              <a class="footer__ref-link" href="/pps">Политика конфиденциальности</a>
             </li>
             <li class="footer__ref-item">
-              <a class="footer__ref-link" href="{% url "agreements" %}">Согласие на рассылку</a>
+              <a class="footer__ref-link" href="/agreements">Согласие на рассылку</a>
             </li>
             <li class="footer__ref-item">
-              <a class="footer__ref-link" href="{% url "denials" %}">Отказ от ответственности</a>
+              <a class="footer__ref-link" href="/denials">Отказ от ответственности</a>
             </li>
             <li class="footer__ref-item">
-              <a class="footer__ref-link" href="{% url "siterules" %}">Правила пользования сайтом</a>
+              <a class="footer__ref-link" href="/siterules">Правила пользования сайтом</a>
             </li>
           </ul>
         </section>

@@ -1,19 +1,19 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Proxima';
-  src: url("../../assets/fonts/ProximaNovaRegular.ttf");
+  src: url("../fonts/ProximaNovaRegular.ttf");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Proxima-bold';
-  src: url("../../assets/fonts/ProximaNovaBold.ttf");
+  src: url("../fonts/ProximaNovaBold.ttf");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Proxima-black';
-  src: url("../../assets/fonts/ProximaNovaBlack.ttf");
+  src: url("../fonts/ProximaNovaBlack.ttf");
   font-weight: normal;
   font-style: normal; }
 
