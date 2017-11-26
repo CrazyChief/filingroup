@@ -38,7 +38,7 @@ class ProductModal extends Component {
       description
     } = currentProduct
     if(loading) return <Loader />
-
+    console.log(title)
     return (
       <main className="main">
         <section className="section product__modal container">
@@ -82,7 +82,7 @@ class ProductModal extends Component {
             })}
           </Masonry>
         </section>
-        <RegisterForm />
+        <RegisterForm courseId={id} />
       </main>
     )
   }

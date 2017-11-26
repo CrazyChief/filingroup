@@ -3,6 +3,6 @@ from .views import LandingView
 
 
 urlpatterns = [
-    url(r'^(?P<slug>[-\w]+)/$', LandingView.as_view()),
+    url(r'^(?P<slug>[-\w]+)([/]+|([^.*/]+))$', LandingView.as_view()),
 ]
 
