@@ -75,7 +75,6 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = [
         'email', 'phone', 'date_added',
     ]
-    filter_horizontal = ('courses',)
 
 
 class CourseReviewAdmin(admin.ModelAdmin):
