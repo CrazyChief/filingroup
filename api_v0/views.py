@@ -111,7 +111,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         # checking student
         if Student.objects.get(email=email, phone=phone):
             # if not Student.objects.get(email=email, phone=phone, courses)
-            self.perform_update(student)
+            return self.perform_update(student)
         else:
             if Student.objects.get(skype__exact=skype):
                 return "This skype already exists!"

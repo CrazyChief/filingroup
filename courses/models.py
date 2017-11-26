@@ -65,7 +65,7 @@ class Course(models.Model):
         (AVAILABLE, _("AVAILABLE")),
         (BUSY, _("BUSY")),
     )
-    title = models.CharField(max_length=300, unique=True, verbose_name=_('Title'))
+    title = models.CharField(max_length=200, unique=True, verbose_name=_('Title'))
     slug = models.SlugField(unique=True)
     course_picture = models.FileField(upload_to=upload_path, blank=True, verbose_name=_('Course picture'))
     course_type = models.ForeignKey(CourseTypes, null=True, on_delete=models.SET_NULL, verbose_name=_('Course type'))
@@ -119,10 +119,10 @@ class Privilege(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=50, default='Name', verbose_name=_('Name'))
-    email = models.EmailField(max_length=100, unique=True, verbose_name='Email')
-    phone = models.CharField(max_length=20, unique=True, verbose_name=_('Phone'))
+    email = models.EmailField(max_length=100, verbose_name='Email')
+    phone = models.CharField(max_length=20, verbose_name=_('Phone'))
     skype = models.CharField(max_length=40, blank=True, null=True, verbose_name=_('Skype'))
-    courses = models.ManyToManyField(Course, verbose_name=_('Courses'))
+    courses = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL, verbose_name=_('Courses'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
