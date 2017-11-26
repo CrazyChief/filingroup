@@ -151,7 +151,6 @@ class LeaveFeedback extends Component{
       video} = this
     const {value} = this.state
     
-    console.log(photo.files[0])
     if(name.value.length && lastName.value.length && text.value.length && photo.files.length && value !== ''){
       this.setState({
         correctForm: true

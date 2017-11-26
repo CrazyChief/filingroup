@@ -8,6 +8,7 @@ import pps from './pps'
 import agreements from './agreements'
 import denials from './denials'
 import siterules from './siterules'
+import thanks from './thanks'
 
 export default combineReducers({
   articles,
@@ -18,5 +19,6 @@ export default combineReducers({
   pps,
   agreements,
   denials,
-  siterules
+  siterules,
+  thanks
 });

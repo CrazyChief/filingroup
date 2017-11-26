@@ -1,5 +1,7 @@
 import constants from 'constants'
+import history from '../history'
 const {
+  POST_USER,
   POST_FEEDBACK,
   LOAD_CATEGORIES,
   LOAD_AGREEMENTS,
@@ -15,6 +17,43 @@ const {
   SUCCESS, 
   FAIL} = constants
 
+export function postUser(data) {
+  return (dispatch) => {
+    fetch('/api/v0/accesses/new/', {
+      method: 'post',
+      headers: {
+        'Access-Control-Allow-Origin':'*',
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors',
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if (res.status >= 400) {
+          throw new Error(res.statusText)
+        }
+        return res.json()
+      })
+      .then(response => {
+        history.push('/thanks')
+        return dispatch({
+          type: POST_USER + SUCCESS,
+          payload: {
+            response
+          }
+        })
+      })
+      .catch(error => {
+        history.push('/thanks')
+        dispatch({
+          type: POST_USER + FAIL,
+          payload: {}
+        })
+      })
+  }
+}
+
 export function postFeedback(data) {
   return (dispatch) => {
     fetch('/api/v0/reviews/', {
@@ -27,7 +66,12 @@ export function postFeedback(data) {
       mode: 'cors',
       body: JSON.stringify(data)
     })
-      .then(res=>res.json())
+      .then(res => {
+        if (res.status >= 400) {
+          throw new Error(res.statusText)
+        }
+        return res.json()
+      })
       .then(response => dispatch({
         type: POST_FEEDBACK + SUCCESS,
         payload: {

@@ -1,0 +1,13 @@
+@import '../../assets/styles/main.scss';
+
+.thanks{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+}

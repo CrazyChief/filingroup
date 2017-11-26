@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
-import {BrowserRouter as Router, Route, Link, NavLink, Switch} from 'react-router-dom'
+import {Router, Route, Link, NavLink, Switch} from 'react-router-dom'
+import history from '../history'
 
 import store from 'store'
 import ScrollToTop from 'components/ScrollToTop'
@@ -15,6 +16,7 @@ import Agreements from 'containers/Agreements'
 import Denials from 'containers/Denials'
 import Siterules from 'containers/Siterules'
 import Products from 'containers/Products'
+import Thanks from 'containers/Thanks'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import NotFound from 'components/NotFound'
@@ -35,7 +37,7 @@ export default class App extends Component{
     const {scrollIsHiden} = this.state
     return(
       <Provider store={store}>
-        <Router>
+        <Router history={history}>
           <div>
             <Header />
             <div>
@@ -50,6 +52,7 @@ export default class App extends Component{
                 <Route exact path='/agreements' component={Agreements}/>
                 <Route exact path='/denials' component={Denials}/>
                 <Route exact path='/siterules' component={Siterules}/>
+                <Route exact path='/thanks' component={Thanks} />
                 <Route exact path='/blog/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
                 <Route path='*' component={NotFound}/>
