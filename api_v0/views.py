@@ -49,14 +49,6 @@ class CourseTypesViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CourseTypesSerializer
 
 
-# class CourseViewSet(viewsets.ReadOnlyModelViewSet):
-#     """
-#     API endpoint for listing Courses objects
-#     """
-#     queryset = Course.objects.filter(is_active=True)
-#     serializer_class = CourseSerializer
-
-
 class CourseListView(ListAPIView):
     """
     API endpoint for listing Courses objects
@@ -102,34 +94,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
             course = ""
         if course:
             course = Course.objects.get(id=course)
-            student.courses.add(course)
-
-        email = str(self.request.data['email'])
-        phone = str(self.request.data['phone'])
-        skype = str(self.request.data['skype'])
-
-        # checking student
-        if Student.objects.get(email=email, phone=phone):
-            # if not Student.objects.get(email=email, phone=phone, courses)
-            return self.perform_update(student)
-        else:
-            if Student.objects.get(skype__exact=skype):
-                return "This skype already exists!"
-            else:
-                student.skype = skype
-
-            student.save()
-
-    def perform_update(self, serializer):
-        student = serializer.save()
-
-        try:
-            course = str(self.request.data['course'])
-        except:
-            course = ""
-        if course:
-            course = Course.objects.get(id=course)
-            student.courses.add(course)
+            student.courses = course
         student.save()
 
 
