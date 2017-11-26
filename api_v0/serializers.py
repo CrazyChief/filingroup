@@ -161,7 +161,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
 class CourseReviewSerializer(serializers.ModelSerializer):
 
-    course = CourseSerializer(read_only=True)
+    # course = CourseSerializer(read_only=True)
 
     class Meta:
         model = CourseReview
