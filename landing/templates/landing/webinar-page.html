@@ -1,0 +1,49 @@
+{% extends "landing/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <main class="main">
+    <section class="webinar__first-section">
+      <h5>Тренинг:</h5>
+      <h1 class="main__title">“Как найти товар для <span class="orange">успешного старта на </span><img class="amazon" src="{% static "landing/img/amazon-white.png" %}">”</h1>
+    </section>
+    <section class="section webinar__second-section">
+      <div class="container">
+        <h2 class="bold section__title">Сегодня  <span class="orange">вы узнаете:</span></h2>
+        <ul class="webinar__second-list">
+          <li class="courses__second-item"><i class="icon-check"></i><span>Как запустить продажи на Амазон за 30 дней</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Узнаете о «подводных камнях» Private Label</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Получите пошаговую инструкцию по выбору ниши и товара</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Сможете открыть свой бизнес, для которого не нужен ни офис, ни сотрудники</span></li>
+        </ul>
+        <div class="video__wrap">
+          <h2>Смотреть видео</h2><a class="video__start-btn" href=""><i class="fa fa-play"></i></a>
+          <video class="video" src="{% static "landing/img/webinar/video.mp4" %}" controls></video>
+        </div>
+      </div>
+    </section>
+    <section class="webinar__third-section">
+      <form class="webinar__third-container" action="#">
+        <h4>Запишитесь на курс сегодня, и получите в качестве бонуса<br><span class="orange">бесплатную консультацию с Алексеем!</span></h4>
+        <input type="email" placeholder="E-mail" required>
+        <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+        <label class="expert__choose agreement__btn">
+          <input type="checkbox" name="agreement">
+          <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
+        </label>
+      </form>
+    </section>
+    <section class="section webinar__fourth-section">
+      <div class="container webinar__fourth-container">
+        <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
+        <h5 class="webinar__descr">Cкачайте Чек лист<br>"Образ мышления при подборе товара.<br>Методики поиска. "</h5>
+        <input type="email" placeholder="E-mail" required>
+        <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+        <label class="expert__choose agreement__btn">
+          <input type="checkbox" name="agreement">
+          <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
+        </label>
+      </div>
+    </section>
+  </main>
+{% endblock %}

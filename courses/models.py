@@ -65,8 +65,8 @@ class Course(models.Model):
         (AVAILABLE, _("AVAILABLE")),
         (BUSY, _("BUSY")),
     )
-    title = models.CharField(max_length=300, verbose_name=_('Title'))
-    slug = models.SlugField()
+    title = models.CharField(max_length=300, unique=True, verbose_name=_('Title'))
+    slug = models.SlugField(unique=True)
     course_picture = models.FileField(upload_to=upload_path, blank=True, verbose_name=_('Course picture'))
     course_type = models.ForeignKey(CourseTypes, null=True, on_delete=models.SET_NULL, verbose_name=_('Course type'))
     discount = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Discount'))
@@ -138,13 +138,15 @@ class CourseReview(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name=_('Course'))
     first_name = models.CharField(max_length=50, verbose_name=_('First name'))
     last_name = models.CharField(max_length=60, verbose_name=_('Last name'))
-    avatar = models.FileField(upload_to=upload_path, blank=True, null=True, verbose_name=_('Avatar'))
+    # avatar = models.FileField(upload_to=upload_path, blank=True, null=True, verbose_name=_('Avatar'))
+    avatar = models.URLField(blank=True, null=True, verbose_name=_('Avatar (link to google drive, etc.)'))
     link_to_fb = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to Facebook'))
     link_to_inst = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to Instagram'))
     link_to_linkedin = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to LinkedIn'))
     link_to_vk = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to Vkontakte'))
     review = models.TextField(verbose_name=_('Review'))
-    video = models.FileField(upload_to=upload_path, blank=True, null=True, verbose_name=_('Video review'))
+    # video = models.FileField(upload_to=upload_path, blank=True, null=True, verbose_name=_('Video review'))
+    video = models.URLField(blank=True, null=True, verbose_name=_('Video review (link to google drive, etc.)'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
