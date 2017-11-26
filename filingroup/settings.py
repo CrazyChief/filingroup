@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'orders',
     'take_access',
     'landing',
+    'rating',
 ]
 
 MIDDLEWARE = [
