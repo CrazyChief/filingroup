@@ -14,7 +14,7 @@ export default function CourseInfo({currentProduct}) {
     teachers,
     description
   } = currentProduct
-  const newPrice = price - (price * + `.${discount.percents}`)
+  const newPrice = discount?price - (price * + `.${discount.percents}`):price
   return(
     <div>
       <li className="product__info-item">
@@ -22,11 +22,11 @@ export default function CourseInfo({currentProduct}) {
         </span>
         <span className="green">{newPrice + '$'}</span>
       </li>
-      <li className="product__info-item">
+      {discount?<li className="product__info-item">
         <span className="bold">Старая цена:
         </span>
         <span className="red">{price + '$'}</span>
-      </li>
+      </li>:null}
       <li className="product__info-item">
         <span className="bold">Курс ведет:
         </span>

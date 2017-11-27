@@ -18,7 +18,7 @@ export default function CouchInfo({currentProduct}) {
     couching_time_availability_on_this_month
 
   } = currentProduct
-  const newPrice = price - (price * + `.${discount.percents}`)
+  const newPrice = discount?price - (price * + `.${discount.percents}`):price
   return (
     <div>
       <li className="product__info-item">

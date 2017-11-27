@@ -16,7 +16,7 @@ export default function CourseInfo({currentProduct}) {
     consulting_time,
     consulting_time_availability_on_this_week
   } = currentProduct
-  const newPrice = price - (price * + `.${discount.percents}`)
+  const newPrice = discount?price - (price * + `.${discount.percents}`):price
   return (
     <div>
       <li className="product__info-item">

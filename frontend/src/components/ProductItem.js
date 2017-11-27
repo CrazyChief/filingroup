@@ -19,12 +19,12 @@ const {
         <div className="product__pic-wrap">
           <img src={course_picture?course_picture:'/static/dist/assets/img/products/pic-1.png'} alt="product" className="product__img"/>
         </div>
-        <div className="product__discount">{`-${discount.percents}%`}</div>
+        {discount?<div className="product__discount">{`-${discount.percents}%`}</div>:null}
         <div className="product__places">{`${free_places} ${placeGetter(free_places)}`}</div>
       </div>
       <div className="product__main">
         <h4 className="product__title">{title}</h4>
-        <div className="product__price">Цена: {getPrice(price, course_type, discount.percents)}</div>
+        <div className="product__price">Цена: {`${discount?getPrice(price, course_type, discount.percents):price}`}</div>
         <NavLink to={`/products/${slug}`} className="product__more-link">Детальнее</NavLink>
       </div>
     </div>
