@@ -24,7 +24,7 @@ const {
       </div>
       <div className="product__main">
         <h4 className="product__title">{title}</h4>
-        <div className="product__price">Цена: {`${discount?getPrice(price, course_type, discount.percents):price}`}</div>
+        <div className="product__price">Цена: {`${discount?getPrice(price, course_type, discount.percents):getPrice(price, course_type)}`}</div>
         <NavLink to={`/products/${slug}`} className="product__more-link">Детальнее</NavLink>
       </div>
     </div>
@@ -43,10 +43,10 @@ function placeGetter(params) {
 }
 
 function getPrice(price, params, discount) {
-  const newPrice = price - (price * +`.${discount}`)
+  const newPrice = discount?price - (price * +`.${discount}`):price
   switch (params.id) {
     case 1:
-      return `${newPrice}$ / 1 курс`
+      return `${newPrice}$ / курс`
 
     case 2:
       return `${newPrice}$ / в месяц`
