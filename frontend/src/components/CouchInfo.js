@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import scrollToComponent from 'react-scroll-to-component'
 
-export default function CouchInfo({currentProduct}) {
+export default function CouchInfo({currentProduct, toScroll}) {
   const {
     id,
     title,
@@ -49,7 +50,10 @@ export default function CouchInfo({currentProduct}) {
             {couching_time_availability_on_this_month?"Доступно":"Занято"}
         </span>
       </li>
-      <a href="#" className="privilege__register-btn">
+      <a 
+        href="#" 
+        onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}
+        className="privilege__register-btn">
         <i className="fa fa-check-circle-o"/>
         Записаться
       </a>

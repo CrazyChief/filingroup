@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import scrollToComponent from 'react-scroll-to-component'
 
 import {createMarkup} from '../helpers'
 
-export default function ProductPrivileges({privelege}) {
+export default function ProductPrivileges({privelege, toScroll}) {
   const {
     id,
     type,
@@ -18,7 +19,10 @@ export default function ProductPrivileges({privelege}) {
       <div className="privilege__content">
         <div className="privilege__price">{price + '$'}</div>
         <div dangerouslySetInnerHTML={createMarkup(description)}/>
-        <a href="#" className="centered privilege__register-btn">
+        <a 
+          href="#" 
+          onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}
+          className="centered privilege__register-btn">
           <i className="fa fa-check-circle-o"/>
           Записаться
         </a>
