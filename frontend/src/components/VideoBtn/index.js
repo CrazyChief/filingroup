@@ -13,12 +13,12 @@ class VideoBtn extends Component{
   state = {
     isOpen: false
   }
-
+  
   render(){
     const {classToAdd} = this.props
     const {isOpen} = this.state
     return(
-      <div className="video__btn-wrap">
+      <div onClick={this.handleClick} className="video__btn-wrap">
         <a 
           href="#" 
           onClick={this.openClickHandler} 
@@ -75,6 +75,17 @@ class VideoBtn extends Component{
     data.email = e.target[2].value
     console.log(data)
     postUser(data)
+  }
+
+  handleClick = e => {
+    const block = $('.get__video-content')
+    if(this.state.isOpen == true){
+      if (!block.is(e.target) && block.has(e.target).length === 0){
+        this.setState({
+          isOpen: false
+        })
+      }
+    }
   }
 
   openClickHandler = e => {
