@@ -1,6 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.contrib.auth.models import User
+from rating.models import Rating
 
 
 def upload_path(instance, filename):
@@ -82,6 +84,7 @@ class Course(models.Model):
     couching_consult_time = models.CharField(max_length=254, verbose_name=_('Couching consult time'), null=True, blank=True)
     couching_time_availability_on_this_month = models.BooleanField(choices=CONSULT_TIME, default=BUSY, verbose_name=_('Couching time availability on this month'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
+    ratings = GenericRelation(Rating)
 
     class Meta:
         ordering = ['-date_added']

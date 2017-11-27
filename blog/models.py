@@ -1,7 +1,9 @@
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.contenttypes.fields import GenericRelation
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+from rating.models import Rating
 
 
 def upload_path(instance, filename):
@@ -63,6 +65,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, verbose_name=_('Tag'))
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, verbose_name=_('Author'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
+    ratings = GenericRelation(Rating)
 
     class Meta:
         ordering = ['-date_added']
