@@ -35,16 +35,17 @@
     justify-content: center;
     width: 25px;
     height: 25px;
-    color: $white;
+    color: $orange;
     left: 101%;
     bottom: 101%;
     font-size: rem(25px);
+    background-color: #fff;
     border: 1px solid $white;
     border-radius: 50%;
-    padding-top: 1px;
+    padding: 5px;
     &:hover{
-      color: $orange;
-      border-color: $orange;
+      color: $bg;
+      border-color: $bg;
     }
     @include phones(){
       left: auto;

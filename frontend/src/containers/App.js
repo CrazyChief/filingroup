@@ -6,6 +6,7 @@ import history from '../history'
 
 import store from 'store'
 import ScrollToTop from 'components/ScrollToTop'
+import {ScrollToTopRoute} from 'decorators'
 
 import Home from 'containers/Home'
 import Blog from 'containers/Blog'
@@ -40,25 +41,24 @@ export default class App extends Component{
         <Router history={history}>
           <div>
             <Header />
-            <div>
+            <ScrollToTopRoute>
               <Switch>
                 <Route exact path='/' component={Home}/>
-                <Route exact path='/feedbacks' component={Feedbacks}/>
                 <Route exact path='/feedbacks/leave-feedback' component={LeaveFeedback}/>
-                <Route exact path='/about' component={About}/>
-                <Route exact path='/products' component={Products}/>
-                <Route exact path='/blog/' component={Blog}/>
-                <Route exact path='/pps' component={PPS}/>
-                <Route exact path='/agreements' component={Agreements}/>
-                <Route exact path='/denials' component={Denials}/>
-                <Route exact path='/siterules' component={Siterules}/>
-                <Route exact path='/thanks' component={Thanks} />
                 <Route exact path='/blog/:slug' render={({match}) => <ArticleModal match={match}/>}/>
                 <Route exact path='/products/:slug' render={(({match}) => <ProductModal match={match}/>)} />
+                <Route path='/about' component={About}/>
+                <Route path='/products/' component={Products}/>
+                <Route path='/feedbacks' component={Feedbacks}/>
+                <Route path='/blog/' component={Blog}/>
+                <Route path='/pps' component={PPS}/>
+                <Route path='/agreements' component={Agreements}/>
+                <Route path='/denials' component={Denials}/>
+                <Route path='/siterules' component={Siterules}/>
+                <Route path='/thanks' component={Thanks} />
                 <Route path='*' component={NotFound}/>
               </Switch>
-            </div>
-            <ScrollToTop hidenScroll={scrollIsHiden} />
+            </ScrollToTopRoute>
             <Footer />
           </div>
         </Router>
@@ -81,6 +81,12 @@ export default class App extends Component{
           scrollIsHiden: true
         })
       }
+    }
+  }
+  scrollToTop = e => {
+    window.scrollTo(0, 0)
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
     }
   }
 }

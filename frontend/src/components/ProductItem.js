@@ -19,12 +19,12 @@ const {
         <div className="product__pic-wrap">
           <img src={course_picture?course_picture:'/static/dist/assets/img/products/pic-1.png'} alt="product" className="product__img"/>
         </div>
-        <div className="product__discount">{`-${discount.percents}%`}</div>
+        {discount?<div className="product__discount">{`-${discount.percents}%`}</div>:null}
         <div className="product__places">{`${free_places} ${placeGetter(free_places)}`}</div>
       </div>
       <div className="product__main">
         <h4 className="product__title">{title}</h4>
-        <div className="product__price">Цена: {getPrice(price, course_type, discount.percents)}</div>
+        <div className="product__price">Цена: {`${discount?getPrice(price, course_type, discount.percents):getPrice(price, course_type)}`}</div>
         <NavLink to={`/products/${slug}`} className="product__more-link">Детальнее</NavLink>
       </div>
     </div>
@@ -43,10 +43,10 @@ function placeGetter(params) {
 }
 
 function getPrice(price, params, discount) {
-  const newPrice = price - (price * +`.${discount}`)
+  const newPrice = discount?price - (price * +`.${discount}`):price
   switch (params.id) {
     case 1:
-      return `${newPrice}$ / 1 курс`
+      return `${newPrice}$ / курс`
 
     case 2:
       return `${newPrice}$ / в месяц`

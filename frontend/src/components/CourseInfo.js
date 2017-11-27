@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import scrollToComponent from 'react-scroll-to-component'
 
-export default function CourseInfo({currentProduct}) {
+export default function CourseInfo({currentProduct, toScroll}) {
   const {
     id,
     title,
@@ -14,7 +15,7 @@ export default function CourseInfo({currentProduct}) {
     teachers,
     description
   } = currentProduct
-  const newPrice = price - (price * + `.${discount.percents}`)
+  const newPrice = discount?price - (price * + `.${discount.percents}`):price
   return(
     <div>
       <li className="product__info-item">
@@ -22,11 +23,11 @@ export default function CourseInfo({currentProduct}) {
         </span>
         <span className="green">{newPrice + '$'}</span>
       </li>
-      <li className="product__info-item">
+      {discount?<li className="product__info-item">
         <span className="bold">Старая цена:
         </span>
         <span className="red">{price + '$'}</span>
-      </li>
+      </li>:null}
       <li className="product__info-item">
         <span className="bold">Курс ведет:
         </span>
@@ -37,7 +38,10 @@ export default function CourseInfo({currentProduct}) {
         </span>
         <span>{free_places}</span>
       </li>
-      <a href="#" className="privilege__register-btn">
+      <a 
+        href="#" 
+        onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}
+        className="privilege__register-btn">
         <i className="fa fa-check-circle-o"/>
         Записаться
       </a>

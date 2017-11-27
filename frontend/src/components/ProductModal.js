@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import Masonry from 'react-masonry-component'
+import scrollToComponent from 'react-scroll-to-component'
 
 import {ObjToImmArr, createMarkup} from '../helpers'
 import {loadPriveleges} from 'actions'
@@ -38,7 +39,6 @@ class ProductModal extends Component {
       description
     } = currentProduct
     if(loading) return <Loader />
-    console.log(title)
     return (
       <main className="main">
         <section className="section product__modal container">
@@ -77,12 +77,12 @@ class ProductModal extends Component {
           >
             {priveleges.map(privelege => {
               return privelege.courses.map(course => {
-                if(course.id === id) return <ProductPrivileges key={privelege.id} privelege = {privelege} />
+                if(course.id === id) return <ProductPrivileges toScroll={this.reg} key={privelege.id} privelege = {privelege} />
               })
             })}
           </Masonry>
         </section>
-        <RegisterForm courseId={id} />
+        <RegisterForm ref={reg => {this.reg = reg}} courseId={id} />
       </main>
     )
   }
@@ -90,11 +90,11 @@ class ProductModal extends Component {
     const {course_type} = currentProduct
     switch(course_type.title){
       case "Коучинг":
-        return <CouchInfo currentProduct={currentProduct}/>
+        return <CouchInfo toScroll={this.reg} currentProduct={currentProduct}/>
       case "Консультация":
-        return <ConsultInfo currentProduct={currentProduct}/>
+        return <ConsultInfo toScroll={this.reg} currentProduct={currentProduct}/>
       default:
-        return <CourseInfo currentProduct={currentProduct}/>
+        return <CourseInfo toScroll={this.reg} currentProduct={currentProduct}/>
     }
   }
 }
