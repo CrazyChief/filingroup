@@ -14,3 +14,4 @@ secret
 package-lock.json
 venv/
 frontend/dist/
+video.mp4
