@@ -7,6 +7,7 @@ const {LOAD_PRIVELEGES, START, SUCCESS, FAIL} = constants
 const PrivelegeRecord = Record({
   id: undefined,
   type: undefined,
+    title: undefined,
   courses: [],
   price: undefined,
   description: undefined,

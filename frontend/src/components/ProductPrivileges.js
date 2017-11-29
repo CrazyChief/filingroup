@@ -8,6 +8,7 @@ export default function ProductPrivileges({privelege, toScroll}) {
   const {
     id,
     type,
+      title,
     courses,
     price,
     description,
@@ -15,7 +16,7 @@ export default function ProductPrivileges({privelege, toScroll}) {
   } = privelege
   return(
     <li className="product__privileges-item">
-      <h4 className="privilege__title">{type}</h4>
+      <h4 className="privilege__title">{title}</h4>
       <div className="privilege__content">
         <div className="privilege__price">{price + '$'}</div>
         <div dangerouslySetInnerHTML={createMarkup(description)}/>
