@@ -23,27 +23,29 @@
       </div>
     </section>
     <section class="webinar__third-section">
-      <form class="webinar__third-container" action="#">
-        <h4>Запишитесь на курс сегодня, и получите в качестве бонуса<br><span class="orange">бесплатную консультацию с Алексеем!</span></h4>
-        <input type="email" placeholder="E-mail" required>
-        <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
-        <label class="expert__choose agreement__btn">
-          <input type="checkbox" name="agreement">
-          <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
-        </label>
-      </form>
-    </section>
-    <section class="section webinar__fourth-section">
-      <div class="container webinar__fourth-container">
-        <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
-        <h5 class="webinar__descr">Cкачайте Чек лист<br>"Образ мышления при подборе товара.<br>Методики поиска. "</h5>
-        <input type="email" placeholder="E-mail" required>
-        <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
-        <label class="expert__choose agreement__btn">
-          <input type="checkbox" name="agreement">
-          <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
-        </label>
-      </div>
-    </section>
+          <form class="webinar__third-container" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+            <h4>Запишитесь на курс сегодня, и получите в качестве бонуса<br><span class="orange">бесплатную консультацию с Алексеем!</span></h4>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="hidden" name="campaign_token" value="TjveQ">
+            <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+            <label class="expert__choose agreement__btn">
+              <input type="checkbox" name="agreement" required>
+              <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
+            </label>
+          </form>
+        </section>
+        <section class="section webinar__fourth-section">
+          <form class="container webinar__fourth-container" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+            <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
+            <h5 class="webinar__descr">Cкачайте Чек лист<br>"Образ мышления при подборе товара.<br>Методики поиска. "</h5>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="hidden" name="campaign_token" value="TjveQ">
+            <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+            <label class="expert__choose agreement__btn">
+              <input type="checkbox" name="agreement" required>
+              <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
+            </label>
+          </form>
+        </section>
   </main>
 {% endblock %}

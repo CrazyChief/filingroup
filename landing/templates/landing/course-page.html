@@ -7,7 +7,27 @@
       <div class="container course__first-container">
         <h5>Практический онлайн-курс Алексея Игнатовича</h5>
         <h1 class="main__title">Бизнес на <img class="amazon" src="{% static "landing/img/amazon.png" %}"> за 30 дней</h1>
-        <h5 class="bold">Старт 26 Ноября</h5><a class="video__btn"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
+        <h5 class="bold">Старт 26 Ноября</h5>
+        <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
+          <div class="get__video-wrap">
+            <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+              <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+              <ul class="get__video-list">
+                <li class="get__video-item"><i class="fa fa-user"></i>
+                  <input type="text" name="name" placeholder="Введите ваше имя">
+                </li>
+                <li class="get__video-item"><i class="fa fa-phone"></i>
+                  <input type="text" name="phone" placeholder="Введите ваш телефон">
+                </li>
+                <li class="get__video-item"><i class="fa fa-envelope"></i>
+                  <input type="email" name="email" placeholder="Введите ваш email">
+                </li>
+              </ul>
+              <input type="hidden" name="campaign_token" value="TjveQ">
+              <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
     <section class="section course__second-section">
@@ -174,7 +194,7 @@
                 <li>• Полная аналитика выбранного Вами товара для запуска</li>
                 <li>• Доступ 24/7 к записям уроков</li>
                 <li>• Проверка ДЗ и короткие комментарии к ним</li>
-              </ul><a class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              </ul><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
             </div>
           </li>
           <li class="product__privileges-item">
@@ -206,7 +226,7 @@
                 <li>• Доступ в закрытую группу в Facebook</li>
                 <li>• Полезные ссылки и платные ресурсы – бесплатно</li>
               </ul>
-              <p><strong>Важно! После обучения все ученики остаются в закрытом сообществе FilinGroup, где всегда могут рассчитывать на помощь и поддержку!</strong></p><a class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              <p><strong>Важно! После обучения все ученики остаются в закрытом сообществе FilinGroup, где всегда могут рассчитывать на помощь и поддержку!</strong></p><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
             </div>
           </li>
           <li class="product__privileges-item">
@@ -216,7 +236,7 @@
               <p><strong>• Все что входит в групповое обучение</strong></p>
               <p>• Прямая связь с Алексеем Игнатовичем в меседжере</p>
               <p>• Индивидуальные консультации со спикером после каждого этапа обучения</p>
-              <p>• Запуск продукта под четким руководством Алексея</p><a class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              <p>• Запуск продукта под четким руководством Алексея</p><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
             </div>
           </li>
         </ul>
@@ -248,7 +268,7 @@
         </div>
       </div>
     </section>
-    <section class="register">
+    <section class="register" id="register">
       <div class="black__whole">
         <div class="container">
           <div class="black__whole-title">
@@ -256,24 +276,25 @@
           </div>
         </div>
       </div>
-      <form class="register__form">
-        <div class="container">
-          <div class="form__content">
-            <ul class="register__form-list">
-              <li class="register__form-item">
-                <input type="text" placeholder="Имя*">
-              </li>
-              <li class="register__form-item">
-                <input type="text" placeholder="Номер телефона*">
-              </li>
-            </ul>
-            <button class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Отправить</button>
-            <label>
-              <input type="checkbox" name="agreement">Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению
-            </label>
-          </div>
-        </div>
-      </form>
+      <form class="register__form" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+            <div class="container">
+              <div class="form__content">
+                <ul class="register__form-list">
+                  <li class="register__form-item">
+                    <input type="text" name="name" placeholder="Имя*">
+                  </li>
+                  <li class="register__form-item">
+                    <input type="email" name="email" placeholder="E-mail*">
+                  </li>
+                </ul>
+                <input type="hidden" name="campaign_token" value="TjveQ">
+                <button class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Отправить</button>
+                <label>
+                  <input type="checkbox" name="agreement">Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению
+                </label>
+              </div>
+            </div>
+          </form>
       <div class="phone__contaier">
         <div class="phone__wrap"><img src="{% static "landing/img/courses/bg-3.png" %}" alt="phone"></div>
       </div>
