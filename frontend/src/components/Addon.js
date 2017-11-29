@@ -18,7 +18,7 @@ class Addon extends Component {
           alt="amazon"/>
         <p>
           <strong> Узнайте как найти товар для успешного старта на Амазон.</strong>
-          <div>Бизнес практикум</div>
+          <div>Посмотрите запись практикума прямо сейчас!</div>
         </p>
         <input 
           type="text" 
