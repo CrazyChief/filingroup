@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static "landing/img/webinar/sprite.css" %}">
   <main class="main">
     <section class="webinar__first-section">
       <h5>Тренинг:</h5>
@@ -26,7 +27,7 @@
           <form class="webinar__third-container" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
             <h4>Запишитесь на курс сегодня, и получите в качестве бонуса<br><span class="orange">бесплатную консультацию с Алексеем!</span></h4>
             <input type="email" name="email" placeholder="E-mail" required>
-            <input type="hidden" name="campaign_token" value="TjveQ">
+            <input type="hidden" name="campaign_token" value="TjveQ" />
             <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
             <label class="expert__choose agreement__btn">
               <input type="checkbox" name="agreement" required>

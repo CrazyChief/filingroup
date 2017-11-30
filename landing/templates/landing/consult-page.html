@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static "landing/img/consulting/sprite.css" %}">
   <main class="main">
     <section class="consult__first-section">
       <div class="container consult__first-container">
@@ -57,7 +58,7 @@
       </div>
     </section>
     <section class="section consult__fifth-section" id="reg">
-      <form class="container consult__fourth-container" action="#">
+      <form class="container consult__fourth-container" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
         <h2 class="bold section__title">Запишитесь сегодня и получите <span class="orange">актуальные ответы от эксперта, </span><br> вместо того, чтобы часами “гуглить” в поисках актуальной информации.</h2>
         <div class="experts__container">
           <h2 class="experts__title">Выберите эксперта</h2>
@@ -162,18 +163,19 @@
           </ul>
           <ul class="expert__input-list">
             <li class="expert__input-item">
-              <input type="text" placeholder="Имя*" required>
+              <input type="text" name="name" placeholder="Имя*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" placeholder="Номер телефона*" required>
+              <input type="text" name="custom_phone" placeholder="Номер телефона*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" placeholder="E-Mail*" required>
+              <input type="text" name="email" placeholder="E-Mail*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" placeholder="Скайп">
+              <input type="text" name="custom_skype" placeholder="Скайп">
             </li>
           </ul>
+            <input type="hidden" name="campaign_token" value="45Rf8" />
           <button class="submit__btn" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
           <label class="expert__choose agreement__btn">
             <input type="checkbox" name="agreement">
