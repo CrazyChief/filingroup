@@ -27,7 +27,7 @@ SECRET_KEY = 'f!h6r2m7*$-k$^=9k$h(nmq23#0ezjl_!!d)4@@q3ug&xw!=-_'
 DEBUG = True
 # DEBUG = False   # for production
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.filingroup.com', '*']
 
 
 # Application definition

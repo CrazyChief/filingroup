@@ -4,9 +4,9 @@ from .models import Landing
 
 @admin.register(Landing)
 class LandingAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("course",)}
+    prepopulated_fields = {"slug": ("title_page",)}
     list_display = (
-        'title', 'course', 'is_landing_active', 'date_added', 'date_changed'
+        'title', 'title_page', 'is_landing_active', 'date_added', 'date_changed'
     )
     list_filter = [
         'date_added', 'date_changed'

@@ -11,8 +11,10 @@ upload_storage = FileSystemStorage(location=settings.LANDING_UPLOAD_ROOT, base_u
 
 class Landing(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Title'))
-    template_file = models.FileField(upload_to='', storage=upload_storage, verbose_name=_('Template file (HTML file)'))
-    course = models.ForeignKey(Course, to_field='slug', null=True, on_delete=models.SET_NULL, verbose_name=_('Course'))
+    template_file = models.FileField(upload_to='',
+                                     storage=upload_storage,
+                                     verbose_name=_('Template file (HTML file)'))
+    title_page = models.CharField(max_length=250, default="", verbose_name=_('Title for page'))
     slug = models.SlugField(null=True, blank=True)
     meta_description = models.TextField(null=True, blank=True, verbose_name=_('Meta description'))
     is_active = models.BooleanField(default=False, verbose_name=_('Is landing active?'))
@@ -25,10 +27,7 @@ class Landing(models.Model):
         verbose_name_plural = _('Landings')
 
     def __str__(self):
-        if self.course is not None:
-            return "Landing {} for {} course".format(self.title, self.course)
-        else:
-            return "Landing {}".format(self.title)
+        return "Landing {}".format(self.title_page)
 
     def is_landing_active(self):
         return self.is_active

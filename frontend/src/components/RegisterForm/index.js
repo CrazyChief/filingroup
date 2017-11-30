@@ -27,7 +27,13 @@ class RegisterForm extends Component{
             </h3>
           </div>
         </div>
-        <form onSubmit={this.handleSubmit} className="register__form">
+        <form 
+          onSubmit={this.handleSubmit} 
+          className="register__form"
+          acceptCharset="utf-8" 
+          action="https://app.getresponse.com/add_subscriber.html"
+          target="_blank" 
+          method="post">>
           <div className="container">
             <div className="form__content">
               <p style={{color: correctForm?'black':'red'}}>
@@ -38,27 +44,32 @@ class RegisterForm extends Component{
                   <input 
                     type="text" 
                     ref={name => {this.name = name}}
+                    name="name"
                     placeholder="Имя*"/>
                 </li>
                 <li className="register__form-item">
                   <input 
                     type="email" 
                     ref={email => {this.email = email}}
+                    name="email"
                     placeholder="E-Mail*"/>
                 </li>
                 <li className="register__form-item">
                   <input 
                     type="text" 
                     ref={phone => {this.phone = phone}}
+                    name="custom_phone"
                     placeholder="Номер телефона*"/>
                 </li>
                 <li className="register__form-item">
                   <input 
                     type="text" 
                     ref={skype => {this.skype = skype}}
+                    name="custom_skype"
                     placeholder="Скайп*"/>
                 </li>
               </ul>
+              <input type="hidden" name="campaign_token" value="45YW8" />
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить
@@ -88,7 +99,6 @@ class RegisterForm extends Component{
   }
 
   handleSubmit = e => {
-    e.preventDefault()
     const {postStudent} = this.props
     const data = {}
     const {courseId} = this.props
@@ -99,7 +109,7 @@ class RegisterForm extends Component{
       skype,
       checker} = this
 
-if (name.value.length && email.value.length && phone.value.length && skype.value.length && isNaN(phone.value) == false && checker.checked) {
+    if (name.value.length && email.value.length && phone.value.length && skype.value.length && isNaN(phone.value) == false && checker.checked) {
       this.setState({
         correctForm: true
       })

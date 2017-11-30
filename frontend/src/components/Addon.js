@@ -8,24 +8,30 @@ class Addon extends Component {
   render(){
     return(
       <form 
-        action="#" 
         onSubmit={this.handleSubmit}
         className="addon" 
-        style={{backgroundImage: `url('/static/dist/assets/img/blog/addon-bg.png')`}}>
+        style={{backgroundImage: `url('/static/dist/assets/img/blog/addon-bg.png')`}}
+        acceptCharset="utf-8" 
+        action="https://app.getresponse.com/add_subscriber.html"
+        target="_blank" 
+        method="post">
         <img 
           className="centered" 
           src="/static/dist/assets/img/main/amazon-black.png" 
           alt="amazon"/>
         <p>
           <strong> Узнайте как найти товар для успешного старта на Амазон.</strong>
-          <div>Бизнес практикум</div>
+          <div>Посмотрите запись практикума прямо сейчас!</div>
         </p>
         <input 
-          type="text" 
+          type="text"
+          name="name"
           placeholder="Ваше имя"/>
         <input 
-          type="email" 
+          type="email"
+          name="email"
           placeholder="Ваш e-mail"/>
+        <input type="hidden" name="campaign_token" value="45RtQ" />
         <button 
           className="centered" 
           type="submit">Получить
@@ -37,11 +43,9 @@ class Addon extends Component {
   handleSubmit = e => {
     const {postUser} = this.props
     const data = {}
-    e.preventDefault()
 
     data.name = e.target[0].value
     data.email = e.target[1].value
-    console.log(data)
     postUser(data)
   }
 }

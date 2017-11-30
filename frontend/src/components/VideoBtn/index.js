@@ -29,23 +29,27 @@ class VideoBtn extends Component{
         <div className={`get__video-wrap ${isOpen?'active':''}`}>
           <form 
             onSubmit={this.handleSubmit}
-            action="#"
-            className="get__video-content">
+            acceptCharset="utf-8" 
+            action="https://app.getresponse.com/add_subscriber.html"
+            className="get__video-content"
+            target="_blank" 
+            method="post">
             <h4 className="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
             <ul className="get__video-list">
               <li className="get__video-item">
                 <FontAwesome name="user"/>
-                <input type="text" placeholder="Введите ваше имя"/>
+                <input type="text" name="name" placeholder="Введите ваше имя"/>
               </li>
               <li className="get__video-item">
                 <FontAwesome name="phone"/>
-                <input type="text" placeholder="Введите ваш телефон"/>
+                <input type="text" name="custom_phone" placeholder="Введите ваш телефон"/>
               </li>
               <li className="get__video-item">
                 <FontAwesome name="envelope"/>
-                <input type="email" placeholder="Введите ваш email"/>
+                <input type="email" name="email" placeholder="Введите ваш email"/>
               </li>
             </ul>
+            <input type="hidden" name="campaign_token" value="45RtQ" />
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}
@@ -68,12 +72,10 @@ class VideoBtn extends Component{
   handleSubmit = e => {
     const {postUser} = this.props
     const data = {}
-    e.preventDefault()
 
     data.name = e.target[0].value
     data.phone = e.target[1].value
     data.email = e.target[2].value
-    console.log(data)
     postUser(data)
   }
 
