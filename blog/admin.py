@@ -36,6 +36,18 @@ class PostAdmin(admin.ModelAdmin):
         'date_added',
         'is_published',
     ]
+    fieldsets = (
+        (None, {
+            'fields': (
+            'title', 'slug', 'course_picture', 'category', 'is_published', 'tags', 'author',)
+        }),
+        ('Description', {
+            'fields': ('announce', 'content',)
+        }),
+        ('SEO/Meta', {
+            'fields': ('meta_title', 'meta_description')
+        }),
+    )
     filter_horizontal = ('tags',)
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}, }
 
