@@ -62,6 +62,8 @@ class Post(models.Model):
     content = models.TextField(verbose_name=_('Content'))
     tags = models.ManyToManyField(Tag, verbose_name=_('Tag'))
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, verbose_name=_('Author'))
+    meta_title = models.CharField(max_length=250, null=True, verbose_name=_('SEO/Meta title'))
+    meta_description = models.TextField(null=True, verbose_name=_('SEO/Meta description'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
