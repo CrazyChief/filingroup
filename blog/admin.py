@@ -38,8 +38,7 @@ class PostAdmin(admin.ModelAdmin):
     ]
     fieldsets = (
         (None, {
-            'fields': (
-            'title', 'slug', 'course_picture', 'category', 'is_published', 'tags', 'author',)
+            'fields': ('title', 'slug', 'cover_picture', 'category', 'is_published', 'tags', 'author',)
         }),
         ('Description', {
             'fields': ('announce', 'content',)
