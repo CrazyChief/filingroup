@@ -58,18 +58,18 @@ class RegisterForm extends Component{
                   <input 
                     type="text" 
                     ref={phone => {this.phone = phone}}
-                    name="phone"
+                    name="custom_phone"
                     placeholder="Номер телефона*"/>
                 </li>
                 <li className="register__form-item">
                   <input 
                     type="text" 
                     ref={skype => {this.skype = skype}}
-                    name="skype"
+                    name="custom_skype"
                     placeholder="Скайп*"/>
                 </li>
               </ul>
-              <input type="hidden" name="campaign_token" value="TjveQ" />
+              <input type="hidden" name="campaign_token" value="45YW8" />
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить

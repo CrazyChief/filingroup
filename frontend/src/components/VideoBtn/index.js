@@ -42,14 +42,14 @@ class VideoBtn extends Component{
               </li>
               <li className="get__video-item">
                 <FontAwesome name="phone"/>
-                <input type="text" name="phone" placeholder="Введите ваш телефон"/>
+                <input type="text" name="custom_phone" placeholder="Введите ваш телефон"/>
               </li>
               <li className="get__video-item">
                 <FontAwesome name="envelope"/>
                 <input type="email" name="email" placeholder="Введите ваш email"/>
               </li>
             </ul>
-            <input type="hidden" name="campaign_token" value="TjveQ" />
+            <input type="hidden" name="campaign_token" value="45RtQ" />
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}
