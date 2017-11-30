@@ -11,6 +11,14 @@ class AboutAdmin(admin.ModelAdmin):
     list_filter = [
         'date_added', 'date_updated',
     ]
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'logo', 'is_active', 'text')
+        }),
+        ('SEO/Meta', {
+            'fields': ('meta_title', 'meta_description')
+        })
+    )
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}, }
 
 
