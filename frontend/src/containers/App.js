@@ -68,7 +68,7 @@ export default class App extends Component{
 
   handleScroll = e => {
     let pageYOffset = window.pageYOffset
-    
+
     if(pageYOffset >= 333){
       if(this.state.scrollIsHiden){
         this.setState({
