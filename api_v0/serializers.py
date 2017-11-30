@@ -121,6 +121,8 @@ class CourseSerializer(serializers.ModelSerializer):
             'couching_timing',
             'couching_consult_time',
             'couching_time_availability_on_this_month',
+            'meta_title',
+            'meta_description',
             'date_added',
         )
 
