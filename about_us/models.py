@@ -19,6 +19,8 @@ class AboutModel(models.Model):
     logo = models.FileField(upload_to=upload_path, verbose_name=_('About Us'))
     is_active = models.BooleanField(default=False, verbose_name=_('Is About description active?'))
     text = models.TextField(verbose_name=_('Text'))
+    meta_title = models.CharField(max_length=250, null=True, verbose_name=_('SEO/Meta title'))
+    meta_description = models.TextField(null=True, verbose_name=_('SEO/Meta description'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
     date_updated = models.DateTimeField(auto_now=True, verbose_name=_('Date updated'))
 

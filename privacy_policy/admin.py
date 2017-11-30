@@ -12,6 +12,14 @@ class PrivacyPolicyAdmin(admin.ModelAdmin):
     list_filter = [
         'is_active', 'date_added', 'date_updated',
     ]
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'is_active', 'content')
+        }),
+        ('SEO/Meta', {
+            'fields': ('meta_title', 'meta_description')
+        })
+    )
     formfield_overrides = {TextField: {'widget': CKEditorUploadingWidget}}
 
 

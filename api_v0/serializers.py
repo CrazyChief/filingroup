@@ -47,6 +47,8 @@ class AboutUsSerializer(serializers.ModelSerializer):
             'logo',
             'is_active',
             'text',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -121,6 +123,8 @@ class CourseSerializer(serializers.ModelSerializer):
             'couching_timing',
             'couching_consult_time',
             'couching_time_availability_on_this_month',
+            'meta_title',
+            'meta_description',
             'date_added',
         )
 
@@ -227,6 +231,8 @@ class PostSerializer(serializers.ModelSerializer):
             'content',
             'tags',
             'author',
+            'meta_title',
+            'meta_description',
             'date_added',
         )
         lookup_field = 'slug'
@@ -259,6 +265,8 @@ class AgreementSerializer(serializers.ModelSerializer):
             'title',
             'content',
             'is_active',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -274,6 +282,8 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -289,6 +299,8 @@ class SiteRuleSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -304,6 +316,8 @@ class DenialSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )

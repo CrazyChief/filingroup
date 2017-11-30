@@ -46,6 +46,9 @@ class CourseAdmin(admin.ModelAdmin):
         ('Description', {
             'fields': ('description',)
         }),
+        ('SEO/Meta', {
+            'fields': ('meta_title', 'meta_description')
+        }),
         ("Advanced settings for consults. (Don't fill this fields, if your course aren't Consult type)", {
             'fields': ('consulting_time', 'consulting_time_availability_on_this_week')
         }),

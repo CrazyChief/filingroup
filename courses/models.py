@@ -83,6 +83,8 @@ class Course(models.Model):
     couching_timing = models.CharField(max_length=254, verbose_name=_('Couching timing'), null=True, blank=True)
     couching_consult_time = models.CharField(max_length=254, verbose_name=_('Couching consult time'), null=True, blank=True)
     couching_time_availability_on_this_month = models.BooleanField(choices=CONSULT_TIME, default=BUSY, verbose_name=_('Couching time availability on this month'))
+    meta_title = models.CharField(max_length=250, null=True, verbose_name=_('SEO/Meta title'))
+    meta_description = models.TextField(null=True, verbose_name=_('SEO/Meta description'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
     ratings = GenericRelation(Rating)
 
