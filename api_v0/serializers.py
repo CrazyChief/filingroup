@@ -229,6 +229,8 @@ class PostSerializer(serializers.ModelSerializer):
             'content',
             'tags',
             'author',
+            'meta_title',
+            'meta_description',
             'date_added',
         )
         lookup_field = 'slug'
