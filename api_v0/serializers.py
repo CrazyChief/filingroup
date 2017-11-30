@@ -47,6 +47,8 @@ class AboutUsSerializer(serializers.ModelSerializer):
             'logo',
             'is_active',
             'text',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -263,6 +265,8 @@ class AgreementSerializer(serializers.ModelSerializer):
             'title',
             'content',
             'is_active',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -278,6 +282,8 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -293,6 +299,8 @@ class SiteRuleSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -308,6 +316,8 @@ class DenialSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
