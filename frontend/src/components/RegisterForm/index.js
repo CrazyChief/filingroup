@@ -32,7 +32,7 @@ class RegisterForm extends Component{
           className="register__form"
           acceptCharset="utf-8" 
           action="https://app.getresponse.com/add_subscriber.html"
-          target="_blank" 
+          target="_blank"
           method="post">>
           <div className="container">
             <div className="form__content">
@@ -69,7 +69,9 @@ class RegisterForm extends Component{
                     placeholder="Скайп*"/>
                 </li>
               </ul>
+              <input type="hidden" name="forward_data" value="post" />
               <input type="hidden" name="campaign_token" value="45YW8" />
+              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить

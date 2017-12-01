@@ -32,7 +32,7 @@ class VideoBtn extends Component{
             acceptCharset="utf-8" 
             action="https://app.getresponse.com/add_subscriber.html"
             className="get__video-content"
-            target="_blank" 
+            target="_blank"
             method="post">
             <h4 className="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
             <ul className="get__video-list">
@@ -49,7 +49,9 @@ class VideoBtn extends Component{
                 <input type="email" name="email" placeholder="Введите ваш email"/>
               </li>
             </ul>
+            <input type="hidden" name="forward_data" value="post" />
             <input type="hidden" name="campaign_token" value="45RtQ" />
+            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}
