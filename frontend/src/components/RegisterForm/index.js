@@ -69,6 +69,7 @@ class RegisterForm extends Component{
                     placeholder="Скайп*"/>
                 </li>
               </ul>
+              <input type="hidden" name="forward_data" value="post" />
               <input type="hidden" name="campaign_token" value="45YW8" />
               <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
               <button className="centered privilege__register-btn">

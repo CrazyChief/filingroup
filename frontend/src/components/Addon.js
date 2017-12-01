@@ -31,6 +31,7 @@ class Addon extends Component {
           type="email"
           name="email"
           placeholder="Ваш e-mail"/>
+          <input type="hidden" name="forward_data" value="post" />
         <input type="hidden" name="campaign_token" value="45RtQ" />
           <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
         <button 
