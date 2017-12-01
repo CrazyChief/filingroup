@@ -32,7 +32,7 @@ class RegisterForm extends Component{
           className="register__form"
           acceptCharset="utf-8" 
           action="https://app.getresponse.com/add_subscriber.html"
-          target="_blank" 
+          target="_blank"
           method="post">>
           <div className="container">
             <div className="form__content">

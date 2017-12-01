@@ -32,7 +32,7 @@ class VideoBtn extends Component{
             acceptCharset="utf-8" 
             action="https://app.getresponse.com/add_subscriber.html"
             className="get__video-content"
-            target="_blank" 
+            target="_blank"
             method="post">
             <h4 className="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
             <ul className="get__video-list">

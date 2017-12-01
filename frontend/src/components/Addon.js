@@ -13,7 +13,7 @@ class Addon extends Component {
         style={{backgroundImage: `url('/static/dist/assets/img/blog/addon-bg.png')`}}
         acceptCharset="utf-8" 
         action="https://app.getresponse.com/add_subscriber.html"
-        target="_blank" 
+        target="_blank"
         method="post">
         <img 
           className="centered" 
