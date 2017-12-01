@@ -50,6 +50,7 @@ class VideoBtn extends Component{
               </li>
             </ul>
             <input type="hidden" name="campaign_token" value="45RtQ" />
+            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}

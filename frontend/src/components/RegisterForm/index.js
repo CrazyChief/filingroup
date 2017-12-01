@@ -70,6 +70,7 @@ class RegisterForm extends Component{
                 </li>
               </ul>
               <input type="hidden" name="campaign_token" value="45YW8" />
+              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить
