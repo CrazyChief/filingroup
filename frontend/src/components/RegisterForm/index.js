@@ -71,7 +71,7 @@ class RegisterForm extends Component{
               </ul>
               <input type="hidden" name="forward_data" value="post" />
               <input type="hidden" name="campaign_token" value="45YW8" />
-              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+              <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить

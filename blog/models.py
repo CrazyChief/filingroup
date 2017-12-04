@@ -67,7 +67,7 @@ class Post(models.Model):
     meta_title = models.CharField(max_length=250, null=True, verbose_name=_('SEO/Meta title'))
     meta_description = models.TextField(null=True, verbose_name=_('SEO/Meta description'))
     date_added = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
-    ratings = GenericRelation(Rating)
+    ratings = GenericRelation(Rating, auto_created=True)
 
     class Meta:
         ordering = ['-date_added']
@@ -79,6 +79,11 @@ class Post(models.Model):
 
     def is_post_published(self):
         return self.is_published
+
+    # def save(self, force_insert=False, force_update=False, using=None,
+    #          update_fields=None):
+    #     if not self.id:
+    #         self.ratings.auto_created
 
     is_post_published.admin_order_field = 'is_published'
     is_post_published.boolean = True

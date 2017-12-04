@@ -14,7 +14,7 @@ from take_access.models import Access
 from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
     CourseSerializer, PrivilegeSerializer, StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,\
     TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer, PrivacyPolicySerializer,\
-    SiteRuleSerializer, DenialSerializer, AccessSerializer
+    SiteRuleSerializer, DenialSerializer, AccessSerializer, RatingSerializer
 
 
 # Take access viewset

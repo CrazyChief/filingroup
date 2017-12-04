@@ -6,13 +6,14 @@ from django.contrib.contenttypes.models import ContentType
 
 
 class Rating(models.Model):
+    score = models.IntegerField(_('score'), default=0)
     count = models.PositiveIntegerField(default=0)
     total = models.PositiveIntegerField(default=0)
     average = models.DecimalField(max_digits=6, decimal_places=3, default=Decimal(0.0))
 
     content_type = models.ForeignKey(ContentType, null=True, blank=True)
     object_id = models.PositiveIntegerField(null=True, blank=True)
-    content_object = GenericForeignKey()
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
         verbose_name = _('Rating')

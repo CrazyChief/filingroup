@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import Cookies from 'js-cookie'
 
 import {postUser} from 'actions'
 
@@ -33,7 +34,7 @@ class Addon extends Component {
           placeholder="Ваш e-mail"/>
           <input type="hidden" name="forward_data" value="post" />
         <input type="hidden" name="campaign_token" value="45RtQ" />
-          <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+          <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
         <button 
           className="centered" 
           type="submit">Получить

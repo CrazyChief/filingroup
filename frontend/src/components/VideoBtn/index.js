@@ -51,7 +51,7 @@ class VideoBtn extends Component{
             </ul>
             <input type="hidden" name="forward_data" value="post" />
             <input type="hidden" name="campaign_token" value="45RtQ" />
-            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+            <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}

@@ -9,6 +9,19 @@ from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
 from take_access.models import Access
+from rating.models import Rating
+
+
+# Rating serializer
+class RatingSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Rating
+        fields = (
+            'count',
+            'total',
+            'average',
+        )
 
 
 # Take access serializer
@@ -217,6 +230,7 @@ class PostSerializer(serializers.ModelSerializer):
     category = CategoryBlogSerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
     author = UserSerializer(read_only=True)
+    ratings = RatingSerializer()
 
     class Meta:
         model = Post
@@ -234,6 +248,7 @@ class PostSerializer(serializers.ModelSerializer):
             'meta_title',
             'meta_description',
             'date_added',
+            'ratings',
         )
         lookup_field = 'slug'
 
