@@ -38,13 +38,13 @@ export default function CourseInfo({currentProduct, toScroll}) {
         </span>
         <span>{free_places}</span>
       </li>
-      <a 
-        href="#" 
-        onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}
-        className="privilege__register-btn">
-        <i className="fa fa-check-circle-o"/>
-        Записаться
-      </a>
+      {/*<a */}
+        {/*href="#" */}
+        {/*onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}*/}
+        {/*className="privilege__register-btn">*/}
+        {/*<i className="fa fa-check-circle-o"/>*/}
+        {/*Записаться*/}
+      {/*</a>*/}
     </div>
   )
 }

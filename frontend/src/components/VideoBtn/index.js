@@ -29,10 +29,9 @@ class VideoBtn extends Component{
         <div className={`get__video-wrap ${isOpen?'active':''}`}>
           <form 
             onSubmit={this.handleSubmit}
-            acceptCharset="utf-8" 
-            action="https://app.getresponse.com/add_subscriber.html"
+            acceptCharset="utf-8"
             className="get__video-content"
-            target="_blank"
+            action=""
             method="post">
             <h4 className="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
             <ul className="get__video-list">
@@ -42,16 +41,13 @@ class VideoBtn extends Component{
               </li>
               <li className="get__video-item">
                 <FontAwesome name="phone"/>
-                <input type="text" name="custom_phone" placeholder="Введите ваш телефон"/>
+                <input type="text" name="phone" placeholder="Введите ваш телефон"/>
               </li>
               <li className="get__video-item">
                 <FontAwesome name="envelope"/>
                 <input type="email" name="email" placeholder="Введите ваш email"/>
               </li>
             </ul>
-            <input type="hidden" name="forward_data" value="post" />
-            <input type="hidden" name="campaign_token" value="45RtQ" />
-            <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
             <button
               type="submit" 
               style={{color: '#fff', border: 'none', cursor: 'pointer'}}
@@ -72,6 +68,7 @@ class VideoBtn extends Component{
   }
 
   handleSubmit = e => {
+    e.preventDefault()
     const {postUser} = this.props
     const data = {}
 

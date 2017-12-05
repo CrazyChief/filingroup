@@ -16,6 +16,7 @@ class RegisterForm extends Component{
 
   render(){
     const {correctForm} = this.state
+      const {privilege} = this.props
     return(
       <section className="register">
         <div className="black__whole">
@@ -31,8 +32,7 @@ class RegisterForm extends Component{
           onSubmit={this.handleSubmit} 
           className="register__form"
           acceptCharset="utf-8" 
-          action="https://app.getresponse.com/add_subscriber.html"
-          target="_blank"
+          action=""
           method="post">>
           <div className="container">
             <div className="form__content">
@@ -69,9 +69,6 @@ class RegisterForm extends Component{
                     placeholder="Скайп*"/>
                 </li>
               </ul>
-              <input type="hidden" name="forward_data" value="post" />
-              <input type="hidden" name="campaign_token" value="45YW8" />
-              <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить
@@ -101,9 +98,11 @@ class RegisterForm extends Component{
   }
 
   handleSubmit = e => {
+    e.preventDefault()
     const {postStudent} = this.props
     const data = {}
     const {courseId} = this.props
+      const {privilege} = this.props
     const {
       name,
       email,
@@ -121,6 +120,12 @@ class RegisterForm extends Component{
       data.phone = phone.value
       data.skype = skype.value
       data.courses = courseId
+
+      if (privilege) {
+        data.privilegeId = privilege
+      }
+
+      console.log(data)
 
       postStudent(data)
     }else{

@@ -13,8 +13,7 @@ class Addon extends Component {
         className="addon" 
         style={{backgroundImage: `url('/static/dist/assets/img/blog/addon-bg.png')`}}
         acceptCharset="utf-8" 
-        action="https://app.getresponse.com/add_subscriber.html"
-        target="_blank"
+        action=""
         method="post">
         <img 
           className="centered" 
@@ -32,9 +31,6 @@ class Addon extends Component {
           type="email"
           name="email"
           placeholder="Ваш e-mail"/>
-          <input type="hidden" name="forward_data" value="post" />
-        <input type="hidden" name="campaign_token" value="45RtQ" />
-          <input type="hidden" name="thankyou_url" value="http://127.0.0.1:8000/thanks/"/>
         <button 
           className="centered" 
           type="submit">Получить
@@ -44,6 +40,7 @@ class Addon extends Component {
   }
 
   handleSubmit = e => {
+    e.preventDefault()
     const {postUser} = this.props
     const data = {}
 
