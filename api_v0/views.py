@@ -136,21 +136,15 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
     def perform_create(self, serializer):
         student = serializer.save()
 
-        # setting course
-        try:
-            courses = str(self.request.data['courses'])
-        except:
-            courses = ""
-            # privilege = ""
-        if courses:
-            courses = Course.objects.get(id=courses)
-            student.courses = courses
-
         name = str(self.request.data['name'])
         email = str(self.request.data['email'])
         phone = str(self.request.data['phone'])
         skype = str(self.request.data['skype'])
-        privilege = str(self.request.data['privilegeId'])
+
+        try:
+            privilege = str(self.request.data['privilegeId'])
+        except:
+            privilege = ""
 
         url = 'https://api.getresponse.com/v3/contacts'
         headers = {
@@ -172,15 +166,36 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
                 }
             ],
         }
-        q = Privilege.objects.get(pk=privilege)
-        if q.type == 'F_S':
-            data['campaign']['campaignId'] = str(settings.GR_COURSE_START_WITHOUT_PAY_TOKEN)
-        elif q.type == 'A_I':
-            data['campaign']['campaignId'] = str(settings.GR_COURSE_ALL_WITHOUT_PAY_TOKEN)
-        elif q.type == 'P':
-            data['campaign']['campaignId'] = str(settings.GR_COURSE_VIP_WITHOUT_PAY_TOKEN)
+
+        # setting course
+        try:
+            courses = str(self.request.data['courses'])
+        except:
+            courses = ""
+        if courses:
+            courses = Course.objects.get(id=courses)
+            student.courses = courses
+
+        if privilege == '':
+            print(courses.course_type.title)
+            if courses.course_type.title == 'Коучинг':
+                data['campaign']['campaignId'] = str(settings.GR_CONSULT_WITHOUT_PAY_TOKEN)
+            elif courses.course_type.title == 'Консультация':
+                data['campaign']['campaignId'] = str(settings.GR_CONSULT_WITHOUT_PAY_TOKEN)
+            elif courses.course_type.title == 'Курс':
+                data['campaign']['campaignId'] = str(settings.GR_COURSE_START_WITHOUT_PAY_TOKEN)
+            else:
+                pass
         else:
-            pass
+            q = Privilege.objects.get(pk=privilege)
+            if q.type == 'F_S':
+                data['campaign']['campaignId'] = str(settings.GR_COURSE_START_WITHOUT_PAY_TOKEN)
+            elif q.type == 'A_I':
+                data['campaign']['campaignId'] = str(settings.GR_COURSE_ALL_WITHOUT_PAY_TOKEN)
+            elif q.type == 'P':
+                data['campaign']['campaignId'] = str(settings.GR_COURSE_VIP_WITHOUT_PAY_TOKEN)
+            else:
+                pass
 
         requests.post(url, data=json.dumps(data), headers=headers)
 
