@@ -144,7 +144,7 @@ class CourseReview(models.Model):
     first_name = models.CharField(max_length=50, verbose_name=_('First name'))
     last_name = models.CharField(max_length=60, verbose_name=_('Last name'))
     # avatar = models.FileField(upload_to=upload_path, blank=True, null=True, verbose_name=_('Avatar'))
-    avatar = models.URLField(blank=True, null=True, verbose_name=_('Avatar (link to google drive, etc.)'))
+    avatar = models.URLField(max_length=1000, blank=True, null=True, verbose_name=_('Avatar (link to google drive, etc.)'))
     link_to_fb = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to Facebook'))
     link_to_inst = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to Instagram'))
     link_to_linkedin = models.URLField(max_length=200, blank=True, null=True, verbose_name=_('Link to LinkedIn'))
