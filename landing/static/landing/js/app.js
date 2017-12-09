@@ -65,8 +65,7 @@ $(document).on('ready', function () {
 		videoBtn.on('click', function (e) {
 			e.preventDefault();
 
-			var $this = $(this),
-			    wrap = $this.siblings('.get__video-wrap');
+			var wrap = $('.get__video-wrap');
 
 			wrap.addClass('active');
 		});

@@ -26,33 +26,37 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
 {% block content %}
     <link rel="stylesheet" href="{% static "landing/img/courses/sprite.css" %}">
   <main class="main">
+      <div class="get__video-wrap">
+        <form class="get__video-content" accept-harset="utf-8" method="post">
+            {% csrf_token %}
+          <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+          <ul class="get__video-list">
+            <li class="get__video-item"><i class="fa fa-user"></i>
+              <input type="text" name="name" placeholder="Введите ваше имя">
+            </li>
+            <li class="get__video-item"><i class="fa fa-phone"></i>
+              <input type="text" name="phone" placeholder="Введите ваш телефон">
+            </li>
+            <li class="get__video-item"><i class="fa fa-envelope"></i>
+              <input type="email" name="email" placeholder="Введите ваш email">
+            </li>
+          </ul>
+            <!-- <input type="hidden" name="forward_data" value="post" />
+          <input type="hidden" name="campaign_token" value="45RtQ" />
+            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
+          <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
+        </form>
+      </div>
     <section class="course__first-section">
       <div class="container course__first-container">
         <h5>Практический онлайн-курс Алексея Игнатовича</h5>
         <h1 class="main__title">Бизнес на <img class="amazon" src="{% static "landing/img/amazon.png" %}"> за 30 дней</h1>
         <h5 class="bold">Старт 26 Ноября</h5>
-        <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
-          <div class="get__video-wrap">
-            <form class="get__video-content" accept-harset="utf-8" method="post">
-                {% csrf_token %}
-              <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
-              <ul class="get__video-list">
-                <li class="get__video-item"><i class="fa fa-user"></i>
-                  <input type="text" name="name" placeholder="Введите ваше имя">
-                </li>
-                <li class="get__video-item"><i class="fa fa-phone"></i>
-                  <input type="text" name="phone" placeholder="Введите ваш телефон">
-                </li>
-                <li class="get__video-item"><i class="fa fa-envelope"></i>
-                  <input type="email" name="email" placeholder="Введите ваш email">
-                </li>
-              </ul>
-                <!-- <input type="hidden" name="forward_data" value="post" />
-              <input type="hidden" name="campaign_token" value="45RtQ" />
-                <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
-              <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
-            </form>
-          </div>
+        <div class="video__btn-wrap">
+            <a class="get__link video__btn" href="#">
+                <i class="fa fa-play-circle-o"></i>
+                Получить доступ к видео
+            </a>
         </div>
       </div>
     </section>
