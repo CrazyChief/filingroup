@@ -2752,7 +2752,7 @@ h6 {
   transition: .3s opacity; }
   .get__video-wrap.active {
     left: 0;
-    /*opacity: 1;*/
+    opacity: 1;
     display: flex;
   }
 
@@ -2808,7 +2808,9 @@ h6 {
   color: #fff;
   text-align: center;
   line-height: 1.1;
-  border-radius: 5px 5px 0 0; }
+  border-radius: 5px 5px 0 0;
+  margin-top: auto;
+}
 
 .get__video-list {
   width: 100%;
