@@ -62,149 +62,54 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
 <script type="text/javascript">
 
 var YOUR_TIME = 20;
-
 //var VIDEO_HEIGHT = auto;
-
 var VIDEO_WIDTH = document.getElementById("video__wrap").offsetWidth;
-
 var VIDEO_ID = 'N5PJ6JjcXuw';
-
 var timer, player;
-
 var tag = document.createElement('script');
-
 var button = document.getElementById('button_wrap');
-
 var time_current = 0;
-
 tag.src = "https://www.youtube.com/iframe_api";
-
 var firstScriptTag = document.getElementsByTagName('script')[0];
-
-
-
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-
-
-
-function onYouTubeIframeAPIReady()
-
-{
-
-player = new YT.Player('player', {
-
-//height: VIDEO_HEIGHT,
-
-width: VIDEO_WIDTH,
-
-videoId: VIDEO_ID,
-
-autoplay:0,
-
-controls:0,
-
-iv_load_policy:3,
-
-rel:0,
-
-showinfo:0,
-
-events: {
-
-'onReady': onPlayerReady,
-
-'onStateChange': onPlayerStateChange
-
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        //height: VIDEO_HEIGHT,
+        width: VIDEO_WIDTH,
+        videoId: VIDEO_ID,
+        autoplay:0,
+        controls:0,
+        iv_load_policy:3,
+        rel:0,
+        showinfo:0,
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+function onPlayerStateChange(event) {
+    if( event.data == YT.PlayerState.PLAYING ) {
+        timer = setInterval( checkTime, 400 );
+    }
+    else {
+        clearInterval( timer );
+    }
 }
 
-});
-
+function onPlayerReady(event) {
+    event.target.playVideo();
 }
 
-
-
-
-
-function onPlayerStateChange(event)
-
-
-
-{
-
-
-
-if( event.data == YT.PlayerState.PLAYING )
-
-
-
-{
-
-
-
-timer = setInterval( checkTime, 400 );
-
-
-
+function checkTime() {
+    time_current = player.getCurrentTime().toString();
+    time_current = time_current.substring( 0, time_current.indexOf('.') );
+    if( parseInt( time_current ) >= parseInt( YOUR_TIME.toString() ) ) {
+        button.style.display = 'block';  jQuery('#button_wrap').show().animate({'opacity':1}, 500);
+        clearInterval( timer );
+    }
 }
-
-
-
-else
-
-
-
-{
-
-clearInterval( timer );
-
-
-
-}
-
-
-
-}
-
-
-
-function onPlayerReady(event)
-
-
-
-{
-
-
-
-event.target.playVideo();
-
-
-
-}
-
-function checkTime()
-
-{
-
-
-
-time_current = player.getCurrentTime().toString();
-
-time_current = time_current.substring( 0, time_current.indexOf('.') );
-
-if( parseInt( time_current ) >= parseInt( YOUR_TIME.toString() ) )
-
-{
-
-button.style.display = 'block';  jQuery('#button_wrap').show().animate({'opacity':1}, 500);
-
-clearInterval( timer );
-
-}
-
-}
-
 </script>
 
 
@@ -220,13 +125,14 @@ clearInterval( timer );
           </div>
         </section>
         <section class="section webinar__fourth-section">
-          <form class="container webinar__fourth-container" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+          <form class="container webinar__fourth-container" accept-harset="utf-8" method="post">
+              {% csrf_token %}
             <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
             <h5 class="webinar__descr">Скачайте чек-лист<br> "21 критерий выбора товара<br> для успешного запуска на Амазон"</h5>
             <input type="email" name="email" placeholder="E-mail" required>
-              <input type="hidden" name="forward_data" value="post" />
+              <!-- <input type="hidden" name="forward_data" value="post" />
             <input type="hidden" name="campaign_token" value="TjveQ">
-              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
             <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
             <label class="expert__choose agreement__btn">
               <input type="checkbox" name="agreement" required>

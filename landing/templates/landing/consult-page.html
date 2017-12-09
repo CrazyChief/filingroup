@@ -80,7 +80,8 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
       </div>
     </section>
     <section class="section consult__fifth-section" id="reg">
-      <form class="container consult__fourth-container" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+      <form class="container consult__fourth-container" accept-charset="utf-8" method="post">
+          {% csrf_token %}
         <h2 class="bold section__title">Запишитесь сегодня и получите <span class="orange">актуальные ответы от эксперта, </span><br> вместо того, чтобы часами “гуглить” в поисках актуальной информации.</h2>
         <div class="experts__container">
           <h2 class="experts__title">Выберите эксперта</h2>
@@ -161,18 +162,18 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
               <input type="text" name="name" placeholder="Имя*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" name="custom_phone" placeholder="Телефон* (+38 000 000 00 00)" required>
+              <input type="text" name="phone" placeholder="Телефон* (+38 000 000 00 00)" required>
             </li>
             <li class="expert__input-item">
               <input type="text" name="email" placeholder="E-Mail*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" name="custom_skype" placeholder="Скайп">
+              <input type="text" name="skype" placeholder="Скайп">
             </li>
           </ul>
-            <input type="hidden" name="forward_data" value="post" />
+            <!-- <input type="hidden" name="forward_data" value="post" />
             <input type="hidden" name="campaign_token" value="45Rf8" />
-            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
           <button class="submit__btn" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
           <label class="expert__choose agreement__btn">
             <input type="checkbox" name="agreement">

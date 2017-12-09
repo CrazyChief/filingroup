@@ -49,22 +49,23 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
           <p>Всего за два часа работы вы узнаете нюансы работы<br>с Амазон и узнаете, как выбрать свой первый товар</p>
           <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
                 <div class="get__video-wrap">
-                  <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+                  <form class="get__video-content" accept-harset="utf-8" method="post">
+                  {% csrf_token %}
                     <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
                     <ul class="get__video-list">
                       <li class="get__video-item"><i class="fa fa-user"></i>
                         <input type="text" name="name" placeholder="Введите ваше имя">
                       </li>
                       <li class="get__video-item"><i class="fa fa-phone"></i>
-                        <input type="text" name="custom_phone" placeholder="Введите телефон (+38 000 000 00 00)">
+                        <input type="text" name="phone" placeholder="Введите телефон (+38 000 000 00 00)">
                       </li>
                       <li class="get__video-item"><i class="fa fa-envelope"></i>
                         <input type="email" name="email" placeholder="Введите ваш email">
                       </li>
                     </ul>
-                      <input type="hidden" name="forward_data" value="post" />
+                      <!-- <input type="hidden" name="forward_data" value="post" />
                     <input type="hidden" name="campaign_token" value="45RtQ" />
-                      <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+                      <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
                     <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
                   </form>
                 </div>
@@ -97,27 +98,28 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
         <div class="third__pic"><img class="third__img" src="{% static "landing/img/macbook.png" %}">
         <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o">
         </i>Получить доступ к видео</a>
-                <div class="get__video-wrap">
-                  <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
-                    <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
-                    <ul class="get__video-list">
-                      <li class="get__video-item"><i class="fa fa-user"></i>
-                        <input type="text" name="name" placeholder="Введите ваше имя">
-                      </li>
-                      <li class="get__video-item"><i class="fa fa-phone"></i>
-                        <input type="text" name="custom_phone" placeholder="Введите ваш телефон">
-                      </li>
-                      <li class="get__video-item"><i class="fa fa-envelope"></i>
-                        <input type="email" name="email" placeholder="Введите ваш email">
-                      </li>
-                    </ul>
-                      <input type="hidden" name="forward_data" value="post" />
-                    <input type="hidden" name="campaign_token" value="45RtQ" />
-                      <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
-                    <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
-                  </form>
-                </div>
-              </div>
+            <div class="get__video-wrap">
+              <form class="get__video-content" accept-harset="utf-8" method="post">
+                  {% csrf_token %}
+                <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+                <ul class="get__video-list">
+                  <li class="get__video-item"><i class="fa fa-user"></i>
+                    <input type="text" name="name" placeholder="Введите ваше имя">
+                  </li>
+                  <li class="get__video-item"><i class="fa fa-phone"></i>
+                    <input type="text" name="phone" placeholder="Введите ваш телефон">
+                  </li>
+                  <li class="get__video-item"><i class="fa fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Введите ваш email">
+                  </li>
+                </ul>
+                  <!-- <input type="hidden" name="forward_data" value="post" />
+                <input type="hidden" name="campaign_token" value="45RtQ" />
+                  <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
+                <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
+              </form>
+            </div>
+          </div>
         </div>
         <ul class="third__list">
           <li class="third__item">
@@ -193,27 +195,29 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
       </div>
       <div class="container">
       <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
-                <div class="get__video-wrap">
-                  <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
-                    <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
-                    <ul class="get__video-list">
-                      <li class="get__video-item"><i class="fa fa-user"></i>
-                        <input type="text" name="name" placeholder="Введите ваше имя">
-                      </li>
-                      <li class="get__video-item"><i class="fa fa-phone"></i>
-                        <input type="text" name="custom_phone" placeholder="Введите ваш телефон">
-                      </li>
-                      <li class="get__video-item"><i class="fa fa-envelope"></i>
-                        <input type="email" name="email" placeholder="Введите ваш email">
-                      </li>
-                    </ul>
-                      <input type="hidden" name="forward_data" value="post" />
-                    <input type="hidden" name="campaign_token" value="45RtQ" />
-                      <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
-                    <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
-                  </form>
-                </div>
-              </div></div>
+        <div class="get__video-wrap">
+          <form class="get__video-content" accept-harset="utf-8" method="post">
+              {% csrf_token %}
+            <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+            <ul class="get__video-list">
+              <li class="get__video-item"><i class="fa fa-user"></i>
+                <input type="text" name="name" placeholder="Введите ваше имя">
+              </li>
+              <li class="get__video-item"><i class="fa fa-phone"></i>
+                <input type="text" name="phone" placeholder="Введите ваш телефон">
+              </li>
+              <li class="get__video-item"><i class="fa fa-envelope"></i>
+                <input type="email" name="email" placeholder="Введите ваш email">
+              </li>
+            </ul>
+              <!-- <input type="hidden" name="forward_data" value="post" />
+            <input type="hidden" name="campaign_token" value="45RtQ" />
+              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
+            <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
+          </form>
+        </div>
+      </div>
+      </div>
       <div class="sixth__bg"></div>
     </section>
     <section class="section seventh__section">
@@ -378,22 +382,23 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
       <div class="container">
       <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
         <div class="get__video-wrap">
-          <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+          <form class="get__video-content" accept-harset="utf-8" method="post">
+              {% csrf_token %}
             <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
             <ul class="get__video-list">
               <li class="get__video-item"><i class="fa fa-user"></i>
                 <input type="text" name="name" placeholder="Введите ваше имя">
               </li>
               <li class="get__video-item"><i class="fa fa-phone"></i>
-                <input type="text" name="custom_phone" placeholder="Введите ваш телефон">
+                <input type="text" name="phone" placeholder="Введите ваш телефон">
               </li>
               <li class="get__video-item"><i class="fa fa-envelope"></i>
                 <input type="email" name="email" placeholder="Введите ваш email">
               </li>
             </ul>
-              <input type="hidden" name="forward_data" value="post" />
+              <!-- <input type="hidden" name="forward_data" value="post" />
             <input type="hidden" name="campaign_token" value="45RtQ" />
-              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
             <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
           </form>
         </div>
@@ -427,22 +432,23 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
         <h2 class="bold section__title">Остались вопросы?</h2>
         <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
           <div class="get__video-wrap">
-            <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
+            <form class="get__video-content" accept-harset="utf-8" method="post">
+                {% csrf_token %}
               <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
               <ul class="get__video-list">
                 <li class="get__video-item"><i class="fa fa-user"></i>
                   <input type="text" name="name" placeholder="Введите ваше имя">
                 </li>
                 <li class="get__video-item"><i class="fa fa-phone"></i>
-                  <input type="text" name="custom_phone" placeholder="Введите ваш телефон">
+                  <input type="text" name="phone" placeholder="Введите ваш телефон">
                 </li>
                 <li class="get__video-item"><i class="fa fa-envelope"></i>
                   <input type="email" name="email" placeholder="Введите ваш email">
                 </li>
               </ul>
-                <input type="hidden" name="forward_data" value="post" />
+                <!-- <input type="hidden" name="forward_data" value="post" />
               <input type="hidden" name="campaign_token" value="45RtQ" />
-                <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/>
+                <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
               <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
             </form>
           </div>
