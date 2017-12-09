@@ -1,13 +1,50 @@
 {% extends "landing/base.html" %}
 {% load staticfiles %}
 
-{% block content %}
+{% block links %}
     <link rel="stylesheet" href="{% static "landing/img/main/sprite.css" %}">
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+  </script>
+
+        {% endblock links %}
+
+
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
+{% block content %}
   <main class="main">
     <section class="first__section">
       <div class="container first__section-wrapper">
         <div class="first__section-container">
-          <h5>Бесплатный практикум</h5>
+          <h5>Бесплатный практикум </h5>
           <h1 class="main__title">Как найти товар для успешного старта на<img class="amazon" src="{% static "landing/img/amazon.png" %}"></h1>
           <p>Всего за два часа работы вы узнаете нюансы работы<br>с Амазон и узнаете, как выбрать свой первый товар</p>
           <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
@@ -19,7 +56,7 @@
                         <input type="text" name="name" placeholder="Введите ваше имя">
                       </li>
                       <li class="get__video-item"><i class="fa fa-phone"></i>
-                        <input type="text" name="custom_phone" placeholder="Введите ваш телефон">
+                        <input type="text" name="custom_phone" placeholder="Введите телефон (+38 000 000 00 00)">
                       </li>
                       <li class="get__video-item"><i class="fa fa-envelope"></i>
                         <input type="email" name="email" placeholder="Введите ваш email">
@@ -58,7 +95,8 @@
       <h2 class="bold section__title white">После просмотра <span class="orange">видео</span> вы:</h2>
       <div class="third__content">
         <div class="third__pic"><img class="third__img" src="{% static "landing/img/macbook.png" %}">
-        <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
+        <div class="video__btn-wrap"><a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o">
+        </i>Получить доступ к видео</a>
                 <div class="get__video-wrap">
                   <form class="get__video-content" accept-harset="utf-8" action="https://app.getresponse.com/add_subscriber.html" target="_blank" method="post">
                     <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
@@ -87,15 +125,15 @@
             <div class="bold">Узнаете как запустить продажи на Амазон <span class="orange">за 30 дней</span></div>
           </li>
           <li class="third__item">
-            <div class="third__icon"><i class="icon-form_2"></i></div>
+            <div class="third__icon w3-spin"><i class="icon-form_2"></i></div>
             <div class="bold">Получите <span class="orange">пошаговую инструкцию </span>по выбору ниши и товара</div>
           </li>
           <li class="third__item">
-            <div class="third__icon"><i class="icon-form_3"></i></div>
+            <div class="third__icon w3-spin"><i class="icon-form_3"></i></div>
             <div class="bold">Узнаете о <span class="orange">«подводных камнях» </span>Private Label</div>
           </li>
           <li class="third__item">
-            <div class="third__icon"><i class="icon-form_4"></i></div>
+            <div class="third__icon w3-spin"><i class="icon-form_4"></i></div>
             <div class="bold">Сможете <span class="orange">открыть бизнес, </span>для которого не нужен ни офис, ни сотрудники</div>
           </li>
         </ul>
@@ -213,7 +251,7 @@
         <ul class="eight__list">
           <li class="eight__item">
             <div class="eight__number-wrap">
-              <div class="eight__number">306 покупок</div>
+              <div class="eight__number"><span class="counter" style="display: inline-block;">306 </span> покупок</div>
             </div>
             <div class="eight__descr">
               <div>совершается за 1</div>
@@ -222,7 +260,7 @@
           </li>
           <li class="eight__item">
             <div class="eight__number-wrap">
-              <div class="eight__number">90%</div>
+              <div class="eight__number"><span class="counter" style="display: inline-block;">90 </span> %</div>
             </div>
             <div class="eight__descr">
               <div>американцев</div>
@@ -231,7 +269,7 @@
           </li>
           <li class="eight__item">
             <div class="eight__number-wrap">
-              <div class="eight__number">$364 млрд.</div>
+              <div class="eight__number">$<span class="counter" style="display: inline-block;">364 </span> млрд.</div>
             </div>
             <div class="eight__descr">
               <div>продаж</div>
@@ -240,7 +278,7 @@
           </li>
           <li class="eight__item">
             <div class="eight__number-wrap">
-              <div class="eight__number">$6,5 млрд.</div>
+              <div class="eight__number">$<span class="counter" style="display: inline-block;">6,5 </span> млрд.</div>
             </div>
             <div class="eight__descr">
               <div>капитализация</div>
@@ -311,21 +349,21 @@
         <h2 class="bold section__title">Результаты наших учеников за <span class="orange">первый месяц работы</span></h2>
         <ul class="results__list">
           <li class="result__item">
-            <div class="result__link"><img src="{% static "landing/img/main/pic-4.png" %}"></div>
+            <div class="result__link"><img src="{% static "landing/img/main/result1.jpg" %}"></div>
             <div class="result__descr">
-              <div class="bold"><span class="orange">$17,000 </span> за <span class="orange"> 30 </span> дней</div>
+              <div class="bold"><span class="orange">$11,290 </span> за <span class="orange"> 30 </span> дней</div>
             </div>
           </li>
           <li class="result__item">
-            <div class="result__link"><img src="{% static "landing/img/main/pic-5.png" %}"></div>
+            <div class="result__link"><img src="{% static "landing/img/main/result2.jpg" %}"></div>
             <div class="result__descr">
-              <div class="bold"><span class="orange">$20,000 </span>за <span class="orange">30 </span>дней</div>
+              <div class="bold"><span class="orange">$4,947 </span>за <span class="orange">30 </span>дней</div>
             </div>
           </li>
           <li class="result__item">
-            <div class="result__link"><img src="{% static "landing/img/main/pic-6.png" %}"></div>
+            <div class="result__link"><img src="{% static "landing/img/main/result3.jpg" %}"></div>
             <div class="result__descr">
-              <div class="bold"><span class="orange">$8,500 </span>за <span class="orange">30 </span>дней</div>
+              <div class="bold"><span class="orange">$9,286 </span>за <span class="orange">30 </span>дней</div>
             </div>
           </li>
         </ul>

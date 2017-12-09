@@ -17,6 +17,20 @@
     <link rel="stylesheet" href="{% static "landing/css/foundation.css" %}">
     <link rel="stylesheet" href="{% static "landing/css/app.css" %}">
     <link rel="stylesheet" href="{% static "landing/img/sprite.css" %}">
+
+    <link rel="stylesheet" href="{% static "landing/css/w3.css" %}">
+
+      {% block links %}
+
+        {% endblock links %}
+
+
+    <style>
+
+    </style>
+{% block pixel %}
+
+{% endblock pixel %}
   </head>
   <body>
     <div class="wrapper" id="home">
@@ -92,6 +106,11 @@
     <!--[if lt IE 9]>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <![endif]-->
+
+    {% block scripts %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{% static "landing/js/jquery.counterup.min.js" %}"></script>
+    {% endblock scripts %}
 
   </body>
 </html>

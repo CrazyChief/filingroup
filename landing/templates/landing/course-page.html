@@ -1,6 +1,28 @@
 {% extends "landing/base.html" %}
 {% load staticfiles %}
 
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
 {% block content %}
     <link rel="stylesheet" href="{% static "landing/img/courses/sprite.css" %}">
   <main class="main">
@@ -262,20 +284,22 @@
       </div>
       <div class="particle-canvas"></div>
     </section>
-    <section class="section course__eighth-section">
-      <div class="container">
-        <h2 class="bold section__title">Хотите <span class="orange">Ответы </span>на часто задаваемые вопросы:</h2>
-        <div class="video__wrap">
-          <h2>Смотреть видео</h2><a class="video__start-btn" href=""><i class="fa fa-play"></i></a>
-          <video class="video" src="{% static "landing/img/webinar/video.mp4" %}"></video>
-        </div>
-      </div>
-    </section>
+    <!--<section class="section course__eighth-section">-->
+      <!--<div class="container">-->
+        <!--<h2 class="bold section__title">Хотите <span class="orange">Ответы </span>на часто задаваемые вопросы:</h2>-->
+        <!--<div class="video__wrap">-->
+          <!--<h2>Смотреть видео</h2><a class="video__start-btn" href=""><i class="fa fa-play"></i></a>-->
+          <!--<video class="video" src="{% static "landing/img/webinar/video.mp4" %}"></video>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</section>-->
     <section class="register" id="register">
       <div class="black__whole">
         <div class="container">
           <div class="black__whole-title">
-            <h4 class="orange">Остались вопросы?</h4><span class="bold">Напишите нам в один из мессенджеров:</span><span>viber, telegram, whatsapp, fbmessenger, или заполните  форму ниже и мы свяжемся с вами в ближайшее время:</span>
+            <h4 class="orange">Остались вопросы?</h4><span class="bold">
+                Напишите нам в <a style="color: #55acee;" target="_blank" href="https://www.facebook.com/messages/t/infilingroup">
+                     Facebook Messenger</a></span><span>или заполните форму ниже и мы свяжемся с вами в ближайшее время:</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,28 @@
 {% extends "landing/base.html" %}
 {% load staticfiles %}
 
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
 {% block content %}
     <link rel="stylesheet" href="{% static "landing/img/consulting/sprite.css" %}">
   <main class="main">
@@ -63,8 +85,9 @@
         <div class="experts__container">
           <h2 class="experts__title">Выберите эксперта</h2>
           <p>Просто кликните на фото или поставьте галочку</p>
-          <ul class="experts__list">
-            <li class="expert__item active">
+
+          <ul class="experts__list" >
+            <li class="expert__item active" style="margin: 0 auto;">
               <label>
                 <div class="expert__pic"><img src="{% static "landing/img/consulting/pic-1.png" %}"></div>
                 <h4 class="expert__name">Алексей Игнатович</h4>
@@ -80,39 +103,11 @@
                 </div>
               </label>
             </li>
-            <li class="expert__item">
-              <label>
-                <div class="expert__pic"><img src="{% static "landing/img/consulting/pic-1.png" %}"></div>
-                <h4 class="expert__name">Алексей Игнатович</h4>
-                <div class="expert__role">Создатель Filin Group</div>
-                <ul class="expert__price-list">
-                  <li class="expert__price-item"><span class="price__time">30 минут</span><span class="price__cost">25 $</span></li>
-                  <li class="expert__price-item"><span class="price__time">1 час</span><span class="price__cost">35 $</span></li>
-                  <li class="expert__price-item"><span class="price__time">2 часа</span><span class="price__cost">50 $</span></li>
-                </ul>
-                <div class="expert__choose">
-                  <input type="radio" name="expert">
-                  <label><i class="fa fa-check"></i></label>Выбрать
-                </div>
-              </label>
-            </li>
-            <li class="expert__item">
-              <label>
-                <div class="expert__pic"><img src="{% static "landing/img/consulting/pic-1.png" %}"></div>
-                <h4 class="expert__name">Алексей Игнатович</h4>
-                <div class="expert__role">Создатель Filin Group</div>
-                <ul class="expert__price-list">
-                  <li class="expert__price-item"><span class="price__time">30 минут</span><span class="price__cost">25 $</span></li>
-                  <li class="expert__price-item"><span class="price__time">1 час</span><span class="price__cost">35 $</span></li>
-                  <li class="expert__price-item"><span class="price__time">2 часа</span><span class="price__cost">50 $</span></li>
-                </ul>
-                <div class="expert__choose">
-                  <input type="radio" name="expert" checked>
-                  <label><i class="fa fa-check"></i></label>Выбрать
-                </div>
-              </label>
-            </li>
+            </div>
           </ul>
+
+
+
         </div>
         <div class="experts__container">
           <h2 class="experts__title">Укажите необходимую информацию</h2>
@@ -166,7 +161,7 @@
               <input type="text" name="name" placeholder="Имя*" required>
             </li>
             <li class="expert__input-item">
-              <input type="text" name="custom_phone" placeholder="Номер телефона*" required>
+              <input type="text" name="custom_phone" placeholder="Телефон* (+38 000 000 00 00)" required>
             </li>
             <li class="expert__input-item">
               <input type="text" name="email" placeholder="E-Mail*" required>
