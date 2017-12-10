@@ -44,7 +44,7 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
 {% block content %}
   <main class="main">
       <div class="get__video-wrap">
-        <form class="get__video-content" accept-harset="utf-8" method="post">
+        <form class="get__video-content" action="" method="post">
             {% csrf_token %}
           <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
           <ul class="get__video-list">
@@ -58,7 +58,7 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
                 {{ form.email }}
             </li>
           </ul>
-          <button class="inner__video-btn" type="submit">
+          <button class="inner__video-btn" name="form" type="submit">
               <i class="fa fa-play-circle-o"></i>
               Получить доступ к видео
           </button>

@@ -82,7 +82,7 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
       </div>
     </section>
     <section class="section consult__fifth-section" id="reg">
-      <form class="container consult__fourth-container" accept-charset="utf-8" method="post">
+      <form class="container consult__fourth-container" action="" method="post">
           {% csrf_token %}
         <h2 class="bold section__title">Запишитесь сегодня и получите <span class="orange">актуальные ответы от эксперта, </span><br> вместо того, чтобы часами “гуглить” в поисках актуальной информации.</h2>
         <div class="experts__container">
@@ -173,7 +173,7 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
               {{ consult_form.skype }}
             </li>
           </ul>
-          <button class="submit__btn" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
+          <button class="submit__btn" name="consult_form" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
           <label class="expert__choose agreement__btn">
             <input type="checkbox" name="agreement">
             <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению

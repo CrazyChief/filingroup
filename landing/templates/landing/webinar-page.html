@@ -127,12 +127,12 @@ function checkTime() {
           </div>
         </section>
         <section class="section webinar__fourth-section">
-          <form class="container webinar__fourth-container" accept-harset="utf-8" method="post">
+          <form class="container webinar__fourth-container" action="" method="post">
               {% csrf_token %}
             <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
             <h5 class="webinar__descr">Скачайте чек-лист<br> "21 критерий выбора товара<br> для успешного запуска на Амазон"</h5>
             {{ webinar_more_form.email }}
-            <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+            <button class="privilege__register-btn" name="webinar_more_form" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
             <label class="expert__choose agreement__btn">
               <input type="checkbox" name="agreement" required>
               <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
