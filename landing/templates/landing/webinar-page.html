@@ -129,10 +129,7 @@ function checkTime() {
               {% csrf_token %}
             <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
             <h5 class="webinar__descr">Скачайте чек-лист<br> "21 критерий выбора товара<br> для успешного запуска на Амазон"</h5>
-            <input type="email" name="email" placeholder="E-mail" required>
-              <!-- <input type="hidden" name="forward_data" value="post" />
-            <input type="hidden" name="campaign_token" value="TjveQ">
-              <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
+            {{ webinar_more_form.email }}
             <button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
             <label class="expert__choose agreement__btn">
               <input type="checkbox" name="agreement" required>

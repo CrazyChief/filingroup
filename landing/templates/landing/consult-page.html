@@ -159,21 +159,18 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
           </ul>
           <ul class="expert__input-list">
             <li class="expert__input-item">
-              <input type="text" name="name" placeholder="Имя*" required>
+              {{ consult_form.name }}
             </li>
             <li class="expert__input-item">
-              <input type="text" name="phone" placeholder="Телефон* (+38 000 000 00 00)" required>
+              {{ consult_form.phone }}
             </li>
             <li class="expert__input-item">
-              <input type="text" name="email" placeholder="E-Mail*" required>
+              {{ consult_form.email }}
             </li>
             <li class="expert__input-item">
-              <input type="text" name="skype" placeholder="Скайп">
+              {{ consult_form.skype }}
             </li>
           </ul>
-            <!-- <input type="hidden" name="forward_data" value="post" />
-            <input type="hidden" name="campaign_token" value="45Rf8" />
-            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
           <button class="submit__btn" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
           <label class="expert__choose agreement__btn">
             <input type="checkbox" name="agreement">

@@ -32,18 +32,15 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
           <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
           <ul class="get__video-list">
             <li class="get__video-item"><i class="fa fa-user"></i>
-              <input type="text" name="name" placeholder="Введите ваше имя">
+              {{ take_access_form1.name }}
             </li>
             <li class="get__video-item"><i class="fa fa-phone"></i>
-              <input type="text" name="phone" placeholder="Введите ваш телефон">
+              {{ take_access_form1.phone }}
             </li>
             <li class="get__video-item"><i class="fa fa-envelope"></i>
-              <input type="email" name="email" placeholder="Введите ваш email">
+              {{ take_access_form1.email }}
             </li>
           </ul>
-            <!-- <input type="hidden" name="forward_data" value="post" />
-          <input type="hidden" name="campaign_token" value="45RtQ" />
-            <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
           <button class="inner__video-btn" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
         </form>
       </div>
@@ -224,7 +221,11 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
                 <li>• Полная аналитика выбранного Вами товара для запуска</li>
                 <li>• Доступ 24/7 к записям уроков</li>
                 <li>• Проверка ДЗ и короткие комментарии к ним</li>
-              </ul><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              </ul>
+                <a class="centered cdp" href="#register" data-id="1">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
             </div>
           </li>
           <li class="product__privileges-item">
@@ -256,7 +257,11 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
                 <li>• Доступ в закрытую группу в Facebook</li>
                 <li>• Полезные ссылки и платные ресурсы – бесплатно</li>
               </ul>
-              <p><strong>Важно! После обучения все ученики остаются в закрытом сообществе FilinGroup, где всегда могут рассчитывать на помощь и поддержку!</strong></p><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              <p><strong>Важно! После обучения все ученики остаются в закрытом сообществе FilinGroup, где всегда могут рассчитывать на помощь и поддержку!</strong></p>
+                <a class="centered cdp" href="#register" data-id="2">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
             </div>
           </li>
           <li class="product__privileges-item">
@@ -266,7 +271,11 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
               <p><strong>• Все что входит в групповое обучение</strong></p>
               <p>• Прямая связь с Алексеем Игнатовичем в меседжере</p>
               <p>• Индивидуальные консультации со спикером после каждого этапа обучения</p>
-              <p>• Запуск продукта под четким руководством Алексея</p><a class="centered privilege__register-btn" href="#register"><i class="fa fa-check-circle-o"></i>Записаться</a>
+              <p>• Запуск продукта под четким руководством Алексея</p>
+                <a class="centered cdp" href="#register" data-id="3">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
             </div>
           </li>
         </ul>
@@ -308,21 +317,19 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
           </div>
         </div>
       </div>
-      <form class="register__form" accept-harset="utf-8" method="post">
+      <form class="register__form fqf" accept-harset="utf-8" method="post">
       {% csrf_token %}
             <div class="container">
               <div class="form__content">
                 <ul class="register__form-list">
                   <li class="register__form-item">
-                    <input type="text" name="name" placeholder="Имя*">
+                      {{ course_min_form.name }}
                   </li>
                   <li class="register__form-item">
-                    <input type="email" name="email" placeholder="E-mail*">
+                      {{ course_min_form.email }}
                   </li>
+                    {{ course_min_form.hidden_choice }}
                 </ul>
-                  <!-- <input type="hidden" name="forward_data" value="post" />
-                <input type="hidden" name="campaign_token" value="TjveQ">
-                  <input type="hidden" name="thankyou_url" value="http://www.filingroup.com/thanks"/> -->
                 <button class="centered privilege__register-btn"><i class="fa fa-check-circle-o"></i>Отправить</button>
                 <label>
                   <input type="checkbox" name="agreement">Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению
