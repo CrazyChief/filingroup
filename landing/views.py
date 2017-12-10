@@ -73,8 +73,9 @@ class LandingView(TemplateView, FormMixin):
             'Content-Type': 'application/json'
         }
         r = requests.post(url, data=json.dumps(data), headers=headers)
-        print(r.status_code)
-        print(r.text)
+        # print(r.status_code)
+        # print(r.text)
+        return str(r.status_code)
 
     def post(self, request, *args, **kwargs):
         if 'form' in request.POST:
@@ -162,10 +163,16 @@ class LandingView(TemplateView, FormMixin):
         except:
             name = None
         self.th_name = name
-        print(data)
-        self.prepare_data(data=data)
-        if self.request.POST.get('name') is not None:
-            self.request.session['u_name'] = self.request.POST.get('name')
+        # print(data)
+
+        if self.prepare_data(data=data) == '202':
+            if self.request.POST.get('name') is not None:
+                self.request.session['u_name'] = self.request.POST.get('name')
+        else:
+            self.request.session['slf'] = self.request.META["PATH_INFO"].split('/')[2]
+            reverse('landings:land_view', kwargs={
+                'slug': self.request.META["PATH_INFO"].split('/')[2]
+            })
         return super(LandingView, self).form_valid(form)
 
     def get_success_url(self):
@@ -183,4 +190,13 @@ class ThanksView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ThanksView, self).get_context_data(**kwargs)
         context['th_name'] = self.request.session.get('u_name')
+        return context
+
+
+class ErrorView(TemplateView):
+    template_name = 'landing/error.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ErrorView, self).get_context_data(**kwargs)
+        context['slf'] = self.request.session.get('slf')
         return context
