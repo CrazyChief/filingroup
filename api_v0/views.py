@@ -31,35 +31,35 @@ class AccessViewSet(CreateAPIView):
 
         name = str(self.request.data['name'])
         email = str(self.request.data['email'])
-        # try:
-        #     phone = str(self.request.data['phone'])
-        # except:
-        #     phone = ''
-        # if phone is not '':
-        #     data = {
-        #         'name': str(name),
-        #         'email': str(email),
-        #         'campaign': {
-        #             'campaignId': str(settings.GR_VIDEO_TOKEN)
-        #         },
-        #         'customFieldValues': [
-        #             {
-        #                 "customFieldId": "custom_phone",
-        #                 "value": [
-        #                     str(phone)
-        #                 ]
-        #             }
-        #         ],
-        #     }
-        # else:
-        data = {
-            'name': str(name),
-            'email': str(email),
-            'campaign': {
-                'campaignId': str(settings.GR_VIDEO_TOKEN)
+        try:
+            phone = str(self.request.data['phone'])
+        except:
+            phone = ''
+        if phone is not '':
+            data = {
+                'name': str(name),
+                'email': str(email),
+                'campaign': {
+                    'campaignId': str(settings.GR_VIDEO_TOKEN)
+                },
+                'customFieldValues': [
+                    {
+                        "customFieldId": "OmdJ2",
+                        "value": [
+                            str(phone)
+                        ]
+                    }
+                ],
             }
-        }
-        url = 'https://api.getresponse.com/v3/contacts'
+        else:
+            data = {
+                'name': str(name),
+                'email': str(email),
+                'campaign': {
+                    'campaignId': str(settings.GR_VIDEO_TOKEN)
+                }
+            }
+        url = 'https://api.getresponse.com/v3/contacts/'
         headers = {
             'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
             'Content-Type': 'application/json'
@@ -146,7 +146,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         except:
             privilege = ""
 
-        url = 'https://api.getresponse.com/v3/contacts'
+        url = 'https://api.getresponse.com/v3/contacts/'
         headers = {
             'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
             'Content-Type': 'application/json'
@@ -162,6 +162,12 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
                     "customFieldId": "l67O2",
                     "value": [
                         skype
+                    ]
+                },
+                {
+                    "customFieldId": "OmdJ2",
+                    "value": [
+                        phone
                     ]
                 }
             ],

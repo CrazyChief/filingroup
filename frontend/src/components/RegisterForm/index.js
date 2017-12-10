@@ -59,7 +59,7 @@ class RegisterForm extends Component{
                     type="text" 
                     ref={phone => {this.phone = phone}}
                     name="custom_phone"
-                    placeholder="Номер телефона*"/>
+                    placeholder="Телефон* (+380930001122)"/>
                 </li>
                 <li className="register__form-item">
                   <input 

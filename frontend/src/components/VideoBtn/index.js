@@ -41,7 +41,7 @@ class VideoBtn extends Component{
               </li>
               <li className="get__video-item">
                 <FontAwesome name="phone"/>
-                <input type="text" name="phone" placeholder="Введите ваш телефон"/>
+                <input type="text" name="phone" placeholder="Телефон* (+380930001122)"/>
               </li>
               <li className="get__video-item">
                 <FontAwesome name="envelope"/>
