@@ -2,6 +2,7 @@ import json
 import requests
 from django.conf import settings
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormMixin
 
@@ -73,8 +74,8 @@ class LandingView(TemplateView, FormMixin):
             'Content-Type': 'application/json'
         }
         r = requests.post(url, data=json.dumps(data), headers=headers)
-        # print(r.status_code)
-        # print(r.text)
+        print(r.status_code)
+        print(r.text)
         return str(r.status_code)
 
     def post(self, request, *args, **kwargs):
@@ -139,7 +140,7 @@ class LandingView(TemplateView, FormMixin):
             email = str(self.request.POST.get('email'))
             # except:
             #     email = ''
-            data = {'name': 'AskByEmail', 'email': email}
+            data = {'name': 'AskByEmail', 'email': email, 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
         elif 'course_min_form':
             name = str(self.request.POST.get('name'))
             email = str(self.request.POST.get('email'))
@@ -163,17 +164,21 @@ class LandingView(TemplateView, FormMixin):
         except:
             name = None
         self.th_name = name
-        # print(data)
+        print(data)
 
         if self.prepare_data(data=data) == '202':
             if self.request.POST.get('name') is not None:
                 self.request.session['u_name'] = self.request.POST.get('name')
         else:
             self.request.session['slf'] = self.request.META["PATH_INFO"].split('/')[2]
-            reverse('landings:land_view', kwargs={
-                'slug': self.request.META["PATH_INFO"].split('/')[2]
-            })
+            reverse('landings:error')
         return super(LandingView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        self.request.session['slf'] = self.request.META["PATH_INFO"].split('/')[2]
+        return reverse('landings:error', kwargs={
+            'slug': self.request.META["PATH_INFO"].split('/')[2]
+        })
 
     def get_success_url(self):
         return reverse('landings:thanks', kwargs={
