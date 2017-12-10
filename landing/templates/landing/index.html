@@ -1,6 +1,8 @@
 {% extends "landing/base.html" %}
 {% load staticfiles %}
 
+{% block title %}{{ p_info.title_page }} | {% endblock %}
+
 {% block links %}
     <link rel="stylesheet" href="{% static "landing/img/main/sprite.css" %}">
 
