@@ -39,6 +39,7 @@ class AccessViewSet(CreateAPIView):
             data = {
                 'name': str(name),
                 'email': str(email),
+                "dayOfCycle": "0",
                 'campaign': {
                     'campaignId': str(settings.GR_VIDEO_TOKEN)
                 },
@@ -154,6 +155,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         data = {
             'name': name,
             'email': email,
+            "dayOfCycle": "0",
             'campaign': {
                 'campaignId': settings.GR_VIDEO_TOKEN
             },

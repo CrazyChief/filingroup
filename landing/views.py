@@ -110,7 +110,7 @@ class LandingView(TemplateView, FormMixin):
             #     name = ''
             #     phone = ''
             #     email = ''
-            data = {'name': name, 'email': email, 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}, "customFieldValues": [{"customFieldId": "OmdJ2","value": [phone]}]}
+            data = {'name': name, 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}, "customFieldValues": [{"customFieldId": "OmdJ2","value": [phone]}]}
         elif 'take_access_form2' in self.request.POST:
             # try:
             name = str(self.request.POST.get('name'))
@@ -118,7 +118,7 @@ class LandingView(TemplateView, FormMixin):
             # except:
             #     name = ''
             #     email = ''
-            data = {'name': name, 'email': email, 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
+            data = {'name': name, 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
         elif 'consult_form' in self.request.POST:
             name = str(self.request.POST.get('name'))
             phone = str(self.request.POST.get('phone'))
@@ -131,16 +131,16 @@ class LandingView(TemplateView, FormMixin):
                 # email = ''
                 skype = ''
             if skype == '':
-                data = {'name': name, 'email': email, 'campaign': {'campaignId': settings.GR_CONSULT_WITHOUT_PAY_TOKEN},
+                data = {'name': name, 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_CONSULT_WITHOUT_PAY_TOKEN},
                         "customFieldValues": [{"customFieldId": "OmdJ2", "value": [phone]}]}
             else:
-                data = {'name': name, 'email': email, 'campaign': {'campaignId': settings.GR_CONSULT_WITHOUT_PAY_TOKEN}, "customFieldValues": [{"customFieldId": "OmdJ2", "value": [phone]}, {"customFieldId": "l67O2", "value": [skype]}]}
+                data = {'name': name, 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_CONSULT_WITHOUT_PAY_TOKEN}, "customFieldValues": [{"customFieldId": "OmdJ2", "value": [phone]}, {"customFieldId": "l67O2", "value": [skype]}]}
         elif 'webinar_more_form' in self.request.POST:
             # try:
             email = str(self.request.POST.get('email'))
             # except:
             #     email = ''
-            data = {'name': 'AskByEmail', 'email': email, 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
+            data = {'name': 'AskByEmail', 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
         elif 'course_min_form':
             name = str(self.request.POST.get('name'))
             email = str(self.request.POST.get('email'))
@@ -150,7 +150,7 @@ class LandingView(TemplateView, FormMixin):
                 # name = ''
                 # email = ''
                 hidden_choice = ''
-            data = {'name': name, 'email': email, 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
+            data = {'name': name, 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
             if hidden_choice == '':
                 data['campaign']['campaignId'] = settings.GR_COURSE_START_WITHOUT_PAY_TOKEN
             elif hidden_choice == 1:
