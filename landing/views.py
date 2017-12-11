@@ -140,7 +140,7 @@ class LandingView(TemplateView, FormMixin):
             email = str(self.request.POST.get('email'))
             # except:
             #     email = ''
-            data = {'name': 'AskByEmail', 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_VIDEO_TOKEN}}
+            data = {'name': 'AskByEmail', 'email': email, "dayOfCycle": "0", 'campaign': {'campaignId': settings.GR_CHECK_LIST}}
         elif 'course_min_form':
             name = str(self.request.POST.get('name'))
             email = str(self.request.POST.get('email'))
