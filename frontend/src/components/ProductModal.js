@@ -84,6 +84,12 @@ class ProductModal extends Component {
                 if(course.id === id) return <ProductPrivileges toScroll={this.reg} that={this} key={privelege.id} privelege = {privelege} />
               })
             })}
+            <div>
+          <p>
+            Для участия нажмите кнопку "Записаться", под курсом, который выбрали, или заполните заявку.
+С вами свяжется менеджер для уточнения деталей.
+          </p>
+        </div>
           </Masonry>
         </section>
         <RegisterForm ref={reg => {this.reg = reg}} courseId={id} privilege={privilegeState} />
