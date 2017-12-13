@@ -8,17 +8,20 @@ import requests
 from django.conf import settings
 
 from about_us.models import AboutModel
-from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
+from courses.models import (Teacher, Discount, CourseTypes, Course, Privilege,
+                            Student, CourseReview)
 from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
 from take_access.models import Access
-from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
-    CourseSerializer, PrivilegeSerializer, StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,\
-    TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer, PrivacyPolicySerializer,\
-    SiteRuleSerializer, DenialSerializer, AccessSerializer, RatingSerializer
+from .serializers import (AboutUsSerializer, TeacherSerializer, DiscountSerializer,
+                          CourseTypesSerializer, CourseSerializer, PrivilegeSerializer,
+                          StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,
+                          TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer,
+                          PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer,
+                          AccessSerializer, RatingSerializer)
 
 
 # Take access viewset
@@ -62,16 +65,17 @@ class AccessViewSet(CreateAPIView):
                 }
             }
         url = 'https://api.getresponse.com/v3/contacts/'
+        print(url)
         headers = {
             'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
             'Content-Type': 'application/json'
         }
-        # print(data)
-        # print(headers)
-        requests.post(url, data=json.dumps(data), headers=headers)
-        # print(r.status_code)
-        # print(r.text)
-        access.save()
+        print(data)
+        print(headers)
+        r = requests.post(url, data=json.dumps(data), headers=headers)
+        print(r.status_code)
+        print(r.text)
+        # access.save()
 
 
 # About us viewsets
@@ -186,7 +190,6 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
             student.courses = courses
 
         if privilege == '':
-            print(courses.course_type.title)
             if courses.course_type.title == 'Коучинг':
                 data['campaign']['campaignId'] = settings.GR_CONSULT_WITHOUT_PAY_TOKEN
             elif courses.course_type.title == 'Консультация':
