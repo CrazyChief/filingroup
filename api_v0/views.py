@@ -23,7 +23,6 @@ from .serializers import (AboutUsSerializer, TeacherSerializer, DiscountSerializ
                           PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer,
                           AccessSerializer, RatingSerializer)
 
-
 # Take access viewset
 class AccessViewSet(CreateAPIView):
     queryset = Access.objects.all()
@@ -65,17 +64,17 @@ class AccessViewSet(CreateAPIView):
                 }
             }
         url = 'https://api.getresponse.com/v3/contacts/'
-        print(url)
+        # print(url)
         headers = {
             'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
             'Content-Type': 'application/json'
         }
-        print(data)
-        print(headers)
-        r = requests.post(url, data=json.dumps(data), headers=headers)
-        print(r.status_code)
-        print(r.text)
-        # access.save()
+        # print(data)
+        # print(headers)
+        requests.post(url, data=json.dumps(data), headers=headers)
+        # print(r.status_code)
+        # print(r.text)
+        access.save()
 
 
 # About us viewsets
