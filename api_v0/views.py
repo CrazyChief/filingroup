@@ -37,27 +37,28 @@ class AccessViewSet(CreateAPIView):
             phone = ''
         if phone is not '':
             data = {
-                'name': str(name),
-                'email': str(email),
-                "dayOfCycle": "0",
+                'name': name,
+                'email': email,
+                "dayOfCycle": '0',
                 'campaign': {
-                    'campaignId': str(settings.GR_VIDEO_TOKEN)
+                    'campaignId': settings.GR_VIDEO_TOKEN
                 },
                 'customFieldValues': [
                     {
                         "customFieldId": "OmdJ2",
                         "value": [
-                            str(phone)
+                            phone
                         ]
                     }
                 ],
             }
         else:
             data = {
-                'name': str(name),
-                'email': str(email),
+                'name': name,
+                'email': email,
+                "dayOfCycle": '0',
                 'campaign': {
-                    'campaignId': str(settings.GR_VIDEO_TOKEN)
+                    'campaignId': settings.GR_VIDEO_TOKEN
                 }
             }
         url = 'https://api.getresponse.com/v3/contacts/'
@@ -155,7 +156,7 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         data = {
             'name': name,
             'email': email,
-            "dayOfCycle": "0",
+            "dayOfCycle": '0',
             'campaign': {
                 'campaignId': settings.GR_VIDEO_TOKEN
             },
@@ -187,21 +188,21 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         if privilege == '':
             print(courses.course_type.title)
             if courses.course_type.title == 'Коучинг':
-                data['campaign']['campaignId'] = str(settings.GR_CONSULT_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_CONSULT_WITHOUT_PAY_TOKEN
             elif courses.course_type.title == 'Консультация':
-                data['campaign']['campaignId'] = str(settings.GR_CONSULT_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_CONSULT_WITHOUT_PAY_TOKEN
             elif courses.course_type.title == 'Курс':
-                data['campaign']['campaignId'] = str(settings.GR_COURSE_START_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_COURSE_START_WITHOUT_PAY_TOKEN
             else:
                 pass
         else:
             q = Privilege.objects.get(pk=privilege)
             if q.type == 'F_S':
-                data['campaign']['campaignId'] = str(settings.GR_COURSE_START_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_COURSE_START_WITHOUT_PAY_TOKEN
             elif q.type == 'A_I':
-                data['campaign']['campaignId'] = str(settings.GR_COURSE_ALL_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_COURSE_ALL_WITHOUT_PAY_TOKEN
             elif q.type == 'P':
-                data['campaign']['campaignId'] = str(settings.GR_COURSE_VIP_WITHOUT_PAY_TOKEN)
+                data['campaign']['campaignId'] = settings.GR_COURSE_VIP_WITHOUT_PAY_TOKEN
             else:
                 pass
 
