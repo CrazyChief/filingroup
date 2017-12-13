@@ -130,12 +130,11 @@
   }
 }
 .phone__item{
-  &:first-child{
-    margin-bottom: 10px;
-    @include tablets(){
-      margin-bottom: 0;
-      margin-right: 25px;
-    }
+  margin-bottom: 10px;
+  @include tablets(){
+    margin-bottom: 0;
+    margin-right: 25px;
+  }
   }
   .phone__link{
     position: relative;
@@ -154,7 +153,6 @@
         color: $orange;
       }
     }
-  }
 }
 .phone__link-number{
   display: none;

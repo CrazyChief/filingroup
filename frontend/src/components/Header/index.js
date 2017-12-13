@@ -86,25 +86,22 @@ export default class Header extends Component {
             <li className="phone__item">
               <a href="tel: +380443343679" className="phone__link">
                 <FontAwesome name="phone" />
-                <span className="tb__hide">+38 044 334-36-79</span>
+                <span className="tb__hide">+38 044 334-36-79 Киев</span>
                 <span className="phone__link-number">1</span>
-                <span className=""> Киев</span>
               </a>
             </li>
             <li className="phone__item">
               <a href="tel: +77273506142" className="phone__link">
                 <FontAwesome name="phone" />
-                <span className="tb__hide">+7 727 350-61-42</span>
+                <span className="tb__hide">+7 727 350-61-42 Алматы</span>
                 <span className="phone__link-number">2</span>
-                <span className=""> Алматы</span>
               </a>
             </li>
             <li className="phone__item">
               <a href="tel: +74993488016" className="phone__link">
                 <FontAwesome name="phone" />
-                <span className="tb__hide">+7 499 348-80-16</span>
+                <span className="tb__hide">+7 499 348-80-16 Москва</span>
                 <span className="phone__link-number">1</span>
-                <span className=""> Москва</span>
               </a>
             </li>
           </ul>
