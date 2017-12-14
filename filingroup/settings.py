@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'api_v0',
     'ckeditor',
     'ckeditor_uploader',
+    'analytical',
 
     'courses',
     'blog',
@@ -257,3 +258,7 @@ GR_CONSULT_TOKEN = '45Rq2'
 GR_CONSULT_WITHOUT_PAY_TOKEN = '45Rf8'
 GR_VIDEO_TOKEN = '45RtQ'
 GR_CHECK_LIST = '4FnGj'
+
+#   Analytical settings
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-102584414-1'
+YANDEX_METRICA_COUNTER_ID = '44537083'
