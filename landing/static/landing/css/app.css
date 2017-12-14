@@ -3612,7 +3612,9 @@ h6 {
 .author__story {
   width: 100%;
   min-height: 500px;
-  background: url("../img/main/bg-6.png") center no-repeat;
+  /*background: url("../img/main/bg-6.png") center no-repeat;*/
+  background: url("../img/main/IMG_9068.jpg") center no-repeat;
+  background-size: cover;
   border-radius: 5px;
   padding: 35px 0 35px 50%; }
   @media screen and (max-width: 1200px) {

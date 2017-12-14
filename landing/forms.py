@@ -12,7 +12,7 @@ class TakeAccessForm1(forms.Form):
             'placeholder': 'Введите ваше имя',
         })
         self.fields['phone'].widget.attrs.update({
-            'placeholder': 'Введите ваш телефон',
+            'placeholder': 'Телефон* (+380930001122)',
         })
         self.fields['email'].widget.attrs.update({
             'placeholder': 'Введите ваш email',
@@ -45,7 +45,7 @@ class ConsultForm1(forms.Form):
             'placeholder': 'Имя*',
         })
         self.fields['phone'].widget.attrs.update({
-            'placeholder': 'Телефон* (+38 000 000 00 00)',
+            'placeholder': 'Телефон* (+380930001122)',
         })
         self.fields['email'].widget.attrs.update({
             'placeholder': 'E-Mail*',
