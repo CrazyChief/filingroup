@@ -8,7 +8,7 @@ export default function ProductPrivileges({privelege, toScroll, that}) {
   const {
     id,
     type,
-      title,
+    title,
     courses,
     price,
     description,

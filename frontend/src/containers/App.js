@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
 import {Router, Route, Link, NavLink, Switch} from 'react-router-dom'
 import history from '../history'
+import ReactPixel from 'react-facebook-pixel'
 
 import store from 'store'
 import ScrollToTop from 'components/ScrollToTop'
@@ -32,6 +33,8 @@ export default class App extends Component{
     scrollIsHiden: true
   }
   componentDidMount = () => {
+    ReactPixel.init('426948287675970')
+    ReactPixel.pageView()
     window.addEventListener('scroll', this.handleScroll.bind(this))
   }
   render(){

@@ -131,6 +131,9 @@
 }
 .phone__item{
   margin-bottom: 10px;
+  &:last-child{
+    margin-bottom: 0;
+  }
   @include tablets(){
     margin-bottom: 0;
     margin-right: 25px;
