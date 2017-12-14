@@ -35,6 +35,27 @@
       <style type="text/css">.feedback__form,.orange__btn:hover{background-color:#333}.feedback__form{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;color:#fff;border-radius:5px;padding:50px}@media screen and (max-width:480px){.feedback__form{padding:50px 15px}}.feedback__form label{display:flex;align-items:center;width:100%;margin-bottom:25px}.feedback__form label.column{display:block}@media screen and (max-width:480px){.feedback__form label{align-items:flex-start;flex-direction:column}}.feedback__form label.social__label{width:48%}.feedback__form label.social__label input{width:100%;margin-bottom:0}@media screen and (max-width:480px){.feedback__form label.social__label{width:100%}}.feedback__form .input{font-size:.875rem;width:48%;height:45px;margin-bottom:25px;border:1px solid #ddd;border-radius:3px;padding-left:15px}.feedback__form .input.file{border:none;width:auto;height:auto;text-align:left;margin:0;margin-left:15px;cursor:pointer}@media screen and (max-width:480px){.feedback__form .input{width:100%}}.feedback__form textarea{font-size:.875rem;width:100%;height:100px;border:1px solid #ddd;border-radius:3px;margin-bottom:25px;padding-left:15px;padding-top:15px}.feedback__form .Select{width:100%;cursor:pointer}.feedback__form .orange__btn{margin-left:auto;transition:.3s}.feedback__form .orange__btn:hover{color:#343434;background-color:#fff}.social__label{position:relative}.social__label .fa{position:absolute;right:15px;top:50%;color:#343434;opacity:0;transform:translateY(-50%);transition:.3s}.social__label.active .fa{opacity:1}</style>
   </head>
   <body>
+  {% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
 <header class="header">
     <div class="container header__container" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="logo">
