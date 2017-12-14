@@ -3454,7 +3454,9 @@ h6 {
   margin-bottom: 10px;
   overflow: hidden; }
   .feedback__pic img {
-    width: 100%; }
+    width: 100%;
+    margin: auto;
+  }
 
 .feedback__user-name {
   font-size: 0.875rem;
@@ -4642,7 +4644,10 @@ h6 {
   margin: 0 auto;
   margin-bottom: 15px; }
   .expert__pic img {
-    width: 100%; }
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
 
 .expert__name {
   font-family: 'Proxima';
