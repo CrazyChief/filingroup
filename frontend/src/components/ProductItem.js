@@ -45,7 +45,7 @@ function placeGetter(params) {
 function getPrice(price, params, discount) {
   const newPrice = discount?price - (price * +`.${discount}`):price
   switch (params.title) {
-    case 'Курсы':
+    case 'Курс':
       return `${newPrice}$ / курс`
 
     case 'Коучинг':
@@ -55,6 +55,6 @@ function getPrice(price, params, discount) {
       return `${newPrice}$ / в час`
 
     default:
-      return `${newPrice}`
+      return `${newPrice}$`
   }
 }
