@@ -11,7 +11,7 @@ export default function FirstSection() {
     <section className="home__first-section" style={style}>
       <div className="title__wrap">
         <h1 className="main__title">
-          Помогаем запустить бизнес на торговой площадке
+          Помогаем запустить бизнес на торговой площадке
           <a href="#">
             <img src="/static/dist/assets/img/main/amazon-black.png" alt="amazon"/>
           </a>

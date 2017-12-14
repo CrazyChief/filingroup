@@ -50,6 +50,20 @@ $(document).on('ready', function () {
 		});
 	})();
 
+	(function () {
+		var brn = $('.cdp');
+
+		brn.on('click', function () {
+			var $this = $(this),
+				data = $this.attr('data-id');
+			var form = $('.fqf');
+
+			console.log(data);
+			form.find('#id_hidden_choice').val(data)
+			console.log($('#id_hidden_choice').attr('value'))
+        });
+    })();
+
 	//getVideo
 	(function () {
 		var videoBtn = $('.get__link'),
@@ -65,8 +79,7 @@ $(document).on('ready', function () {
 		videoBtn.on('click', function (e) {
 			e.preventDefault();
 
-			var $this = $(this),
-			    wrap = $this.siblings('.get__video-wrap');
+			var wrap = $('.get__video-wrap');
 
 			wrap.addClass('active');
 		});

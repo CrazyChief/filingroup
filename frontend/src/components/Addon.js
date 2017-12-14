@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import Cookies from 'js-cookie'
 
 import {postUser} from 'actions'
 
@@ -12,8 +13,7 @@ class Addon extends Component {
         className="addon" 
         style={{backgroundImage: `url('/static/dist/assets/img/blog/addon-bg.png')`}}
         acceptCharset="utf-8" 
-        action="https://app.getresponse.com/add_subscriber.html"
-        target="_blank" 
+        action=""
         method="post">
         <img 
           className="centered" 
@@ -24,12 +24,13 @@ class Addon extends Component {
           <div>Посмотрите запись практикума прямо сейчас!</div>
         </p>
         <input 
-          type="text" 
+          type="text"
+          name="name"
           placeholder="Ваше имя"/>
         <input 
-          type="email" 
+          type="email"
+          name="email"
           placeholder="Ваш e-mail"/>
-        <input type="hidden" name="campaign_token" value="TjveQ" />
         <button 
           className="centered" 
           type="submit">Получить
@@ -39,6 +40,7 @@ class Addon extends Component {
   }
 
   handleSubmit = e => {
+    e.preventDefault()
     const {postUser} = this.props
     const data = {}
 

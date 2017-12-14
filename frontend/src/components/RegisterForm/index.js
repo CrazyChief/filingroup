@@ -16,6 +16,7 @@ class RegisterForm extends Component{
 
   render(){
     const {correctForm} = this.state
+      const {privilege} = this.props
     return(
       <section className="register">
         <div className="black__whole">
@@ -31,8 +32,7 @@ class RegisterForm extends Component{
           onSubmit={this.handleSubmit} 
           className="register__form"
           acceptCharset="utf-8" 
-          action="https://app.getresponse.com/add_subscriber.html"
-          target="_blank" 
+          action=""
           method="post">>
           <div className="container">
             <div className="form__content">
@@ -58,18 +58,17 @@ class RegisterForm extends Component{
                   <input 
                     type="text" 
                     ref={phone => {this.phone = phone}}
-                    name="phone"
-                    placeholder="Номер телефона*"/>
+                    name="custom_phone"
+                    placeholder="Телефон* (+380930001122)"/>
                 </li>
                 <li className="register__form-item">
                   <input 
                     type="text" 
                     ref={skype => {this.skype = skype}}
-                    name="skype"
+                    name="custom_skype"
                     placeholder="Скайп*"/>
                 </li>
               </ul>
-              <input type="hidden" name="campaign_token" value="TjveQ" />
               <button className="centered privilege__register-btn">
                 <i className="fa fa-check-circle-o"/>
                 Отправить
@@ -99,9 +98,11 @@ class RegisterForm extends Component{
   }
 
   handleSubmit = e => {
+    e.preventDefault()
     const {postStudent} = this.props
     const data = {}
     const {courseId} = this.props
+      const {privilege} = this.props
     const {
       name,
       email,
@@ -119,6 +120,12 @@ class RegisterForm extends Component{
       data.phone = phone.value
       data.skype = skype.value
       data.courses = courseId
+
+      if (privilege) {
+        data.privilegeId = privilege
+      }
+
+      console.log(data)
 
       postStudent(data)
     }else{

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FilinGroup</title>
+    <title>{% block title %}{% endblock %}FilinGroup</title>
     <meta content="" name="author">
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -17,10 +17,24 @@
     <link rel="stylesheet" href="{% static "landing/css/foundation.css" %}">
     <link rel="stylesheet" href="{% static "landing/css/app.css" %}">
     <link rel="stylesheet" href="{% static "landing/img/sprite.css" %}">
-    <link rel="stylesheet" href="{% static "landing/img/main/sprite.css" %}">
-    <link rel="stylesheet" href="{% static "landing/img/consulting/sprite.css" %}">
-    <link rel="stylesheet" href="{% static "landing/img/courses/sprite.css" %}">
-    <link rel="stylesheet" href="{% static "landing/img/webinar/sprite.css" %}">
+
+    <link rel="stylesheet" href="{% static "landing/css/w3.css" %}">
+
+      {% block links %}
+
+        {% endblock links %}
+
+
+    {% block style %}
+    <style>
+
+    </style>
+    {% endblock style %}
+
+
+{% block pixel %}
+
+{% endblock pixel %}
   </head>
   <body>
     <div class="wrapper" id="home">
@@ -30,8 +44,9 @@
                 <img src="{% static "landing/img/logo.png" %}" alt="logo">
             </a>
           <ul class="header__list">
-            <li class="header__item"><a class="header__link" href="tel: +77073510406"><i class="fa fa-phone"></i><span>+7 (707) 351-04-06</span></a></li>
-            <li class="header__item"><a class="header__link" href="tel: +380947122007"><i class="fa fa-phone"></i><span>+38 (094) 712-20-07</span></a></li>
+            <li class="header__item"><a class="header__link" href="tel: +380443343679"><i class="fa fa-phone"></i><span>+38 044 334-36-79 Киев</span></a></li>
+            <li class="header__item"><a class="header__link" href="tel: +77273506142"><i class="fa fa-phone"></i><span>+7 727 350-61-42 Алматы</span></a></li>
+            <li class="header__item"><a class="header__link" href="tel: +74993488016"><i class="fa fa-phone"></i><span>+7 499 348-80-16 Москва</span></a></li>
             <li class="header__item">Есть вопросы? Звоните!</li>
           </ul>
         </div>
@@ -58,15 +73,21 @@
                 </a>
               </li>
               <li class="footer__item">
-                <a class="footer__link" href="tel: +77073510406">
+                <a class="footer__link" href="tel: +380443343679">
                   <i class="fa fa-phone"></i>
-                  <span>+7 (707) 351-04-06</span>
+                  <span>+38 044 334-36-79 Киев</span>
                 </a>
               </li>
               <li class="footer__item">
-                <a class="footer__link" href="tel: +380947122007">
+                <a class="footer__link" href="tel: +77273506142">
                   <i class="fa fa-phone"></i>
-                  <span>+38 (094) 712-20-07</span>
+                  <span>+7 727 350-61-42 Алматы</span>
+                </a>
+              </li>
+                <li class="footer__item">
+                <a class="footer__link" href="tel: +74993488016">
+                  <i class="fa fa-phone"></i>
+                  <span>+7 499 348-80-16 Москва</span>
                 </a>
               </li>
             </ul>
@@ -96,6 +117,11 @@
     <!--[if lt IE 9]>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <![endif]-->
+
+    {% block scripts %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{% static "landing/js/jquery.counterup.min.js" %}"></script>
+    {% endblock scripts %}
 
   </body>
 </html>

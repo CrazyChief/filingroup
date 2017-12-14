@@ -35,6 +35,6 @@ export default function ProductPrivileges({privelege, toScroll, that}) {
 function handleClick(toScroll, id) {
   scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})
   this.setState({
-    privilegeState: id
+      privilegeState: id
   })
 }

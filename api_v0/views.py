@@ -3,24 +3,78 @@ from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.pagination import PageNumberPagination
 
+import json
+import requests
+from django.conf import settings
+
 from about_us.models import AboutModel
-from courses.models import Teacher, Discount, CourseTypes, Course, Privilege, Student, CourseReview
+from courses.models import (Teacher, Discount, CourseTypes, Course, Privilege,
+                            Student, CourseReview)
 from blog.models import Category, Tag, Post, Comment
 from sending_agreement.models import Agreement
 from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
 from take_access.models import Access
-from .serializers import AboutUsSerializer, TeacherSerializer, DiscountSerializer, CourseTypesSerializer,\
-    CourseSerializer, PrivilegeSerializer, StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,\
-    TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer, PrivacyPolicySerializer,\
-    SiteRuleSerializer, DenialSerializer, AccessSerializer
-
+from .serializers import (AboutUsSerializer, TeacherSerializer, DiscountSerializer,
+                          CourseTypesSerializer, CourseSerializer, PrivilegeSerializer,
+                          StudentSerializer, CourseReviewSerializer, CategoryBlogSerializer,
+                          TagSerializer, PostSerializer, CommentSerializer, AgreementSerializer,
+                          PrivacyPolicySerializer, SiteRuleSerializer, DenialSerializer,
+                          AccessSerializer, RatingSerializer)
 
 # Take access viewset
 class AccessViewSet(CreateAPIView):
     queryset = Access.objects.all()
     serializer_class = AccessSerializer
+
+    def perform_create(self, serializer):
+        access = serializer.save()
+
+        name = str(self.request.data['name'])
+        email = str(self.request.data['email'])
+        try:
+            phone = str(self.request.data['phone'])
+        except:
+            phone = ''
+        if phone is not '':
+            data = {
+                'name': name,
+                'email': email,
+                "dayOfCycle": '0',
+                'campaign': {
+                    'campaignId': settings.GR_VIDEO_TOKEN
+                },
+                'customFieldValues': [
+                    {
+                        "customFieldId": "OmdJ2",
+                        "value": [
+                            phone
+                        ]
+                    }
+                ],
+            }
+        else:
+            data = {
+                'name': name,
+                'email': email,
+                "dayOfCycle": '0',
+                'campaign': {
+                    'campaignId': settings.GR_VIDEO_TOKEN
+                }
+            }
+        url = 'https://api.getresponse.com/v3/contacts/'
+        # print(url)
+        headers = {
+            'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
+            'Content-Type': 'application/json'
+        }
+        # print(data)
+        # print(headers)
+        requests.post(url, data=json.dumps(data), headers=headers)
+        # print(r.status_code)
+        # print(r.text)
+        access.save()
 
 
 # About us viewsets
@@ -87,6 +141,44 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
     def perform_create(self, serializer):
         student = serializer.save()
 
+        name = str(self.request.data['name'])
+        email = str(self.request.data['email'])
+        phone = str(self.request.data['phone'])
+        skype = str(self.request.data['skype'])
+
+        try:
+            privilege = str(self.request.data['privilegeId'])
+        except:
+            privilege = ""
+
+        url = 'https://api.getresponse.com/v3/contacts/'
+        headers = {
+            'X-Auth-Token': 'api-key {}'.format(settings.GR_API_KEY),
+            'Content-Type': 'application/json'
+        }
+        data = {
+            'name': name,
+            'email': email,
+            "dayOfCycle": '0',
+            'campaign': {
+                'campaignId': settings.GR_VIDEO_TOKEN
+            },
+            "customFieldValues": [
+                {
+                    "customFieldId": "l67O2",
+                    "value": [
+                        skype
+                    ]
+                },
+                {
+                    "customFieldId": "OmdJ2",
+                    "value": [
+                        phone
+                    ]
+                }
+            ],
+        }
+
         # setting course
         try:
             courses = str(self.request.data['courses'])
@@ -95,6 +187,29 @@ class StudentCreateListViewSet(mixins.CreateModelMixin,
         if courses:
             courses = Course.objects.get(id=courses)
             student.courses = courses
+
+        if privilege == '':
+            if courses.course_type.title == 'Коучинг':
+                data['campaign']['campaignId'] = settings.GR_CONSULT_WITHOUT_PAY_TOKEN
+            elif courses.course_type.title == 'Консультация':
+                data['campaign']['campaignId'] = settings.GR_CONSULT_WITHOUT_PAY_TOKEN
+            elif courses.course_type.title == 'Курс':
+                data['campaign']['campaignId'] = settings.GR_COURSE_START_WITHOUT_PAY_TOKEN
+            else:
+                pass
+        else:
+            q = Privilege.objects.get(pk=privilege)
+            if q.type == 'F_S':
+                data['campaign']['campaignId'] = settings.GR_COURSE_START_WITHOUT_PAY_TOKEN
+            elif q.type == 'A_I':
+                data['campaign']['campaignId'] = settings.GR_COURSE_ALL_WITHOUT_PAY_TOKEN
+            elif q.type == 'P':
+                data['campaign']['campaignId'] = settings.GR_COURSE_VIP_WITHOUT_PAY_TOKEN
+            else:
+                pass
+
+        requests.post(url, data=json.dumps(data), headers=headers)
+
         student.save()
 
 

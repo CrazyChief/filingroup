@@ -9,6 +9,19 @@ from privacy_policy.models import PrivacyPolicy
 from site_rules.models import SiteRule
 from denial.models import Denial
 from take_access.models import Access
+from rating.models import Rating
+
+
+# Rating serializer
+class RatingSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Rating
+        fields = (
+            'count',
+            'total',
+            'average',
+        )
 
 
 # Take access serializer
@@ -47,6 +60,8 @@ class AboutUsSerializer(serializers.ModelSerializer):
             'logo',
             'is_active',
             'text',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -121,6 +136,8 @@ class CourseSerializer(serializers.ModelSerializer):
             'couching_timing',
             'couching_consult_time',
             'couching_time_availability_on_this_month',
+            'meta_title',
+            'meta_description',
             'date_added',
         )
 
@@ -213,6 +230,7 @@ class PostSerializer(serializers.ModelSerializer):
     category = CategoryBlogSerializer(read_only=True)
     tags = TagSerializer(many=True, read_only=True)
     author = UserSerializer(read_only=True)
+    ratings = RatingSerializer()
 
     class Meta:
         model = Post
@@ -227,7 +245,10 @@ class PostSerializer(serializers.ModelSerializer):
             'content',
             'tags',
             'author',
+            'meta_title',
+            'meta_description',
             'date_added',
+            'ratings',
         )
         lookup_field = 'slug'
 
@@ -259,6 +280,8 @@ class AgreementSerializer(serializers.ModelSerializer):
             'title',
             'content',
             'is_active',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -274,6 +297,8 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -289,6 +314,8 @@ class SiteRuleSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )
@@ -304,6 +331,8 @@ class DenialSerializer(serializers.ModelSerializer):
             'title',
             'is_active',
             'content',
+            'meta_title',
+            'meta_description',
             'date_added',
             'date_updated',
         )

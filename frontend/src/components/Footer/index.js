@@ -30,19 +30,26 @@ export default function Footer() {
         </ul>
         <ul className="phone__list">
           <li className="phone__item">
-            <a href="tel: +77073510406" className="phone__link">
-              <FontAwesome name="phone" />
-              <span className="tb__hide">+7 (707) 351-04-06</span>
-              <span className="phone__link-number">1</span>
-            </a>
-          </li>
-          <li className="phone__item">
-            <a href="tel: +380947122007" className="phone__link">
-              <FontAwesome name="phone" />
-              <span className="tb__hide">+38(094)712-20-07</span>
-              <span className="phone__link-number">2</span>
-            </a>
-          </li>
+              <a href="tel: +380443343679" className="phone__link">
+                <FontAwesome name="phone" />
+                <span className="tb__hide">+38 044 334-36-79 Киев</span>
+                <span className="phone__link-number">1</span>
+              </a>
+            </li>
+            <li className="phone__item">
+              <a href="tel: +77273506142" className="phone__link">
+                <FontAwesome name="phone" />
+                <span className="tb__hide">+7 727 350-61-42 Алматы</span>
+                <span className="phone__link-number">2</span>
+              </a>
+            </li>
+            <li className="phone__item">
+              <a href="tel: +74993488016" className="phone__link">
+                <FontAwesome name="phone" />
+                <span className="tb__hide">+7 499 348-80-16 Москва</span>
+                <span className="phone__link-number">1</span>
+              </a>
+            </li>
         </ul>
         <a href="to: mail@filingroup.com" className="mail__link">
           <FontAwesome name="envelope" />

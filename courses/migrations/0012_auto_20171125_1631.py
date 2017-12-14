@@ -20,6 +20,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='course',
             name='title',
-            field=models.CharField(max_length=300, unique=True, verbose_name='Title'),
+            field=models.CharField(max_length=200, unique=True, verbose_name='Title'),
         ),
     ]

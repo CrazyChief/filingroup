@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'orders',
     'take_access',
     'landing',
+    'rating',
 ]
 
 MIDDLEWARE = [
@@ -234,6 +235,25 @@ CKEDITOR_UPLOAD_PATH = "ckeditor/uploads/"
 # REST Framework settings
 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+#   GetResponse settings
+# GR_API_KEY = 'a2d4d4d1c1c2e613ef894d39208faec0'
+GR_API_KEY = 'cff9fc26b8aef98ccb6e32ba9c9fbb77'
+GR_COURSE_START_TOKEN = '45O12'
+GR_COURSE_ALL_TOKEN = '45hFM'
+GR_COURSE_VIP_TOKEN = '45hJu'
+GR_COURSE_START_WITHOUT_PAY_TOKEN = '45YW8'
+GR_COURSE_ALL_WITHOUT_PAY_TOKEN = '45dDB'
+GR_COURSE_VIP_WITHOUT_PAY_TOKEN = '45RVI'
+GR_COUCHING_TOKEN = '45Rq2'
+GR_COUCHING_WITHOUT_PAY_TOKEN = '45Rf8'
+GR_CONSULT_TOKEN = '45Rq2'
+GR_CONSULT_WITHOUT_PAY_TOKEN = '45Rf8'
+GR_VIDEO_TOKEN = '45RtQ'
+GR_CHECK_LIST = '4FnGj'
