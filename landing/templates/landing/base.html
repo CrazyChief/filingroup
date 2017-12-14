@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load google_analytics %}
+{% load yandex_metrica %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,6 +39,8 @@
 {% endblock pixel %}
   </head>
   <body>
+  {% google_analytics %}
+  {% yandex_metrica %}
     <div class="wrapper" id="home">
       <header class="header">
         <div class="header__container">

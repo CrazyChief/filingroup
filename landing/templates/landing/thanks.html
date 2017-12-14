@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load google_analytics %}
+{% load yandex_metrica %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -56,6 +58,8 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
 </noscript>
 <!-- End Facebook Pixel Code -->
 {% endblock pixel %}
+  {% google_analytics %}
+  {% yandex_metrica %}
 <header class="header">
     <div class="container header__container" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="logo">
