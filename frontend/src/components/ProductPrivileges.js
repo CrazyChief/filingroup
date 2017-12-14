@@ -4,11 +4,11 @@ import scrollToComponent from 'react-scroll-to-component'
 
 import {createMarkup} from '../helpers'
 
-export default function ProductPrivileges({privelege, toScroll}) {
+export default function ProductPrivileges({privelege, toScroll, that}) {
   const {
     id,
     type,
-      title,
+    title,
     courses,
     price,
     description,
@@ -22,7 +22,7 @@ export default function ProductPrivileges({privelege, toScroll}) {
         <div dangerouslySetInnerHTML={createMarkup(description)}/>
         <a 
           href="#" 
-          onClick={() => scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})}
+          onClick={handleClick.bind(that, toScroll, id)}
           className="centered privilege__register-btn">
           <i className="fa fa-check-circle-o"/>
           Записаться
@@ -30,4 +30,11 @@ export default function ProductPrivileges({privelege, toScroll}) {
       </div>
     </li>
   )
+}
+
+function handleClick(toScroll, id) {
+  scrollToComponent(toScroll, { offset: 0, align: 'top', duration: 500, ease:'inQuad'})
+  this.setState({
+    privilegeState: id
+  })
 }

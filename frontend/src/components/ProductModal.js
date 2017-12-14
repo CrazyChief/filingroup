@@ -16,6 +16,10 @@ import ConsultInfo from 'components/ConsultInfo'
 import RegisterForm from 'components/RegisterForm'
 
 class ProductModal extends Component {
+  state = {
+    privilegeState: null
+  }
+
   componentDidMount = () => {
     const {loading, loaded, loadPriveleges} = this.props
     if(!loading && !loaded) loadPriveleges()
@@ -77,7 +81,7 @@ class ProductModal extends Component {
           >
             {priveleges.map(privelege => {
               return privelege.courses.map(course => {
-                if(course.id === id) return <ProductPrivileges toScroll={this.reg} key={privelege.id} privelege = {privelege} />
+                if(course.id === id) return <ProductPrivileges that={this} toScroll={this.reg} key={privelege.id} privelege = {privelege} />
               })
             })}
           </Masonry>
