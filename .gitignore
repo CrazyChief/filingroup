@@ -10,7 +10,7 @@ db.sqlite3
 assets/bundles
 media/
 static/*
-secret
+secret_filingroup
 package-lock.json
 venv/
 frontend/dist/
