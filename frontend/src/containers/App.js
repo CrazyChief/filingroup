@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import {Router, Route, Link, NavLink, Switch} from 'react-router-dom'
 import history from '../history'
 import ReactPixel from 'react-facebook-pixel'
+import ReactGA from 'react-ga'
+import { YMInitializer } from 'react-yandex-metrika'
 
 import store from 'store'
 import ScrollToTop from 'components/ScrollToTop'
@@ -34,7 +36,8 @@ export default class App extends Component{
   }
   componentDidMount = () => {
     ReactPixel.init('426948287675970')
-    ReactPixel.pageView()
+    ReactPixel.pageView(window.location.pathname + window.location.search)
+    ReactGA.initialize('UA-102584414-1')
     window.addEventListener('scroll', this.handleScroll.bind(this))
   }
   render(){
@@ -43,6 +46,7 @@ export default class App extends Component{
       <Provider store={store}>
         <Router history={history}>
           <div>
+            <YMInitializer accounts={[44537083]} />
             <Header />
             <ScrollToTopRoute>
               <Switch>
