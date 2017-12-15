@@ -57,16 +57,13 @@ export function postStudent(data) {
 }
 
 export function postUser(data) {
+  const user = {}
+  user.name = data.get('name')
   return (dispatch) => {
-    fetch('/api/v0/accesses/new/', {
+    fetch('https://app.getresponse.com/add_subscriber.html', {
       method: 'post',
-      headers: {
-        'Access-Control-Allow-Origin':'*',
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
       mode: 'cors',
-      body: JSON.stringify(data)
+      body: data
     })
       .then(res => {
         if (res.status >= 400) {
@@ -79,15 +76,15 @@ export function postUser(data) {
         return dispatch({
           type: POST_USER + SUCCESS,
           payload: {
-            response
+            user
           }
         })
       })
       .catch(error => {
         history.push('/thanks')
-        dispatch({
+        return dispatch({
           type: POST_USER + FAIL,
-          payload: {}
+          payload: {user}
         })
       })
   }

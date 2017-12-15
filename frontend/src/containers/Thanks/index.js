@@ -23,6 +23,7 @@ class Thanks extends Component {
 
   render() {
     const {thanks, loaded, fail, courseType} = this.props
+    console.log(thanks)
     if(fail) return <Fail />
     if(!loaded) return <Loader />
     return (

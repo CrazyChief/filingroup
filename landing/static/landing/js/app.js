@@ -30,6 +30,27 @@ $(document).on('ready', function () {
 				wrap.removeClass('active');
 			}
 		});
+
+		block.on('submit', e => {
+			e.preventDefault();
+			let xhr = new XMLHttpRequest();
+    	const fd = new FormData();
+
+			fd.append('name', e.target[0].value);
+			fd.append('custom_phone', e.target[1].value);
+			fd.append('email', e.target[2].value);
+			fd.append('campaign_token', "45RtQ");
+			fd.append('start_day', 0);
+			fd.append('cycle_day', 0);
+			
+			xhr.open('POST', 'https://app.getresponse.com/add_subscriber.html', false);
+			xhr.onreadystatechange = function() {
+				if (this.readyState != 4) return;
+
+				alert( this.responseText );
+			}
+			xhr.send(fd);
+		})
 	})();
 
 	(function () {

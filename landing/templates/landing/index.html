@@ -49,13 +49,16 @@ src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
           <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
           <ul class="get__video-list">
             <li class="get__video-item"><i class="fa fa-user"></i>
-                {{ form.name }}
+              <FontAwesome name="user" />
+              <input type="text" name="name" placeholder="Введите ваше имя" />
             </li>
             <li class="get__video-item"><i class="fa fa-phone"></i>
-                {{ form.phone }}
+              <FontAwesome name="phone" />
+              <input type="text" name="phone" placeholder="Телефон* (+380930001122)" />
             </li>
             <li class="get__video-item"><i class="fa fa-envelope"></i>
-                {{ form.email }}
+              <FontAwesome name="envelope" />
+              <input type="email" name="email" placeholder="Введите ваш email" />
             </li>
           </ul>
           <button class="inner__video-btn" name="form" type="submit">

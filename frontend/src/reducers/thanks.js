@@ -19,7 +19,7 @@ export default(thanksState = defaultState, action) => {
 
     case POST_USER + SUCCESS:
       return thanksState
-        .set('entities', payload.response)
+        .set('entities', payload.user)
         .set('loaded', true)
         .set('fail', false)
         .set('courseType', false)
@@ -30,7 +30,10 @@ export default(thanksState = defaultState, action) => {
 
     case POST_USER + FAIL:
       return thanksState
-        .set('fail', true)
+        .set('entities', payload.user)
+        .set('loaded', true)
+        .set('fail', false)
+        .set('courseType', false)
   }
 
   return thanksState
