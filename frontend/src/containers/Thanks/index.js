@@ -9,9 +9,17 @@ import './style.scss'
 
 import Loader from 'components/Loader'
 import Fail from 'components/Fail'
+import FacebookSubscribe from 'components/FacebookSubscribe'
+import Youtube from 'components/YoutubeSubscriber'
 
 class Thanks extends Component {
   static propTypes = {}
+
+  componentDidMount = () => {
+    window.addEventListener('load', () => {
+      VK.Widgets.Group("vk_groups", {width: 'auto', mode: 3}, 63462541)
+    })
+  }
 
   render() {
     const {thanks, loaded, fail, courseType} = this.props
@@ -41,10 +49,30 @@ class Thanks extends Component {
             <p></p>
             <p>Остались вопросы или нужна помощь?<br/>Мы сделаем все, чтобы вам помочь, отправьте письмо с вопросами на <a className="orange" href="mail@filingroup.com">mail@filingroup.com</a></p>
             <NavLink className="article__btn" to="/">На главную</NavLink>
+            {this.getSocials()}
           </div>
         </div>
       </main>
     )
+  }
+
+  getSocials = () => {
+    const {courseType} = this.props
+    if(!courseType) return null
+    return <div className="socials__subscribe-wrap">
+      <h3>Подпишитесь на наши соцсети и первыми получайте самую актуальную информацию!</h3>
+      <ul className="socials__subscribe-list">
+        <li className="socials__subscribe-item">
+          <FacebookSubscribe />
+        </li>
+        <li className="socials__subscribe-item">
+          <Youtube />
+        </li>
+        <li className="socials__subscribe-item">
+          <div id="vk_groups"></div>
+        </li>
+      </ul>
+    </div>
   }
 }
 

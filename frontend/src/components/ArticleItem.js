@@ -26,7 +26,7 @@ export default function ArticleItem({article}) {
         </li>
       </ul>
       <div dangerouslySetInnerHTML={createMarkup(announce)} />
-      <NavLink className="article__btn" to={`/blog/${slug}#disqus_thread`}>Читать далее</NavLink>
+      <NavLink className="article__btn" to={`/blog/${slug}`}>Читать далее</NavLink>
     </div>
   )
 }
