@@ -102,7 +102,7 @@ class RegisterForm extends Component{
     const {postStudent} = this.props
     const data = {}
     const {courseId} = this.props
-      const {privilege} = this.props
+    const {privilege} = this.props
     const {
       name,
       email,

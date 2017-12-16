@@ -72,6 +72,11 @@ class VideoBtn extends Component{
     const {postUser} = this.props
     const fd = new FormData()
 
+    if(!e.target[0].value.length || !e.target[2].value.length){
+      alert('Поля имя и email обязательны для заполнения')
+      return
+    }
+
     fd.append('name', e.target[0].value)
     fd.append('custom_phone', e.target[1].value)
     fd.append('email', e.target[2].value)

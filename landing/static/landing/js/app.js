@@ -23,7 +23,7 @@ $(document).on('ready', function () {
 	//handleClick
 	(function () {
 		var block = $('.get__video-content'),
-		    wrap = $('.get__video-wrap');
+				wrap = $('.get__video-wrap');
 
 		wrap.on('click', function (e) {
 			if (!block.is(e.target) && block.has(e.target).length === 0) {
@@ -47,7 +47,7 @@ $(document).on('ready', function () {
 			xhr.onreadystatechange = function() {
 				if (this.readyState != 4) return;
 
-				alert( this.responseText );
+				location.href = location.href + 'thanks';
 			}
 			xhr.send(fd);
 		})

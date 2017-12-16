@@ -42,11 +42,19 @@ class Addon extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const {postUser} = this.props
-    const data = {}
+    const fd = new FormData()
 
-    data.name = e.target[0].value
-    data.email = e.target[1].value
-    postUser(data)
+    if(!e.target[0].value.length || !e.target[1].value.length){
+      alert('Заполните все поля')
+      return
+    }
+
+    fd.append('name', e.target[0].value)
+    fd.append('email', e.target[2].value)
+    fd.append('campaign_token', "45RtQ")
+    fd.append('start_day', 0)
+    fd.append('cycle_day', 0)
+    postUser(fd)
   }
 }
 
