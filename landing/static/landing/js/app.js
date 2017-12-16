@@ -41,6 +41,8 @@ $(document).on('ready', function () {
 				return
 			}
 
+			console.log(e.target[0].value, e.target[2].value)
+
 			fd.append('name', e.target[0].value);
 			fd.append('custom_phone', e.target[1].value);
 			fd.append('email', e.target[2].value);
