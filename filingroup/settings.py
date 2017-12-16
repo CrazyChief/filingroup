@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = 'f!h6r2m7*$-k$^=9k$h(nmq23#0ezjl_!!d)4@@q3ug&xw!=-_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False   # for production
+# DEBUG = True
+DEBUG = False   # for production
 
 ALLOWED_HOSTS = ['www.filingroup.com', '*']
 
@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'filingroup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ["POSTGRE_DB_NAME"],
-        'USER': os.environ["POSTGRE_DB_USER"],
-        'PASSWORD': os.environ["POSTGRE_DB_PASSWORD"],
-        'HOST': os.environ["POSTGRE_DB_HOST"],
-        'PORT': os.environ["POSTGRE_DB_PORT"],
+        'NAME': 'filingroup',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -111,11 +111,11 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.environ["MYSQL_DB_NAME"],
-#         'USER': os.environ["MYSQL_DB_USER"],
-#         'PASSWORD': os.environ["MYSQL_DB_PASSWORD"],
-#         'HOST': os.environ["MYSQL_DB_HOST"],
-#         'PORT': os.environ["MYSQL_DB_PORT"],
+#         'NAME': 'danilovdmitry$fg',
+#         'USER': 'danilovdmitry',
+#         'PASSWORD': 'NumberOne123',
+#         'HOST': 'danilovdmitry.mysql.pythonanywhere-services.com',
+#         'PORT': '3306',
 #     }
 # }
 
@@ -242,20 +242,20 @@ REST_FRAMEWORK = {
 }
 
 #   GetResponse settings
-GR_API_KEY = os.environ["GR_API_KEY"]
-GR_COURSE_START_TOKEN = os.environ["GR_COURSE_START_TOKEN"]
-GR_COURSE_ALL_TOKEN = os.environ["GR_COURSE_ALL_TOKEN"]
-GR_COURSE_VIP_TOKEN = os.environ["GR_COURSE_VIP_TOKEN"]
-GR_COURSE_START_WITHOUT_PAY_TOKEN = os.environ["GR_COURSE_START_WITHOUT_PAY_TOKEN"]
-GR_COURSE_ALL_WITHOUT_PAY_TOKEN = os.environ["GR_COURSE_ALL_WITHOUT_PAY_TOKEN"]
-GR_COURSE_VIP_WITHOUT_PAY_TOKEN = os.environ["GR_COURSE_VIP_WITHOUT_PAY_TOKEN"]
-GR_COUCHING_TOKEN = os.environ["GR_COUCHING_TOKEN"]
-GR_COUCHING_WITHOUT_PAY_TOKEN = os.environ["GR_COUCHING_WITHOUT_PAY_TOKEN"]
-GR_CONSULT_TOKEN = os.environ["GR_CONSULT_TOKEN"]
-GR_CONSULT_WITHOUT_PAY_TOKEN = os.environ["GR_CONSULT_WITHOUT_PAY_TOKEN"]
-GR_VIDEO_TOKEN = os.environ["GR_VIDEO_TOKEN"]
-GR_CHECK_LIST = os.environ["GR_CHECK_LIST"]
+GR_API_KEY = 'cff9fc26b8aef98ccb6e32ba9c9fbb77'
+GR_COURSE_START_TOKEN = '45O12'
+GR_COURSE_ALL_TOKEN = '45hFM'
+GR_COURSE_VIP_TOKEN = '45hJu'
+GR_COURSE_START_WITHOUT_PAY_TOKEN = '45YW8'
+GR_COURSE_ALL_WITHOUT_PAY_TOKEN = '45dDB'
+GR_COURSE_VIP_WITHOUT_PAY_TOKEN = '45RVI'
+GR_COUCHING_TOKEN = '45Rq2'
+GR_COUCHING_WITHOUT_PAY_TOKEN = '45Rq2'
+GR_CONSULT_TOKEN = '45Rq2'
+GR_CONSULT_WITHOUT_PAY_TOKEN = '45Rf8'
+GR_VIDEO_TOKEN = '45RtQ'
+GR_CHECK_LIST = '4FnGj'
 
 #   Analytical settings
-GOOGLE_ANALYTICS_PROPERTY_ID = os.environ["GOOGLE_ANALYTICS_PROPERTY_ID"]
-YANDEX_METRICA_COUNTER_ID = os.environ["YANDEX_METRICA_COUNTER_ID"]
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-102584414-1'
+YANDEX_METRICA_COUNTER_ID = '44537083'
