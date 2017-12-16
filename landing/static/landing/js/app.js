@@ -52,7 +52,7 @@ $(document).on('ready', function () {
 			xhr.onreadystatechange = function() {
 				if (this.readyState != 4) return;
 
-				location.href = location.href + 'thanks';
+				location.href = location.href + 'thanks/';
 			}
 			xhr.send(fd);
 		})
