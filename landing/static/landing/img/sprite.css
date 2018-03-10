@@ -1,0 +1,65 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-amazon {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: 0px -88px;
+  width: 161px;
+  height: 48px;
+}
+.icon-amazon_white {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: 0px -136px;
+  width: 161px;
+  height: 48px;
+}
+.icon-arrow_down {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: 0px 0px;
+  width: 224px;
+  height: 45px;
+}
+.icon-arrow_up {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: 0px -45px;
+  width: 224px;
+  height: 43px;
+}
+.icon-check {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: -224px -116px;
+  width: 28px;
+  height: 28px;
+}
+.icon-line {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: -224px -144px;
+  width: 82px;
+  height: 1px;
+}
+.icon-logo {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: -224px 0px;
+  width: 92px;
+  height: 58px;
+}
+.icon-logo_white {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: -224px -58px;
+  width: 92px;
+  height: 58px;
+}
+.icon-no {
+  background-image: url(/static/landing/img/sprite.png);
+  background-position: -252px -116px;
+  width: 19px;
+  height: 19px;
+}

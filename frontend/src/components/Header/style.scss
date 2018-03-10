@@ -1,0 +1,204 @@
+@import '../../assets/styles/main.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $bg;
+  z-index: 10000;
+}
+.header__container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: .2s;
+  @include desktops(){
+    justify-content: space-around;
+  }
+}
+.mnu{
+  width: 30%;
+  @include laptops(){
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+}
+.hiden__mnu-btn{
+  display: none;
+  font-size: 20px;
+  &:hover{
+    color: $orange;
+  }
+  @include laptops(){
+    display: block;
+  }
+}
+.hiden__social-btn{
+  display: none;
+  font-size: 20px;
+  &:hover{
+    color: $orange;
+  }
+  @include phones(){
+    display: block;
+  }
+}
+.mnu__list{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  @include laptops(){
+    position: absolute;
+    justify-content: space-around;
+    left: 0;
+    top: -130%;
+    background-color: $black;
+    opacity: 0;
+    transition: .3s opacity;
+    z-index: 1000;
+    &.active{
+      top: 100%;
+      opacity: 1;
+    }
+  }
+}
+.mnu__item{
+  a{
+    font-size: rem(14px);
+    &:hover{
+      color: $orange;
+    }
+    @include laptops(){
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      &:hover{
+        @include Font(black);
+        color: $white;
+        background-color: $orange;
+      }
+    }
+  }
+}
+
+.social__list{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  @include phones(){
+    position: absolute;
+    width: 100%;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: $bg;
+    top: -100%;
+    opacity: 0;
+    transition: .3s opacity;
+    z-index: 1000;
+    &.active{
+      top: 100%;
+      opacity: 1;
+    }
+  }
+}
+.social__link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  color: $text;
+  background-color: $white;
+  border-radius: 5px;
+  .fa{
+    font-size: rem(20px);
+  }
+  &:hover{
+    color: $orange;
+    background-color: $bg;
+  }
+}
+
+.phone__list{
+  display: flex;
+  flex-direction: column;
+  @include tablets(){
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.phone__item{
+  margin-bottom: 0;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  @include tablets(){
+    margin-bottom: 0;
+    margin-right: 25px;
+  }
+  }
+  .phone__link{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: rem(14px);
+    .fa{
+      margin-right: 5px;
+      transition: .3s;
+      @include tablets(){
+        font-size: rem(25px);
+      }
+    }
+    &:hover{
+      .fa{
+        color: $orange;
+      }
+    }
+}
+.phone__link-number{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 70%;
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $bg-orange;
+  @include tablets(){
+    display: flex;
+  }
+}
+.mail__link{
+  font-size: rem(14px);
+  .fa{
+    transition: .3s;
+    margin-right: 5px;
+    @include tablets(){
+      font-size: rem(25px);
+    }
+  }
+  &:hover{
+    .fa{
+      color: $orange;
+    }
+  }
+}
+.tb__hide{
+  @include tablets(){
+    display: none;
+  }
+}
+.lp__hide{
+  @include laptops(){
+    display: none;
+  }
+}
+.mb__hide{
+  @include phones(){
+    display: none;
+  }
+}

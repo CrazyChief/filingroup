@@ -1,0 +1,30 @@
+@import '../../assets/styles/main.scss';
+
+.thanks{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+}
+.socials__subscribe-wrap{
+  width: 100%;
+  margin-top: 100px;
+  h3{
+    margin-bottom: 50px;
+    text-align: center;
+  }
+}
+.socials__subscribe-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.socials__subscribe-item{
+  width: 32%;
+}

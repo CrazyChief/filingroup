@@ -1,0 +1,113 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-form_1 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -154px -90px;
+  width: 31px;
+  height: 26px;
+}
+.icon-form_10 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -109px 0px;
+  width: 45px;
+  height: 35px;
+}
+.icon-form_12 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -154px 0px;
+  width: 37px;
+  height: 37px;
+}
+.icon-form_13 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: 0px -90px;
+  width: 42px;
+  height: 34px;
+}
+.icon-form_14 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -91px -90px;
+  width: 26px;
+  height: 19px;
+}
+.icon-form_15 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -68px -90px;
+  width: 23px;
+  height: 22px;
+}
+.icon-form_16 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -20px -124px;
+  width: 22px;
+  height: 22px;
+}
+.icon-form_17 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -42px -90px;
+  width: 26px;
+  height: 22px;
+}
+.icon-form_18 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -42px -124px;
+  width: 22px;
+  height: 22px;
+}
+.icon-form_2 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: 0px -124px;
+  width: 20px;
+  height: 27px;
+}
+.icon-form_3 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -154px -37px;
+  width: 29px;
+  height: 29px;
+}
+.icon-form_4 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -154px -66px;
+  width: 34px;
+  height: 24px;
+}
+.icon-form_5 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -45px -45px;
+  width: 53px;
+  height: 36px;
+}
+.icon-form_6 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: 0px -45px;
+  width: 45px;
+  height: 45px;
+}
+.icon-form_7 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -55px 0px;
+  width: 54px;
+  height: 40px;
+}
+.icon-form_8 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: 0px 0px;
+  width: 55px;
+  height: 45px;
+}
+.icon-form_9 {
+  background-image: url(/static/landing/img/main/sprite.png);
+  background-position: -109px -35px;
+  width: 41px;
+  height: 37px;
+}

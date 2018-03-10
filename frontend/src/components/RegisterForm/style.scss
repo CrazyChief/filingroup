@@ -1,0 +1,117 @@
+@import '../../assets/styles/main.scss';
+.register{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 35px;
+  .orange__btn{
+    @include phones(){
+      height: auto;
+      padding: 15px;
+      text-align: center;
+    }
+  }
+}
+.black__whole{
+  width: 100%;
+  padding: 20px 0;
+  background-color: $bg;
+  @include laptops(){
+    padding-right: 25px;
+  }
+  @include tablets(){
+    padding: 20px 25px;
+  }
+}
+.black__whole-title{
+  @include Font(bold);
+  font-size: rem(21px);
+  width: 50%;
+  margin-left: 50%;
+  text-align: center;
+  line-height: 1.1;
+  color: $white;
+  @include tablets(){
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.form__content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 50%;
+  padding: 25px 0 50px;
+  .privilege__register-btn{
+    margin-bottom: 20px;
+  }
+  label{
+    font-size: rem(14px);
+    text-align: center;
+    color: rgba($text, .7);
+    cursor: pointer;
+    input{
+      margin-right: 15px;
+      border: 1px solid rgba(#ddd, 8);
+      border-radius: 3px;
+    }
+  }
+  @include laptops(){
+    padding-right: 25px;
+  }
+  @include tablets(){
+    width: 100%;
+    margin-left: 0;
+    padding: 25px 25px 50px;
+  }
+}
+.register__form-list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.register__form-item{
+  width: 49%;
+  input{
+    height: 48px;
+    width: 100%;
+    border: 1px solid rgba(#ddd, .8);
+    border-radius: 3px;
+    color: $text;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  @include phones(){
+    width: 100%;
+  }
+}
+
+.phone__contaier{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1140px;
+  transform: translateX(-50%);
+  @include desktops(){
+    width: 100%;
+  }
+  @include tablets(){
+    display: none;
+  }
+}
+.phone__wrap{
+  position: absolute;
+  display: block;
+  height: 400px;
+  width: 43.5%;
+  left: 36px;
+  top: 0;
+  img{
+    width: 100%;
+  }
+}

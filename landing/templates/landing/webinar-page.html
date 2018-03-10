@@ -1,0 +1,146 @@
+{% extends "landing/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ p_info.title_page }} | {% endblock %}
+
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<script>
+    function ttime(){
+        alert(1);
+    }
+</script>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'landing/img/webinar/sprite.css' %}">
+  <main class="main">
+    <section class="webinar__first-section">
+      <h5>Тренинг:</h5>
+      <h1 class="main__title">“Как найти товар для <span class="orange">успешного старта на </span><img class="amazon" src="{% static 'landing/img/amazon-white.png' %}">”</h1>
+    </section>
+    <section class="section webinar__second-section">
+      <div class="container">
+        <h2 class="bold section__title">Сегодня  <span class="orange">вы узнаете:</span></h2>
+        <ul class="webinar__second-list">
+          <li class="courses__second-item"><i class="icon-check"></i><span>Как запустить продажи на Амазон за 30 дней</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Узнаете о «подводных камнях» Private Label</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Получите пошаговую инструкцию по выбору ниши и товара</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Сможете открыть свой бизнес, для которого не нужен ни офис, ни сотрудники</span></li>
+        </ul>
+        <div class="video__wrap" id="video__wrap" style="position:relative;color: black !important; background: white !important;">
+          <h2 style="margin-bottom: 3%; color: black !important;">Смотреть видео</h2>
+          <!--<video class="video" src="{% static "landing/img/webinar/video.mp4" %}"></video>-->
+          <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/N5PJ6JjcXuw?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen> -->
+          <!-- </iframe> -->
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZjAPF3560ZI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<!-- <div id="player"></div><div id="button_wrap" style="position:absolute;bottom:-5px;display: none;"> -->
+
+<!-- <input type=button value='Записаться на курс' style="background:orange;" onclick="document.location.href='http://www.filingroup.com/landings/kurs-biznes-na-amazon-za-30-dnej';"> -->
+
+<!-- </div> -->
+
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-->
+<!-- <script type="text/javascript"> -->
+
+<!-- var YOUR_TIME = 20; -->
+<!-- //var VIDEO_HEIGHT = auto; -->
+<!-- var VIDEO_WIDTH = document.getElementById("video__wrap").offsetWidth; -->
+<!-- // var VIDEO_ID = 'N5PJ6JjcXuw'; -->
+<!-- var VIDEO_ID = 'ZjAPF3560ZI' -->
+<!-- var timer, player; -->
+<!-- var tag = document.createElement('script'); -->
+<!-- var button = document.getElementById('button_wrap'); -->
+<!-- var time_current = 0; -->
+<!-- tag.src = "https://www.youtube.com/iframe_api"; -->
+<!-- var firstScriptTag = document.getElementsByTagName('script')[0]; -->
+<!-- firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); -->
+
+<!-- function onYouTubeIframeAPIReady() { -->
+    <!-- player = new YT.Player('player', { -->
+        <!-- //height: VIDEO_HEIGHT, -->
+        <!-- width: VIDEO_WIDTH, -->
+        <!-- videoId: VIDEO_ID, -->
+        <!-- autoplay:0, -->
+        <!-- controls:0, -->
+        <!-- frameborder: 0, -->
+        <!-- iv_load_policy:0, -->
+        <!-- rel:0, -->
+        <!-- showinfo:0, -->
+        <!-- events: { -->
+            <!-- 'onReady': onPlayerReady, -->
+            <!-- 'onStateChange': onPlayerStateChange -->
+        <!-- } -->
+    <!-- }); -->
+<!-- } -->
+<!-- function onPlayerStateChange(event) { -->
+    <!-- if( event.data == YT.PlayerState.PLAYING ) { -->
+        <!-- timer = setInterval( checkTime, 400 ); -->
+    <!-- } -->
+    <!-- else { -->
+        <!-- clearInterval( timer ); -->
+    <!-- } -->
+<!-- } -->
+
+<!-- function onPlayerReady(event) { -->
+    <!-- event.target.playVideo(); -->
+<!-- } -->
+
+<!-- function checkTime() { -->
+    <!-- time_current = player.getCurrentTime().toString(); -->
+    <!-- time_current = time_current.substring( 0, time_current.indexOf('.') ); -->
+    <!-- if( parseInt( time_current ) >= parseInt( YOUR_TIME.toString() ) ) { -->
+        <!-- button.style.display = 'block';  jQuery('#button_wrap').show().animate({'opacity':1}, 500); -->
+        <!-- clearInterval( timer ); -->
+    <!-- } -->
+<!-- } -->
+<!-- </script> -->
+
+
+        </div>
+      </div>
+    </section>
+    <section class="webinar__third-section">
+         <div class="webinar__third-container">
+
+            <h4>Узнайте дополнительную информацию про обучение</h4>
+            <a href="http://www.filingroup.com/landings/kurs-biznes-na-amazon-za-30-dnej"><button class="privilege__register-btn" type="submit"><i class="fa fa-check-circle-o"></i>Узнать больше
+            </button></a>
+          </div>
+        </section>
+        <section class="section webinar__fourth-section">
+          <form class="container webinar__fourth-container" action="" method="post">
+              {% csrf_token %}
+            <h3>Готовы <span class="orange">узнать еще больше?</span><br>Введите ваш E-Mail</h3>
+            <h5 class="webinar__descr">Скачайте чек-лист<br> "21 критерий выбора товара<br> для успешного запуска на Амазон"</h5>
+            {{ webinar_more_form.email }}
+            <button class="privilege__register-btn" name="webinar_more_form" type="submit"><i class="fa fa-check-circle-o"></i>Отправить</button>
+            <label class="expert__choose agreement__btn">
+              <input type="checkbox" name="agreement" required>
+              <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных
+            </label>
+          </form>
+        </section>
+  </main>
+{% endblock %}

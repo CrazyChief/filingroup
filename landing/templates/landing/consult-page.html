@@ -1,0 +1,188 @@
+{% extends "landing/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ p_info.title_page }} | {% endblock %}
+
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "landing/img/consulting/sprite.css" %}">
+  <main class="main">
+    <section class="consult__first-section">
+      <div class="container consult__first-container">
+        <h1 class="main__title">Личная консультация</h1><a class="privilege__register-btn" href="#reg"><i class="fa fa-check-circle-o"></i>Заказать сейчас</a>
+      </div>
+    </section>
+    <section class="section consult__second-section">
+      <div class="container consult__second-container">
+        <h2 class="bold section__title left">Планируете <span class="orange">начать бизнес </span> на Амазон?</h2>
+        <p>Или уже начали, но не хватает знаний, чтобы быстро развиваться?</p>
+        <p>Если у вас есть вопросы, связанные с развитием бизнеса на Амазон, вы всегда можете обратиться к нам!</p>
+        <p>Благодаря личной консультации вы быстро получите нужную информацию в сжатые сроки.</p>
+      </div>
+    </section>
+    <section class="section consult__third-section">
+      <div class="container">
+        <h2 class="bold section__title white">Как проходит <span class="orange">консультация</span>?</h2>
+        <ul class="course__fifth-list">
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_1"></i></div>
+            <div class="course__fifth-content">
+              <h4>Вы оставляете<br>заявку и оплачиваете<br>консультацию</h4>
+            </div>
+          </li>
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_2"></i></div>
+            <div class="course__fifth-content">
+              <h4>С вами связывается<br>менеджер и назначает<br>удобное для вас время</h4>
+            </div>
+          </li>
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_3"></i></div>
+            <div class="course__fifth-content">
+              <h4>В назначенное время вам нужно<br>принять звонок в скайпе<br>или любом удобном мессенджере.</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section consult__fourth-section">
+      <div class="container consult__fourth-container">
+        <h2 class="bold section__title">Какие <span class="orange">вопросы</span> можно задавать?</h2>
+        <ul class="courses__second-list">
+          <li class="courses__second-item"><i class="icon-check"></i><span> <b>Не уверены или хватит финансов для старта.</b></span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span> <b>Вам нужна помощь в систематизации существующего бизнеса на Амазон.</b></span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span> <b>Нужна помощь в переговорах с Китаем.</b></span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span> <b>Нужна помощь по выбору товара и запуску бизнеса.</b></span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span> <b>Помощь в выводе товара в ТОП.</b></span></li>
+        </ul>
+        <p>На консультации вы можете задать любые вопросы, связанные с ведением бизнеса на Amazon.</p>
+        <p>Запишитесь сегодня и получите актуальные ответы от эксперта, вместо того, чтобы часами “гуглить” в поисках актуальной информации.</p>
+      </div>
+    </section>
+    <section class="section consult__fifth-section" id="reg">
+      <form class="container consult__fourth-container" action="" method="post">
+          {% csrf_token %}
+        <h2 class="bold section__title">Запишитесь сегодня и получите <span class="orange">актуальные ответы от эксперта, </span><br> вместо того, чтобы часами “гуглить” в поисках актуальной информации.</h2>
+        <div class="experts__container">
+          <h2 class="experts__title">Выберите эксперта</h2>
+          <p>Просто кликните на фото или поставьте галочку</p>
+
+          <ul class="experts__list" >
+            <li class="expert__item active" style="margin: 0 auto;">
+              <label>
+                <div class="expert__pic">
+                <img src="{% static "landing/img/consulting/25436176_2071023703127865_469604656_n.png" %}">
+{#                <img src="https://lh5.googleusercontent.com/Cl6FxE7ox3dYwdQcSMVnz5uv9wFLLhx-nzMaV47Vm_BcxEr-pdLf5AQf34CTFKmdcQLnxVj_DZ2Lo-8608WD=w1301-h654-rw">#}
+                </div>
+                <h4 class="expert__name">Алексей Игнатович</h4>
+                <div class="expert__role">Создатель Filin Group</div>
+                <ul class="expert__price-list">
+                  <li class="expert__price-item"><span class="price__time">30 минут</span><span class="price__cost">25 $</span></li>
+                  <li class="expert__price-item"><span class="price__time">1 час</span><span class="price__cost">35 $</span></li>
+                  <li class="expert__price-item"><span class="price__time">2 часа</span><span class="price__cost">50 $</span></li>
+                </ul>
+                <div class="expert__choose">
+                  <input type="radio" name="expert">
+                  <label><i class="fa fa-check"></i></label>Выбрать
+                </div>
+              </label>
+            </li>
+            </div>
+          </ul>
+
+
+
+        </div>
+        <div class="experts__container">
+          <h2 class="experts__title">Укажите необходимую информацию</h2>
+          <ul class="expert__conditions-list">
+            <li class="expert__condition-item">
+              <h4>Сколько часов консультации вам нужно?</h4>
+              <ul class="expert__price-list expert__another-prices">
+                <li>
+                  <label class="expert__choose">
+                    <input type="radio" name="price">
+                    <label><i class="fa fa-check"></i></label>
+                    <div class="expert__price-item"><span class="price__time">30 минут</span><span class="price__cost">25 $</span></div>
+                  </label>
+                </li>
+                <li>
+                  <label class="expert__choose">
+                    <input type="radio" name="price" checked>
+                    <label><i class="fa fa-check"></i></label>
+                    <div class="expert__price-item"><span class="price__time">1 час</span><span class="price__cost">35 $</span></div>
+                  </label>
+                </li>
+                <li>
+                  <label class="expert__choose">
+                    <input type="radio" name="price">
+                    <label><i class="fa fa-check"></i></label>
+                    <div class="expert__price-item"><span class="price__time">2 часа</span><span class="price__cost">50 $</span></div>
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <li class="expert__condition-item">
+              <h4>Условия оплаты</h4>
+              <ul class="expert__price-list expert__another-prices">
+                <li>
+                  <label class="expert__choose">
+                    <input type="radio" name="payMethod" checked>
+                    <label><i class="fa fa-check"></i></label>Оплатить сейчас онлайн
+                  </label>
+                </li>
+                <li>
+                  <label class="expert__choose">
+                    <input type="radio" name="payMethod">
+                    <label><i class="fa fa-check"></i></label>Оплатить позже через менеджера
+                  </label>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="expert__input-list">
+            <li class="expert__input-item">
+              {{ consult_form.name }}
+            </li>
+            <li class="expert__input-item">
+              {{ consult_form.phone }}
+            </li>
+            <li class="expert__input-item">
+              {{ consult_form.email }}
+            </li>
+            <li class="expert__input-item">
+              {{ consult_form.skype }}
+            </li>
+          </ul>
+          <button class="submit__btn" name="consult_form" type="submit"><i class="fa fa-check-circle-o"></i><span>Записаться на консультацию</span></button>
+          <label class="expert__choose agreement__btn">
+            <input type="checkbox" name="agreement">
+            <label><i class="fa fa-check"></i></label>Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению
+          </label>
+        </div>
+      </form>
+    </section>
+  </main>
+{% endblock %}

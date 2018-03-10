@@ -1,0 +1,9 @@
+@import '../../assets/styles/main.scss';
+
+.pps{
+  background: url('../../assets/images/amazon-bg.png') center 60% no-repeat;
+  background-size: 90% auto;
+  h1{
+    @include Font(bold);
+  }
+}

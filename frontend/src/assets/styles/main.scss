@@ -1,0 +1,82 @@
+//colors
+@import "../../pallette.scss";
+
+// layout
+
+@import "common/_fonts";
+@import "common/_mixins";
+@import "common/_media";
+@import "common/_greating";
+
+
+.loader__wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.centered{
+  margin: 0 auto;
+}
+.scroll__toTop-link{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba($bg, .7);
+  z-index: 10000;
+  transition: .3s opacity;
+  .fa{
+    font-size: rem(25px);
+    color: $orange;
+  }
+  &.hiden{
+    opacity: 0;
+    left: -9999px;
+  }
+}
+.violet{
+  position: absolute;
+  top: 0;
+}
+
+.notfound__wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+.notfound__title{
+  font-size: rem(24px);
+  margin: 0;
+  margin-bottom: 50px;
+}
+.notfound__img{
+  max-width: 100%;
+}
+.notfound__info{
+  @include Font(bold);
+  font-size: rem(18px);
+  margin-top: 30px;
+}
+
+.orange__btn{
+  display: flex;
+  align-items: center;
+  height: 55px;
+  padding: 0 55px;
+  background-color: $bg-orange;
+  border: none;
+  border-radius: 3px;
+  color: $white;
+  font-size: rem(16px);
+  cursor: pointer;
+  &:hover{
+    background-color: $bg;
+  }
+}

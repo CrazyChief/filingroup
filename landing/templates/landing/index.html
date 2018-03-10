@@ -1,0 +1,399 @@
+{% extends "landing/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ p_info.title_page }} | {% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "landing/img/main/sprite.css" %}">
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+  </script>
+
+        {% endblock links %}
+
+
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
+{% block content %}
+  <main class="main">
+      <div class="get__video-wrap">
+        <form class="get__video-content" action="" method="post">
+            {% csrf_token %}
+          <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+          <ul class="get__video-list">
+            <li class="get__video-item"><i class="fa fa-user"></i>
+              <FontAwesome name="user" />
+              <input type="text" name="name" placeholder="Введите ваше имя" />
+            </li>
+            <li class="get__video-item"><i class="fa fa-phone"></i>
+              <FontAwesome name="phone" />
+              <input type="text" name="phone" placeholder="Телефон* (+380930001122)" />
+            </li>
+            <li class="get__video-item"><i class="fa fa-envelope"></i>
+              <FontAwesome name="envelope" />
+              <input type="email" name="email" placeholder="Введите ваш email" />
+            </li>
+          </ul>
+          <button class="inner__video-btn" name="form" type="submit">
+              <i class="fa fa-play-circle-o"></i>
+              Получить доступ к видео
+          </button>
+            <a class="close" href="#">&times;</a>
+        </form>
+      </div>
+    <section class="first__section">
+      <div class="container first__section-wrapper">
+        <div class="first__section-container">
+          <h5>Бесплатный практикум </h5>
+          <h1 class="main__title">Как найти товар для успешного старта на<img class="amazon" src="{% static "landing/img/amazon.png" %}"></h1>
+          <p>Всего за два часа работы вы узнаете нюансы работы<br>с Амазон и узнаете, как выбрать свой первый товар</p>
+          <div class="video__btn-wrap">
+              <a class="get__link video__btn" href="#">
+                  <i class="fa fa-play-circle-o"></i>
+                  Получить доступ к видео
+              </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section second__section">
+      <div class="container">
+        <h2 class="bold section__title">Для кого <span class="orange">будет интересен</span> этот практикум:</h2>
+        <ul class="second__section-list">
+          <li class="second__section-item">
+            <div class="second__section-pic"><img class="second__section-img" src="{% static "landing/img/main/pic-1.png" %}"></div>
+            <div class="centered">Предпринемателям</div>
+          </li>
+          <li class="second__section-item">
+            <div class="second__section-pic"><img class="second__section-img" src="{% static "landing/img/main/pic-2.png" %}"></div>
+            <div class="centered">Руководителям и менеджерам</div>
+          </li>
+          <li class="second__section-item">
+            <div class="second__section-pic"><img class="second__section-img" src="{% static "landing/img/main/pic-3.png" %}"></div>
+            <div class="centered">Бизнес-мамам</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section third__section">
+      <h2 class="bold section__title white">После просмотра <span class="orange">видео</span> вы:</h2>
+      <div class="third__content">
+        <div class="third__pic"><img class="third__img" src="{% static "landing/img/macbook.png" %}">
+        <div class="video__btn-wrap">
+            <a class="get__link video__btn" href="#">
+                <i class="fa fa-play-circle-o"></i>
+                Получить доступ к видео
+            </a>
+          </div>
+        </div>
+        <ul class="third__list">
+          <li class="third__item">
+            <div class="third__icon"><i class="icon-form_1"></i></div>
+            <div class="bold">Узнаете как запустить продажи на Амазон <span class="orange">за 30 дней</span></div>
+          </li>
+          <li class="third__item">
+            <div class="third__icon w3-spin"><i class="icon-form_2"></i></div>
+            <div class="bold">Получите <span class="orange">пошаговую инструкцию </span>по выбору ниши и товара</div>
+          </li>
+          <li class="third__item">
+            <div class="third__icon w3-spin"><i class="icon-form_3"></i></div>
+            <div class="bold">Узнаете о <span class="orange">«подводных камнях» </span>Private Label</div>
+          </li>
+          <li class="third__item">
+            <div class="third__icon w3-spin"><i class="icon-form_4"></i></div>
+            <div class="bold">Сможете <span class="orange">открыть бизнес, </span>для которого не нужен ни офис, ни сотрудники</div>
+          </li>
+        </ul>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section fourth__section">
+      <div class="container">
+        <h2 class="bold section__title">Какие <span class="orange">плюсы</span> ведения бизнеса на Амазон?</h2>
+        <h4 class="longtitle orange">Работа из любой точки мира</h4>
+        <ul class="fourth__list">
+          <li class="fourth__item">
+            <div class="fourth__pic"><i class="icon-form_5"></i></div>
+            <p>Вы работаете на себя, не привязаны к офису, вам не нужно ходить на работу и думать про аренду помещений, склада, зарплату персоналу.</p>
+          </li>
+          <li class="fourth__item">
+            <div class="fourth__pic"><i class="icon-form_6"></i></div>
+            <p>Вы сами планируете свой рабочий день, можете отдыхать когда захотите и заниматься хобби.</p>
+          </li>
+          <li class="fourth__item">
+            <div class="fourth__pic"><i class="icon-form_7"></i></div>
+            <p>Вы занимаетесь развитием своего бизнеса и получаете стабильно высокий доход в долларах.</p>
+          </li>
+          <li class="fourth__item">
+            <div class="fourth__pic"><i class="icon-form_8"></i></div>
+            <p>У вас будет возможность уделять больше времени семье, а бизнес будет работать даже когда вы отдыхаете</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section fifth__section">
+      <h4 class="longtitle orange">На сколько это просто?</h4>
+      <ul class="fifth__list">
+        <li class="fifth__item">
+          <div class="fourth__pic"><i class="icon-form_6"></i></div>
+          <p>Мы разработали систему построения бизнеса на Амазон, которая стабильно работает.<br>Благодаря ей наши ученики в среднем <span class="bold">зарабатывают от 10.000$ в месяц.</span></p>
+        </li>
+        <li class="fifth__item">
+          <div class="fourth__pic"><i class="icon-form_7"></i></div>
+          <p>Все учебные материалы созданы на нашем опыте, <span class="bold">мы и наши ученики работаем по ним каждый день.</span></p>
+        </li>
+        <li class="fifth__item">
+          <div class="fourth__pic"><i class="icon-form_8"></i></div>
+          <p>Вам не нужно обладать особыми навыками.<br><span class="bold">Достаточно использовать нашу методику, чтобы получить результат.</span><br>Это не значит, что вы сможете развить бизнес ничего не делая, но при этом вы получите четкое руководство по тому, какие этапы нужно пройти чтобы добиться успеха.</p>
+        </li>
+        <li class="fifth__item">
+          <div class="fourth__pic"><i class="icon-form_9"></i></div>
+          <p>Вы получаете доступ к нашему сообществу, в котором <span class="bold">вам обеспечена бессрочная поддержка.</span>Вы сможете общаться с коллегами, которые уже добились выдающихся результатов и применять их опыт на своей практике.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="sixth__section">
+      <div class="black__whole">
+        <div class="container">
+          <h3 class="bold">Посмотрите запись практикума и узнайте, <br><span class="orange">как запустить свой бизнес </span>на Амазон:</h3>
+        </div>
+      </div>
+      <div class="container">
+      <div class="video__btn-wrap">
+          <a class="get__link video__btn" href="#">
+              <i class="fa fa-play-circle-o"></i>
+              Получить доступ к видео
+          </a>
+      </div>
+      </div>
+      <div class="sixth__bg"></div>
+    </section>
+    <section class="section seventh__section">
+      <div class="container">
+        <h2 class="bold section__title white">Почему <span class="orange">Амазон</span> ?</h2>
+        <ul class="seventh__list">
+          <li class="seventh__item">
+            <h3 class="seventh__title"><i class="icon-form_14"></i>Программа FBA</h3>
+            <p>✓ Амазон берет на себя все организационные вопросы. <br>Вам необходимо только доставить товар на склад. </p>
+            <p>Обработкой заказа, упаковкой продукции, доставкой покупателям займется Амазон.</p>
+          </li>
+          <li class="seventh__item">
+            <h3 class="seventh__title"><i class="icon-form_15"></i>Крупнейшая площадка</h3>
+            <p>✓ Amazon – крупнейший в мире онлайн-магазин, на котором работают более 2.700.000 продавцов.</p>
+            <p>✓ Более 250 миллионов Американцев покупают на Амазон каждый год.</p>
+            <p>✓ Оборот компании за 2016 год составил 120 миллиардов долларов. <br>И большая часть этого оборота — доход предпринимателей, которые выбрали Амазон как площадку для продажи своего товара.</p>
+          </li>
+          <li class="seventh__item">
+            <h3 class="seventh__title"><i class="icon-form_16"></i>Развитие non-stop</h3>
+            <p>✓ Amazon постоянно внедряет новые технологии для защиты продавцов и покупателей, создавая максимально комфортные условия для работы и развития бизнеса.</p>
+          </li>
+          <li class="seventh__item">
+            <h3 class="seventh__title"><i class="icon-form_17"></i>Продвижение товара</h3>
+            <p>✓ Amazon предоставляет вам рекламные, маркетинговые и промо-инструменты для продвижения товаров.</p>
+            <p>У вас неограниченные возможности в развитии бизнеса.</p>
+          </li>
+        </ul>
+        <div class="seventh__bg"></div>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section eight__section">
+      <div class="container">
+        <h2 class="bold section__title">Немного <span class="orange">Цифр</span> :</h2>
+        <ul class="eight__list">
+          <li class="eight__item">
+            <div class="eight__number-wrap">
+              <div class="eight__number"><span class="counter" style="display: inline-block;">306 </span> покупок</div>
+            </div>
+            <div class="eight__descr">
+              <div>совершается за 1</div>
+              <div>секунду на Амазон</div>
+            </div>
+          </li>
+          <li class="eight__item">
+            <div class="eight__number-wrap">
+              <div class="eight__number"><span class="counter" style="display: inline-block;">90 </span> %</div>
+            </div>
+            <div class="eight__descr">
+              <div>американцев</div>
+              <div>покупают на Амазон</div>
+            </div>
+          </li>
+          <li class="eight__item">
+            <div class="eight__number-wrap">
+              <div class="eight__number">$<span class="counter" style="display: inline-block;">364 </span> млрд.</div>
+            </div>
+            <div class="eight__descr">
+              <div>продаж</div>
+              <div>в год</div>
+            </div>
+          </li>
+          <li class="eight__item">
+            <div class="eight__number-wrap">
+              <div class="eight__number">$<span class="counter" style="display: inline-block;">6,5 </span> млрд.</div>
+            </div>
+            <div class="eight__descr">
+              <div>капитализация</div>
+              <div>компании</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section nine__section">
+      <div class="container">
+        <h2 class="bold section__title white"> <span class="orange">Отзывы </span>наших учеников:</h2>
+        <ul class="feedbacks__list">
+          <li class="feedback__item">
+            <div class="feedback__content">
+              <div class="feedback__user">
+                <div class="feedback__pic"><img class="feedback__img" src="{% static "landing/img/main/pic1.png" %}"></div>
+                <div class="feedback__user-name">Александр Гусар</div>
+                <div class="feedback__rate"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              </div>
+              <p>Разнообразный и богатый опыт консультация с широким активом влечет за собой процесс внедрения и модернизации направлений прогрессивного развития. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям.</p>
+              <p>Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. Равным образом сложившаяся структура организации играет важную роль в формировании </p>
+            </div>
+          </li>
+          <li class="feedback__item">
+            <div class="feedback__content">
+              <div class="feedback__user">
+                <div class="feedback__pic"><img class="feedback__img" src="{% static "landing/img/main/pic2.jpg" %}"></div>
+                <div class="feedback__user-name">Даниил Прохоров</div>
+                <div class="feedback__rate"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              </div>
+              <p>К Amazon подходил с крайней осторожностью, думаю как и все, кто решил подаваться в новые знания с головой. Уже целый год то, что ранее вызывало подозрения приносит стабильную прибыль. Разобравшись в процессе целиком и полностью я сделал простой вывод — все сложное лишь в начале. </p>
+              <p> Мой первый товар обошелся мне в 11000 $ — это были сеты колесиков для кресел, вот уж где не знал, что найду))) На данный момент времени в моем профессиональном аккаунте два товара с общими вложениями на сумму в 45000$, и постоянный круговорот уже запущен. С Амазоном планирую долгосрочные отношения, так как вижу огромные перспективы для данного бизнеса и буду стараться развиваться дальше. Всем хочу дать пару советов — ведите строгий учет своим финансам и более качественно подбирайте товар. </p>
+            </div>
+          </li>
+          <li class="feedback__item">
+            <div class="feedback__content">
+              <div class="feedback__user">
+                <div class="feedback__pic"><img class="feedback__img" src="{% static "landing/img/main/pic3.jpg" %}"></div>
+                <div class="feedback__user-name">Шамиль Ахмедов</div>
+                <div class="feedback__rate"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              </div>
+              <p>Ну что можно сказать про Amazon? До недавнего времени эта тема была для меня дремучим лесом. Ребята с FilinGroup а именно Алексей, стал мне хорошим другом и приятелем. В процессе так скажем не стандартной манеры обучающего процесса я начинал все больше понимать и все сильней гореть желанием добиться результата. Отработали мы на ура наш первый опыт, под руку подвернулся всем известный и на то время находящийся на пике славы тренд — tri spinner, было потрачено 5300$ на первую партию и за семь дней мы достигли оборота в 7800$.</p>
+              <p> Если бы не оплошность наших китайских поставщиков)) Я бы добился состояния BestSeller через пять дней. Но к сожалению с товаром пришлось отработать и переводить свое внимание на новые горизонты) Партия была распродана и продукт закрыт.</p>
+            </div>
+          </li>
+          <li class="feedback__item">
+            <div class="feedback__content">
+              <div class="feedback__user">
+                <div class="feedback__pic"><img class="feedback__img" src="{% static "landing/img/main/pic4.jpg" %}"></div>
+                <div class="feedback__user-name">Анна Беликова</div>
+                <div class="feedback__rate"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              </div>
+              <p>После того, как родился ребенок, а потом и второй, можно было забыть про бизнес, ведь дела по дому так уничтожали время. Дело привычки дало свое, свободного времени становилось все больше и вот уже по три часа в день я могла посвятить время себе и решила продолжит работать и развиваться, таким образом и состоялось мое знакомство c Amazon. Подбор товара в любимой категории всех домохозяек не отнял у меня и трех дней. На начальном этапе мое увлечение про    спонсировал мой муж, мы стали работать с 2015 года и по настоящий день уже имеем стабильный процесс продаж. </p>
+              <p>Первые вложения составили — 4500 $, а чистая прибыль составила — 9000 $</p>
+            </div>
+          </li>
+        </ul>
+        <div class="feedbacks__buttons">
+          <button class="feedback__prev"><i class="fa fa-chevron-left"></i></button>
+          <button class="feedback__next"><i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section tenth__section">
+      <div class="container">
+        <h2 class="bold section__title">Результаты наших учеников за <span class="orange">первый месяц работы</span></h2>
+        <ul class="results__list">
+          <li class="result__item">
+            <div class="result__link"><img src="{% static "landing/img/main/result1.jpg" %}"></div>
+            <div class="result__descr">
+              <div class="bold"><span class="orange">$11,290 </span> за <span class="orange"> 30 </span> дней</div>
+            </div>
+          </li>
+          <li class="result__item">
+            <div class="result__link"><img src="{% static "landing/img/main/result2.jpg" %}"></div>
+            <div class="result__descr">
+              <div class="bold"><span class="orange">$4,947 </span>за <span class="orange">30 </span>дней</div>
+            </div>
+          </li>
+          <li class="result__item">
+            <div class="result__link"><img src="{% static "landing/img/main/result3.jpg" %}"></div>
+            <div class="result__descr">
+              <div class="bold"><span class="orange">$9,286 </span>за <span class="orange">30 </span>дней</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="eleventh__section">
+      <div class="black__whole">
+        <div class="container">
+          <h2 class="bold">Хотите добиться<br><span class="orange">таких же </span>результатов?</h2>
+        </div>
+      </div>
+      <div class="container">
+          <div class="video__btn-wrap">
+              <a class="get__link video__btn" href="#">
+                  <i class="fa fa-play-circle-o"></i>
+                  Получить доступ к видео
+              </a>
+          </div>
+      </div>
+      <div class="eleventh__bg"></div>
+    </section>
+    <section class="section section__twelve">
+      <div class="container">
+        <h2 class="bold section__title">Об <span class="orange">авторе </span>:</h2>
+        <div class="author__wrap">
+          <div class="author__story">
+            <h2 class="author__name">Алексей Игнатович</h2>
+            <ul class="story__list">
+              <li class="story__item"><i class="icon-check"></i><span>Сооснователь бизнес сообщества FILINGROUP</span></li>
+              <li class="story__item"><i class="icon-check"></i><span>Сооснователь первого обучающего проекта в Казахстане по запуску бизнеса на Amazon</span></li>
+              <li class="story__item"><i class="icon-check"></i><span>Владелец собственного Privat Label в США по продаже физических товаров</span></li>
+              <li class="story__item"><i class="icon-check"></i><span>Предприниматель-практик</span></li>
+              <li class="story__item"><i class="icon-check"></i><span>С помощью обучающих курсов Алексея, более 50 учеников уже запустили свои товары на Amazon и вышли на оборот более $11 000.</span></li>
+            </ul>
+          </div>
+          <div class="author__history-table">
+            <p>Меня зовут Алексей Игнатович и я один из основателей компании Filin Group. Мой путь к успеху не был легким.</p>
+            <p>Два года назад для меня наступил период, когда я осознал, что меня совсем не устраивает моя жизнь. Я студент, который не имеет ничего за плечами, нет четких целей на будущее, а финансовое положение позволяет лишь кушать сухари с чаем на ужин. Вопрос стал ребром: надо срочно что-то менять. Чего я только не пробовал, рекламные агентства, ночные клубы (барменом), промышленная вентиляция… Но в один день мне попалась информация про Amazon.com. В тот момент, если честно, я не верил в успех, и все что я читал про успех на Амазоне — казалось выдумкой, но все же решил разобраться во всем и попробовать.</p>
+            <p>Мой первый опыт торговли на Amazon.com сейчас мне кажется смешным и рисковым. Себестоимость моего первого товара составляла 0.64 доллара + 1$ к каждой единице за доставку. Вся партия обошлась мне где-то в 700$. Этого оказалось достаточно, чтобы понять, как работает система и проработать все детали. Товар назывался Car mount — я пошел против всей системы и завез товар аля — old school. Ниша, которую я выбрал была полностью заполнена, но я рискнул, и в течение недели мой продукт попал на вторую страницу.</p>
+            <p>Если говорить о первой партии моего товара, с высоты опыта, я считаю случай уникальным, поскольку чистая маржа на одну единицу составила 5,68 долларов. Я успел заказать вторую партию не вливая дополнительных средств. Мои расходы окупились буквально за 1.5 месяца, что очень хорошо для старта.</p>
+            <p>С самого начала я понял, что сразу все деньги тратить на товар категорически нельзя. Ваш товар могут быстро раскупить. А деньги на следующую партию Вы еще не получили, в итоге о вас могут забыть. Поэтому не спешите тратить сразу все средства, вам они понадобятся на следующий заказ. В 90% случаев, Вы всегда должны держать наготове вторую сумму, равную первой для завоза второй партии, чтобы избежать состояния «нет на складе».</p>
+            <p>Сейчас запускаю с партнерами 5 новых продуктов. В процессе запуска оборот их партий составляет 120 тыс. долл. Я обучил 130 человек в трех различных направлениях бизнеса, развиваю свое дело и хочу продолжать наращивать обороты.</p>
+            <p>С уважением, Алексей Игнатович</p>
+          </div><a class="read__story-btn" href=""><i class="fa fa-chevron-down"></i>Читать историю Алексея<i class="fa fa-chevron-down"></i></a>
+        </div>
+        <h2 class="bold section__title">Остались вопросы?</h2>
+        <div class="video__btn-wrap">
+            <a class="get__link video__btn" href="#"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</a>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+

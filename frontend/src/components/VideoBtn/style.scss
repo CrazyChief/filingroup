@@ -1,0 +1,92 @@
+@import '../../assets/styles/main.scss';
+
+.get__video-wrap{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -9999px;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  background-color: rgba($bg, .3);
+  opacity: 0;
+  z-index: 10000;
+  transition: .3s opacity;
+  &.active{
+    left: 0;
+    opacity: 1;
+  }
+}
+.get__video-content{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 360px;
+  border-radius: 5px;
+  background-color: $white;
+  padding: 0 0 25px;
+  .close{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    color: $orange;
+    left: 101%;
+    bottom: 101%;
+    font-size: rem(25px);
+    background-color: #fff;
+    border: 1px solid $white;
+    border-radius: 50%;
+    padding: 5px;
+    &:hover{
+      color: $bg;
+      border-color: $bg;
+    }
+    @include phones(){
+      left: auto;
+      right: 0;
+    }
+  }
+}
+.get__video-title{
+  font-size: rem(16px);
+  padding: 15px 40px;
+  background-color: $bg-orange;
+  color: $white;
+  text-align: center;
+  line-height: 1.1;
+  border-radius: 5px 5px 0 0;
+}
+.get__video-list{
+  width: 100%;
+  padding: 30px 25px;
+}
+.get__video-item{
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+  input{
+    font-size: rem(14px);
+    width: 100%;
+    height: 45px;
+    border: 1px solid rgba(#ddd, 1);
+    border-radius: 3px;
+    color: $text;
+    padding-left: 35px;
+  }
+  .fa{
+    position: absolute;
+    color: rgba($text, .7);
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:last-child{
+    margin-bottom: 0;
+  }
+}

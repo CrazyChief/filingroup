@@ -1,0 +1,33 @@
+@font-face {
+	font-family: 'Proxima';
+	src: url('/static/dist/assets/fonts/ProximaNovaRegular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima-bold';
+	src: url('/static/dist/assets/fonts/ProximaNovaBold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima-black';
+	src: url('/static/dist/assets/fonts/ProximaNovaBlack.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@mixin Font($style: regular) {
+	font-family: 'Proxima';
+
+	@if $style == bold {
+		font-family: 'Proxima-bold';
+	}
+
+	@if $style == black {
+		font-family: 'Proxima-black';
+	}
+}

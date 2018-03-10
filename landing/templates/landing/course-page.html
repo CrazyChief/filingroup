@@ -1,0 +1,339 @@
+{% extends "landing/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ p_info.title_page }} | {% endblock %}
+
+{% block pixel %}
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '426948287675970');
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=426948287675970&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+{% endblock pixel %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "landing/img/courses/sprite.css" %}">
+  <main class="main">
+      <div class="get__video-wrap">
+        <form class="get__video-content" action="" method="post">
+            {% csrf_token %}
+          <h4 class="get__video-title">Оставьте свои данные, чтобы получить доступ к видеозаписи</h4>
+          <ul class="get__video-list">
+            <li class="get__video-item"><i class="fa fa-user"></i>
+              {{ form.name }}
+            </li>
+            <li class="get__video-item"><i class="fa fa-phone"></i>
+              {{ form.phone }}
+            </li>
+            <li class="get__video-item"><i class="fa fa-envelope"></i>
+              {{ form.email }}
+            </li>
+          </ul>
+          <button class="inner__video-btn" name="form" type="submit"><i class="fa fa-play-circle-o"></i>Получить доступ к видео</button><a class="close" href="#">&times;</a>
+        </form>
+      </div>
+    <section class="course__first-section">
+      <div class="container course__first-container">
+        <h5>Практический онлайн-курс Алексея Игнатовича</h5>
+        <h1 class="main__title">Бизнес на <img class="amazon" src="{% static "landing/img/amazon.png" %}"> за 30 дней</h1>
+        <h5 class="bold">Старт 21 Декабря</h5>
+        <div class="video__btn-wrap">
+            <a class="get__link video__btn" href="#">
+                <i class="fa fa-play-circle-o"></i>
+                Получить доступ к видео
+            </a>
+        </div>
+      </div>
+    </section>
+    <section class="section course__second-section">
+      <div class="container">
+        <h2 class="bold section__title">Чему мы вас научим за <span class="orange">30 дней</span></h2>
+        <ul class="courses__second-list">
+          <li class="courses__second-item"><i class="icon-check"></i><span>Находить тренды и товары, которые принесут прибыль</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Находить производителей, исполнителей, вести переговоры, ставить задачи</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Пониманию, как работать с Вашим аккаунтом — где, что находится и как работает</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Готовить продукт к запуску, находить аудиторию для эффективного старта</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Использовать промо и рекламные инструменты для повышения продаж</span></li>
+          <li class="courses__second-item"><i class="icon-check"></i><span>Пониманию «что дальше» — как развивать свой бизнес и создавать свою империю</span></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section course__third-section">
+      <div class="container">
+        <h2 class="bold section__title white"><span class="orange">План </span>занятий:</h2>
+        <ul class="course__third-list">
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 1</span>
+                <h4 class="course__plan-name">Знакомство: что такое Amazon?</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Почему так выгодно продавать свой товар на этой интернет-площадке? Как выбрать правильный товар и вывести заработок?</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 2</span>
+                <h4 class="course__plan-name">Каковы критерии идеального товара?</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Четыре модели ведения бизнеса на Amazon. Поиск товарных идей. Логика поиска рентабельных категорий. Запретные зоны рынка и товара. Финансовый расчет проекта.</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 3</span>
+                <h4 class="course__plan-name">Где искать поставщиков?</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Поиск поставщиков на Alibaba.com. Аналитика поставщиков и их компаний. Выбор партнера. Этикет ведение деловых переговоров. Психологические приемы ведения делового общения с менеджерами компаний (шаблоны).</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 4</span>
+                <h4 class="course__plan-name">Пошаговая инструкция: регистрация на Amazon Seller Central</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Проходим регистрацию аккаунта Professional на Amazon. Проводим верификацию личности, в том числе если вашей страны нету в списке разрешенных на Amazon. Настраиваем платежные методы для вывода средств с Amazon.</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 5</span>
+                <h4 class="course__plan-name">Что такое листинг товара?</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Что такое листинг на Amazon. Как работают алгоритмы Amazon. Создаем предварительный скелет листинга. Оформляем отгрузочный лист для вашего продукта.</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 6</span>
+                <h4 class="course__plan-name">Создание профессионального листинга</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Создание и настройка листинга в Seller Central. Поиск и анализ ключевых слов для заголовка. Написание заголовка. Составление описания товара. Написание буллетов. Создание «продающих» фотографий.</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 7</span>
+                <h4 class="course__plan-name">Запуск товара - основные этапы</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Как работает Amazon PPC. Создание Auto и Manual PPC компаний. Анализ и оптимизация PPC. Стратегии получения отзывов. Платформы для получения отзывов. Стратегия агрессивного запуска. Механизм действия супер ссылок.</p>
+              </div></a></li>
+          <li class="course__third-item"><a class="course__third-link" href="">
+              <div class="course__plan-top"><span>Тема 8</span>
+                <h4 class="course__plan-name">Первые продажи - куда направить первые поступления.</h4><i class="fa fa-minus"></i>
+              </div>
+              <div class="course__plan-content">
+                <p>Первые поступления в личный кабинет Amazon, перевод денег на счет Payoneer. Снятие наличных или перевод на карту местного банка.</p>
+              </div></a></li>
+        </ul>
+        <div class="course__third-footer">
+          <h4>Каждый Четверг.</h4>
+          <div class="text">Ответы на вопросы по итогам прошедших сессий.<span>Делимся успехами, обновлениями, опытом</span></div>
+          <div class="course__total"><i class="icon-check"></i><span>Итого: 30 дней теории и практики</span></div>
+        </div>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section course__fourth-section">
+      <div class="container">
+        <h2 class="bold section__title">В чём <span class="orange">уникальность </span>нашего обучения?</h2>
+        <ul class="course__fourth-list">
+          <li class="course__fourth-item">
+            <div class="course__fourth-pic"><img src="{% static "landing/img/courses/pic-1.png" %}"></div>
+            <div class="course__fourth-content">
+              <h4>Цена и качество</h4><span>Да! Мы сделали бизнес на Amazon самым доступным на рынке.</span>
+            </div>
+          </li>
+          <li class="course__fourth-item">
+            <div class="course__fourth-pic"><img src="{% static "landing/img/courses/pic-2.png" %}"></div>
+            <div class="course__fourth-content">
+              <h4>Партнеры в Китае</h4><span>Бесплатная проверка и хранение товара в Китае от наших официальных партнеров</span>
+            </div>
+          </li>
+          <li class="course__fourth-item">
+            <div class="course__fourth-pic"><img src="{% static "landing/img/courses/pic-3.png" %}"></div>
+            <div class="course__fourth-content">
+              <h4>30 дней вместо 60</h4><span>Никакой воды. Только нужная информация и практика, практика!</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section course__fifth-section">
+      <div class="container">
+        <h2 class="bold section__title white"><span class="orange">Мы запустим продукт вместе с Вами!</span><br>Вместе мы пройдем все этапы запуска бизнеса — от А до Я</h2>
+        <ul class="course__fifth-list">
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_1"></i></div>
+            <div class="course__fifth-content">
+              <h4>Поиск</h4><span>Выберем товар, поставщика, способ доставки</span>
+            </div>
+          </li>
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_2"></i></div>
+            <div class="course__fifth-content">
+              <h4>Заказ</h4><span>Закажем сэмпл, оценим. Купим первую партию</span>
+            </div>
+          </li>
+          <li class="course__fifth-item">
+            <div class="course__fifth-pic"><i class="icon-form_3"></i></div>
+            <div class="course__fifth-content">
+              <h4>Старт</h4><span>Вывод товар на Amazon. Первые продажи и отзывы</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section course__sixth-section">
+      <div class="container">
+        <h2 class="bold section__title">Хотите <span class="orange">запустить бизнес на Амазон?</span><br>Записывайтесь!</h2>
+        <h4 class="longtitle simple">Старт – 21 декабря</h4>
+        <ul class="product__privileges-list">
+          <li class="product__privileges-item">
+            <h3 class="privilege__title">Учусь сам</h3>
+            <div class="privilege__content">
+              <h4 class="privilege__price">499$</h4>
+              <p>Полная программа курса с практическими домашними заданиями.</p>
+              <ul>
+                <li>• Видеозаписи 5 уроков:</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №1. Введение в Amazon. Методы подбора товара.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №2. Выбор поставщика. Психология общения с Китаем.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №3. Регистрация на Amazon, создание аккаунта профессионального продавца.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №4. Создание продающего предложения, открываем листинг.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №5. Приемы продвижения. Вывод товара в топ в течении 5 дней</li>
+                <li>• Доступ к видеозаписям 5 сессий “Вопрос-ответ”</li>
+                <li>• Проверка домашних заданий и короткие текстовые комментарии к ним.</li>
+                <!-- <li>• Обзор личного кабинета продавца.</li> -->
+                <!-- <li>• Покупка UPC-кодов;</li> -->
+                <!-- <li>• Создание листинга.</li> -->
+                <!-- <li>• Разработка фотографий.</li> -->
+                <!-- <li>• Поиск ключевых слов. Настройка и оптимизация рекламы.</li> -->
+                <!-- <li>• Раскрутка товара.</li> -->
+                <!-- <li>• Первые продажи.</li> -->
+                <!-- <li>• Вывод денег.</li> -->
+                <!-- <li>• 4 сессии «Вопрос-ответ»</li> -->
+                <!-- <li>• Полная аналитика выбранного Вами товара для запуска</li> -->
+                <!-- <li>• Доступ 24/7 к записям уроков</li> -->
+                <!-- <li>• Проверка ДЗ и короткие комментарии к ним</li> -->
+              </ul>
+                <a class="centered cdp" href="http://filingroups.e-autopay.com/buy/339364" data-id="1">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
+            </div>
+          </li>
+          <li class="product__privileges-item">
+            <h3 class="privilege__title">Все включено</h3>
+            <div class="privilege__content">
+              <h4 class="privilege__price">749$</h4>
+              <ul>
+                <li>• Полная программа курса с практическими домашними заданиями.</li>
+                <li>• Видеозаписи 5 уроков:</li>
+               <li><span style="color: #FF9C2F;">•</span> Урок №1. Введение в Amazon. Методы подбора товара.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №2. Выбор поставщика. Психология общения с Китаем.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №3. Регистрация на Amazon, создание аккаунта профессионального продавца.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №4. Создание продающего предложения, открываем листинг.</li>
+                <li><span style="color: #FF9C2F;">•</span> Урок №5. Приемы продвижения. Вывод товара в топ в течении 5 дней</li>
+                <li>• Доступ к видеозаписям 5 сессий “Вопрос-ответ”</li>
+                <li>• 2 личных “живых” встречи с тренером Алексеем Игнатовичем.</li>
+                <li>• Доступ на мастер-классы приглашенных экспертов.</li>
+                <li>• Личный кабинет на закрытом сайте с обучающими материалами.</li>
+                <li>• Разбор домашних заданий в видео-формате.</li>
+                <li>• Полная аналитика выбранного Вами товара для первого запуска.</li>
+                <li>• Доступ в закрытую группу единомышленников на Фейсбуке.</li>
+                <li>• Поддержка по всем вопросам во время обучения в мессенджерах.</li>
+              </ul>
+              <!-- <p><strong>Важно! После обучения все ученики остаются в закрытом сообществе FilinGroup, где всегда могут рассчитывать на помощь и поддержку!</strong></p> -->
+                <a class="centered cdp" href="http://filingroups.e-autopay.com/buy/321432" data-id="2">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
+            </div>
+          </li>
+          <li class="product__privileges-item">
+            <h3 class="privilege__title">Премиум</h3>
+            <div class="privilege__content">
+              <h4 class="privilege__price">1150$</h4>
+              <p><strong>• Все что входит в пакет “Все включено”.</strong></p>
+              <p>• Запуск продукта под четким руководством Алексея Игнатовича.</p>
+              <p>• Индивидуальные консультации с тренером Алексеем Игнатовичем после каждого этапа обучения.</p>
+              <p>• Поддержка по всем вопросам во время обучения в мессенджерах лично от тренера.</p>
+              <p>• Помощь в запуске последующих продуктов.</p>
+                <a class="centered cdp" href="http://filingroups.e-autopay.com/buy/321434" data-id="3">
+                    <i class="fa fa-check-circle-o"></i>
+                    Записаться
+                </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section course__seventh-section">
+      <div class="container">
+        <div class="course__seventh-bg"></div>
+        <h2 class="bold section__title white"><span class="orange">100% гарантия </span>возврата денег</h2>
+        <h4 class="section__descr">Вы можете вернуть деньги в течение первых 7 дней (1 урок + сессия ответов на вопросы)</h4>
+        <ul class="course__seventh-list">
+          <h4>Мы вернем Вам деньги, если:</h4>
+          <li class="course__seventh-item"><i class="icon-no"></i><span>Вы решите, что Amazon — не ваше</span></li>
+          <li class="course__seventh-item"><i class="icon-no"></i><span>Найдете такой же насыщенный курс, но дешевле</span></li>
+          <li class="course__seventh-item"><i class="icon-no"></i><span>Решите не выделяться, и быть, как все</span></li>
+          <li class="course__seventh-item"><i class="icon-no"></i><span>Вам не нравится голос ведущего</span></li>
+          <li class="course__seventh-item"><i class="icon-no"></i><span>Уверены, что нельзя зарабатывать $10000, просто сидя на пляже.</span></li>
+        </ul>
+        <p><strong>У Вас есть первые 7 дней занятий, чтобы решить: действительно ли Вы хотите зарабатывать больше других.</strong></p>
+      </div>
+      <div class="particle-canvas"></div>
+    </section>
+    <section class="section course__eighth-section">
+      <div class="container">
+        <h2 class="bold section__title">Хотите <span class="orange">Ответы </span>на часто задаваемые вопросы:</h2>
+        <div class="video__wrap">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/63ny55NG88A?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    <section class="register" id="register">
+      <div class="black__whole">
+        <div class="container">
+          <div class="black__whole-title">
+            <h4 class="orange">Остались вопросы?</h4><span class="bold">
+                Напишите нам в <a style="color: #55acee;" target="_blank" href="https://www.messenger.com/t/infilingroup">
+                     Facebook Messenger</a></span><span>или заполните форму ниже и мы свяжемся с вами в ближайшее время:</span>
+          </div>
+        </div>
+      </div>
+      <form class="register__form fqf" action="" method="post">
+      {% csrf_token %}
+            <div class="container">
+              <div class="form__content">
+                <ul class="register__form-list">
+                  <li class="register__form-item">
+                      {{ course_min_form.name }}
+                  </li>
+                  <li class="register__form-item">
+                      {{ course_min_form.email }}
+                  </li>
+                    {{ course_min_form.hidden_choice }}
+                </ul>
+                <button class="centered privilege__register-btn" type="submit" name="course_min_form"><i class="fa fa-check-circle-o"></i>Отправить</button>
+                <label>
+                  <input type="checkbox" name="agreement">Я согласен(на) на обработку персональных данных<br>* поля обязательны к заполнению
+                </label>
+              </div>
+            </div>
+          </form>
+      <div class="phone__contaier">
+        <div class="phone__wrap"><img src="{% static "landing/img/courses/bg-3.png" %}" alt="phone"></div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -9,3 +9,9 @@ node_modules/
 db.sqlite3
 assets/bundles
 media/
+static/*
+secret_filingroup
+package-lock.json
+venv/
+frontend/dist/
+video.mp4

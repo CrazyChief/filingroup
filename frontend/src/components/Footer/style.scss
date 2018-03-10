@@ -1,0 +1,39 @@
+@import '../../assets/styles/main.scss';
+
+.footer{
+  padding: 20px 0;
+  background-color: $bg;
+}
+.footer__container{
+  @include tablets(){
+    flex-wrap: wrap;
+  }
+}
+
+.references__list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 53%;
+  @include tablets(){
+    width: 100%;
+    order: 1;
+    padding: 0 25px;
+    padding-top: 25px;
+  }
+}
+.reference__item{
+  width: 50%;
+  padding-left: 25px;
+  @include tablets(){
+    width: auto;
+    padding-left: 0;
+  }
+}
+.reference__link{
+  font-size: rem(14px);
+  text-decoration: underline;
+  &:hover{
+    color: $orange;
+  }
+}

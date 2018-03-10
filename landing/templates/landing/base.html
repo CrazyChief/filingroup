@@ -1,0 +1,131 @@
+{% load staticfiles %}
+{% load google_analytics %}
+{% load yandex_metrica %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}FilinGroup</title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible"><link rel="apple-touch-icon" sizes="180x180" href="{% static "landing/img/logo/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "landing/img/logo/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "landing/img/logo/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "landing/img/logo/manifest.json" %}">
+    <link rel="mask-icon" href="{% static "landing/img/logo/safari-pinned-tab.svg" %}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static "landing/css/foundation.css" %}">
+    <link rel="stylesheet" href="{% static "landing/css/app.css" %}">
+    <link rel="stylesheet" href="{% static "landing/img/sprite.css" %}">
+
+    <link rel="stylesheet" href="{% static "landing/css/w3.css" %}">
+
+      {% block links %}
+
+        {% endblock links %}
+
+
+    {% block style %}
+    <style>
+
+    </style>
+    {% endblock style %}
+
+
+{% block pixel %}
+
+{% endblock pixel %}
+  </head>
+  <body>
+  {% google_analytics %}
+  {% yandex_metrica %}
+    <div class="wrapper" id="home">
+      <header class="header">
+        <div class="header__container">
+            <a class="icon-logo header__logo" href="">
+                <img src="{% static "landing/img/logo.png" %}" alt="logo">
+            </a>
+          <ul class="header__list">
+            <li class="header__item"><a class="header__link" href="tel: +380443343679"><i class="fa fa-phone"></i><span>+38 044 334-36-79 Киев</span></a></li>
+            <li class="header__item"><a class="header__link" href="tel: +77273506142"><i class="fa fa-phone"></i><span>+7 727 350-61-42 Алматы</span></a></li>
+            <li class="header__item"><a class="header__link" href="tel: +74993488016"><i class="fa fa-phone"></i><span>+7 499 348-80-16 Москва</span></a></li>
+            <li class="header__item">Есть вопросы? Звоните!</li>
+          </ul>
+        </div>
+      </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+      <footer class="footer">
+        <section class="footer__topside">
+          <div class="footer__topside-container"><a class="header__logo" href=""><img class="logo__img" src="{% static "landing/img/logo-white.png" %}"></a>
+            <ul class="footer__social-list">
+              <li class="footer__social-item"><a class="footer__scoial-link" href="https://www.facebook.com/infilingroup/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li class="footer__social-item"><a class="footer__scoial-link" href="https://www.instagram.com/filingroup/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li class="footer__social-item"><a class="footer__scoial-link" href="https://www.youtube.com/channel/UCFNgNMVEw1Hivfb_u-dp8Zw" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              <li class="footer__social-item"><a class="footer__scoial-link" href="https://vk.com/infilingroup" target="_blank"><i class="fa fa-vk"></i></a></li>
+            </ul>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="to: mail@filingroup.com">
+                  <i class="fa fa-envelope"></i>
+                  <span>mail@filingroup.com</span>
+                </a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="tel: +380443343679">
+                  <i class="fa fa-phone"></i>
+                  <span>+38 044 334-36-79 Киев</span>
+                </a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="tel: +77273506142">
+                  <i class="fa fa-phone"></i>
+                  <span>+7 727 350-61-42 Алматы</span>
+                </a>
+              </li>
+                <li class="footer__item">
+                <a class="footer__link" href="tel: +74993488016">
+                  <i class="fa fa-phone"></i>
+                  <span>+7 499 348-80-16 Москва</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer__bottomside">
+          <ul class="footer__ref-list">
+            <li class="footer__ref-item">
+              <a class="footer__ref-link" href="/pps">Политика конфиденциальности</a>
+            </li>
+            <li class="footer__ref-item">
+              <a class="footer__ref-link" href="/agreements">Согласие на рассылку</a>
+            </li>
+            <li class="footer__ref-item">
+              <a class="footer__ref-link" href="/denials">Отказ от ответственности</a>
+            </li>
+            <li class="footer__ref-item">
+              <a class="footer__ref-link" href="/siterules">Правила пользования сайтом</a>
+            </li>
+          </ul>
+        </section>
+      </footer>
+    </div>
+
+    <script src="{% static "landing/js/foundation.js" %}" defer></script>
+    <script src="{% static "landing/js/app.js" %}" defer></script>
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+
+    {% block scripts %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{% static "landing/js/jquery.counterup.min.js" %}"></script>
+    {% endblock scripts %}
+
+  </body>
+</html>

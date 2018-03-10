@@ -1,0 +1,58 @@
+@import '../../assets/styles/main.scss';
+
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 15px;
+  @include box-shadow(0px 0px 15px -10px $black);
+}
+.pagination__btn{
+  display: none;
+  i{
+    font-size: rem(45px);
+    color: $text;
+  }
+  &.active{
+    display: block;
+  }
+}
+.pagination__prev{
+  margin-right: auto;
+}
+.pagination__next{
+  margin-left: auto;
+}
+.pagination__list{
+  display: flex;
+  align-items: center;
+  @include phones(){
+    width: 67%;
+    overflow: hidden;
+  }
+}
+.pagination__item{
+  margin-right: 40px;
+  &:last-child{
+    margin-right: 0;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    color: $text;
+    &.active{
+      background-color: $bg-orange;
+      color: $white;
+      border: none;
+    }
+  }
+  @include tablets(){
+    margin-right: 15px;
+  }
+}
